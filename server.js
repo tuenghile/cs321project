@@ -1,12 +1,10 @@
-const express = require("express")
-const app = express()
-const mongoose = require("mongoose")
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
 
 app.get("/", function (req, res) {
-    res.send("Hello World")
+    res.send("Hello World");
 })
-
-app.listen(3000)
 
 mongoose.connect("mongodb+srv://cs321project:mongo918273645@cluster0.rfxk5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 .then(() => {
@@ -14,4 +12,8 @@ mongoose.connect("mongodb+srv://cs321project:mongo918273645@cluster0.rfxk5.mongo
 })
 .catch(() => {
     console.log("failed to connect");
+})
+
+app.listen(3000, () => {
+    console.log("Server is running at http://localhost:3000");
 })
