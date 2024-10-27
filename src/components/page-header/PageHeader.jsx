@@ -1,8 +1,9 @@
 import PropTypes from "prop-types"
+import styles from "./PageHeader.module.css"
 
 function PageHeader (props) {
     return(
-        <header>
+        <header className={styles.pageHeader}>
             <h1>{props.websiteName}</h1>
             <h2>{props.pageName}</h2>
         </header>

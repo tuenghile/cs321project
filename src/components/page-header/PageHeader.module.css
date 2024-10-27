@@ -1,0 +1,15 @@
+.pageHeader {
+    text-align: center;
+    padding: 20px;
+    background-color: #004f2d;
+    color: #FFCC33;
+}
+  
+.pageHeader h1 {
+    font-size: 2.5em;
+}
+
+.pageHeader h2 {
+    font-size: 2em;
+    margin-top: 10px;
+}
