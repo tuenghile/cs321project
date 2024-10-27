@@ -5,7 +5,10 @@ function PageHeader (props) {
     return(
         <header className={styles.pageHeader}>
             <h1>{props.pageName}</h1>
-            <p>{props.pageDescription}</p>
+
+            {/* Only renders description if string is not empty */}
+            {/* Some pages may not have a description, and simply just a page name */}
+            {props.pageDescription && <p>{props.pageDescription}</p>} 
         </header>
     );
 }
@@ -20,7 +23,7 @@ PageHeader.propTypes = {
 // These are values that the props have if not set
 PageHeader.defaultProps = {
     pageName: "Page Name",
-    pageDescription: "Page description"
+    pageDescription: ""
 }
 
 export default PageHeader
