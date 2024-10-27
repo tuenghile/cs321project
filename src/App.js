@@ -2,7 +2,7 @@
 // src/App.js
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import ForumPage from './components/forumPage'; // Ensure the path is correct
+import ForumPage from './pages/forumPage'; // Ensure the path is correct
 
 // Components import
 import NavigationBar from './components/navigation-bar/NavigationBar';
