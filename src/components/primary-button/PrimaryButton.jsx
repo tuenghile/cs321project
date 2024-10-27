@@ -1,8 +1,9 @@
 import PropTypes from "prop-types"
+import styles from "./PrimaryButton.module.css"
 
 function PrimaryButton(props) {
     return(
-        <button>{props.buttonText}</button>
+        <button className={styles.primaryButton}>{props.buttonText}</button>
     );
 }
 

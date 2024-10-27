@@ -1,4 +1,4 @@
-.view-all-posts-btn {
+.primaryButton {
     display: block;
     margin: 20px auto;
     padding: 10px 30px; /* Adjust padding for a larger button */
@@ -13,10 +13,10 @@
     transition: background-color 0.3s ease;
   }
   
-  .view-all-posts-btn:hover {
+  .primaryButton:hover {
     background-color: #aa9627; /* Slightly darker yellow on hover */
   }
   
-  .view-all-posts-btn:focus {
+  .primaryButton:focus {
     outline: none; /* Removes focus outline */
   }
