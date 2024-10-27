@@ -2,19 +2,19 @@
     display: block;
     margin: 20px auto;
     padding: 10px 30px; /* Adjust padding for a larger button */
-    background-color: #FFCC33;
+    background-color: #CC4824;
     border: none;
     cursor: pointer;
     font-size: 1em;
     border-radius: 30px; /* More rounded corners */
     text-decoration: none; /* Removes underline */
-    color: black; /* Ensure text color is black */
+    color: white; /* Ensure text color is black */
     font-weight: bold;
     transition: background-color 0.3s ease;
   }
   
   .primaryButton:hover {
-    background-color: #aa9627; /* Slightly darker yellow on hover */
+    background-color: #e56c4b; /* Slightly darker yellow on hover */
   }
   
   .primaryButton:focus {
