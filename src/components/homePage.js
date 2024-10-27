@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './css/homePage.css'; 
-import mapImage from './images/map.png';
+import mapImage from '../assets/map.png';
 
 const HomePage = () => {
   const [recentPosts, setRecentPosts] = useState([]);
