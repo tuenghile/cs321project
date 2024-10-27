@@ -1,0 +1,104 @@
+.navBar {
+    background-color: #006633;  /* GMU Green */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navBarBrand {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.brandLogo {
+    color: white;
+    text-decoration: none;
+}
+
+.navBarList {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navBarItem {
+    margin-left: 20px;
+}
+
+.navBarItem a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.navBarItem a:hover {
+    background-color: #004d26;  /* Darker GMU Green */
+}
+
+.navBarSearch {
+    display: flex;
+    align-items: center;
+}
+
+/* Rounded search input */
+.searchInput {
+    padding: 10px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;  /* Rounding the corners */
+    outline: none;
+    margin-right: 8px;
+    font-size: 14px;
+    width: 220px;
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #006633;  /* GMU Green border on focus */
+}
+
+/* Rounded search button */
+.searchButton {
+    padding: 10px 20px;
+    background-color: #006633;  /* GMU Green */
+    color: white;
+    border: none;
+    border-radius: 25px;  /* Rounding the button */
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.searchButton:hover {
+    background-color: #004d26;  /* Darker green on hover */
+}
+
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .navbar-list {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .navbar-item {
+      margin: 10px 0;
+    }
+  
+    .navbar-item a {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
