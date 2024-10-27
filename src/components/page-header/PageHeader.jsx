@@ -3,13 +3,13 @@ import styles from "./PageHeader.module.css"
 
 function PageHeader (props) {
     return(
-        <header className={styles.pageHeader}>
+        <div className={styles.pageHeader}>
             <h1>{props.pageName}</h1>
 
             {/* Only renders description if string is not empty */}
             {/* Some pages may not have a description, and simply just a page name */}
             {props.pageDescription && <p>{props.pageDescription}</p>} 
-        </header>
+        </div>
     );
 }
 
