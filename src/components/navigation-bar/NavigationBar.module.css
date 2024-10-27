@@ -41,7 +41,7 @@
      /* NOTE: CENTERING THE PAGE LINKS LIKE THIS FOR NOW */
      /* Not a good solution, just temporary since idk what's going on */
      /* With flexbox being weird */
-    margin-right: 265px;
+    margin-right: 125px;
 
     padding: 0;
 }
