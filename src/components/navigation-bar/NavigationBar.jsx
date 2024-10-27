@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from "./NavigationBar.module.css"
+import PrimaryButton from '../primary-button/PrimaryButton';
+import gmuLogo from "../../assets/gmu-logo.png"
 
 
 function NavigationBar() {
@@ -12,31 +14,48 @@ function NavigationBar() {
                     Add the GMU logo here in the future with a vertical line 
                     splitting the logo and "Lost and found" text
                 */}
-                <Link to="/" className={styles.brandLogo}>Lost & Found</Link>
+                <Link to="/" className={styles.brandLogo}>
+                    <img src={gmuLogo} alt="GMU Logo" className={styles.gmuLogo} />
+                    <div className={styles.verticalLine}></div>
+                    <p>LOST AND FOUND</p>
+                </Link>
             </div>
+                
+            {/* 
+                TODO: Add state to change the color of the text depending
+                on which page we're on.
+            
+                Example: We're on home page, we want Home to be the GMU gold color (FFC733)
+            */}
 
             {/* Links to other pages */}
             <ul className={styles.navBarList}>
-            <li className={styles.navBarItem}>
-                <Link to="/">Home</Link>
-            </li>
-            <li className={styles.navBarItem}>
-                <Link to="/forum">View Posts</Link>
-            </li>
-            <li className={styles.navBarItem}>
-                <Link to="/logs">Check Logs</Link> 
-            </li>
+                <li className={styles.navBarItem}>
+                    <Link to="/">Home</Link>
+                </li>
+                <li className={styles.navBarItem}>
+                    <Link to="/forum">Posts</Link>
+                </li>
+                <li className={styles.navBarItem}>
+                    <Link to="/logs">Contact</Link> 
+                </li>
             </ul>
 
+            {/* Right hand side - user/notifications/create post button */}
+            <div>
+                <PrimaryButton buttonText="Create Post"/>
+
+            </div>
+
             {/* Search Bar */}
-            <div className={styles.navBarSearch}>
+            {/* <div className={styles.navBarSearch}>
             <input
                 type="text"
                 placeholder="Search with keywords"
                 className={styles.searchInput}
             />
             <button className={styles.searchButton}>Search</button>
-            </div>
+            </div> */}
       </nav>
     );
 }

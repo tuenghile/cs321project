@@ -14,8 +14,23 @@
 }
 
 .brandLogo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
     color: white;
     text-decoration: none;
+    font-size: 36px;
+}
+
+.gmuLogo {
+    height: 70px;
+}
+
+.verticalLine {
+    width: 3px;            /* Line thickness */
+    height: 60px;         /* Line length */
+    background-color: #FFC733; /* Line color */
+    margin: 0 10px;        /* Optional spacing around the line */
 }
 
 .navBarList {
@@ -32,14 +47,16 @@
 .navBarItem a {
     color: white;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 20px;
     padding: 10px 15px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+    text-shadow: 0 3px 5px rgba(0, 0, 0, 0.519);
 }
 
-.navBarItem a:hover {
-    background-color: #004d26;  /* Darker GMU Green */
+.navBarItem a:hover { 
+    /* background-color: #004d26;   */
+    /* Darker GMU Green */
+    transition: color 0.3s ease;
+    color: #ffc933a2;
 }
 
 .navBarSearch {
