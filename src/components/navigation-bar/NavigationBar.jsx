@@ -2,7 +2,9 @@ import { Link } from 'react-router-dom';
 import styles from "./NavigationBar.module.css"
 import PrimaryButton from '../primary-button/PrimaryButton';
 import gmuLogo from "../../assets/gmu-logo.png"
-
+import bellIcon from "../../assets/bell.png"
+// Import second bell icon for implementation later
+import accountIcon from "../../assets/user.png"
 
 function NavigationBar() {
     return(
@@ -41,8 +43,19 @@ function NavigationBar() {
             </nav>
 
             {/* Right hand side - user/notifications/create post button */}
-            <div>
+            <div className={styles.rightItems}>
                 <PrimaryButton buttonText="Create Post"/>
+
+                {/* Update the bell icon to the one with indicator if user has notification */}
+                {/* Bell image(s) designed by Pixel Perfect (https://icon54.com/) */}
+                <a href=""><img src={bellIcon} alt="notification bell" height="40px"/></a>
+                <a href="">
+                    <div className={styles.accountButton}>
+                        {/* Account image designed by Freepik (https://www.freepik.com/) */}
+                        <img src={accountIcon} alt="account/user icon" height="40px"/>
+                    </div>
+                </a>
+                
             </div>
 
             {/* Search Bar */}

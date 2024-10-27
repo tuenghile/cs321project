@@ -65,6 +65,22 @@
     color: #ffc933a2;
 }
 
+.rightItems {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.accountButton {
+    background-color: #ffffff;
+    height: 50px;
+    width: 50px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .navBarSearch {
     display: flex;
     align-items: center;
