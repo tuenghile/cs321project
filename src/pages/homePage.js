@@ -20,11 +20,6 @@ const HomePage = () => {
       {/* Header Section */}
       <PageHeader websiteName="George Mason University" pageName="LOST AND FOUND" />
 
-      {/* <header className="home-header">
-        <h1>George Mason University</h1>
-        <h2>LOST AND FOUND</h2>
-      </header> */}
-
       {/* Recent Posts Section */}
       <section className="recent-posts">
         <h2>Recent Posts</h2>
