@@ -6,40 +6,39 @@ import gmuLogo from "../../assets/gmu-logo.png"
 
 function NavigationBar() {
     return(
-        <nav className={styles.navBar}>
-
-            {/* Website name and logo */}
-            <div className={styles.navBarBrand}>
-                {/* 
-                    Add the GMU logo here in the future with a vertical line 
-                    splitting the logo and "Lost and found" text
-                */}
-                <Link to="/" className={styles.brandLogo}>
-                    <img src={gmuLogo} alt="GMU Logo" className={styles.gmuLogo} />
-                    <div className={styles.verticalLine}></div>
-                    <p>LOST AND FOUND</p>
-                </Link>
-            </div>
-                
+        <header className={styles.navBar}>
             {/* 
-                TODO: Add state to change the color of the text depending
-                on which page we're on.
-            
-                Example: We're on home page, we want Home to be the GMU gold color (FFC733)
+                Add the GMU logo here in the future with a vertical line 
+                splitting the logo and "Lost and found" text
             */}
+            <Link to="/" className={styles.brandLogo}>
+                <img src={gmuLogo} alt="GMU Logo" className={styles.gmuLogo} />
+                <div className={styles.verticalLine}></div>
+                <p>LOST AND FOUND</p>
+            </Link>
 
-            {/* Links to other pages */}
-            <ul className={styles.navBarList}>
-                <li className={styles.navBarItem}>
-                    <Link to="/">Home</Link>
-                </li>
-                <li className={styles.navBarItem}>
-                    <Link to="/forum">Posts</Link>
-                </li>
-                <li className={styles.navBarItem}>
-                    <Link to="/logs">Contact</Link> 
-                </li>
-            </ul>
+            {/* No class name on this for now */}
+            <nav> 
+                {/* 
+                    TODO: Add state to change the color of the text depending
+                    on which page we're on.
+
+                    Example: We're on home page, we want Home to be the GMU gold color (FFC733)
+                */}
+
+                {/* Links to other pages */}
+                <ul className={styles.navBarList}>
+                    <li className={styles.navBarItem}>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li className={styles.navBarItem}>
+                        <Link to="/forum">Posts</Link>
+                    </li>
+                    <li className={styles.navBarItem}>
+                        <Link to="/logs">Contact</Link> 
+                    </li>
+                </ul>
+            </nav>
 
             {/* Right hand side - user/notifications/create post button */}
             <div>
@@ -56,7 +55,7 @@ function NavigationBar() {
             />
             <button className={styles.searchButton}>Search</button>
             </div> */}
-      </nav>
+        </header>
     );
 }
 
