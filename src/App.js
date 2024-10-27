@@ -13,6 +13,7 @@ function App() {
     <Router>
       {/* Navigation Bar */}
       <NavigationBar />
+      <HomePage></HomePage>
 
       {/* Main Content */}
       <Routes>
