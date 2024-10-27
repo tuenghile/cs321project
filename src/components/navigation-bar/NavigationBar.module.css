@@ -37,7 +37,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
+
+     /* NOTE: CENTERING THE PAGE LINKS LIKE THIS FOR NOW */
+     /* Not a good solution, just temporary since idk what's going on */
+     /* With flexbox being weird */
+    margin-right: 265px;
+
     padding: 0;
 }
 
