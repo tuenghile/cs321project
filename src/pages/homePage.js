@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './css/homePage.css'; 
+import './src/components/css/homePage.css'; 
 import mapImage from '../assets/map.png';
+import PageHeader from '../components/page-header/PageHeader';
 
 const HomePage = () => {
   const [recentPosts, setRecentPosts] = useState([]);
@@ -17,10 +18,12 @@ const HomePage = () => {
   return (
     <div className="home-page">
       {/* Header Section */}
-      <header className="home-header">
+      <PageHeader websiteName="George Mason University" pageName="LOST AND FOUND" />
+
+      {/* <header className="home-header">
         <h1>George Mason University</h1>
         <h2>LOST AND FOUND</h2>
-      </header>
+      </header> */}
 
       {/* Recent Posts Section */}
       <section className="recent-posts">

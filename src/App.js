@@ -6,6 +6,7 @@ import ForumPage from './pages/forumPage'; // Ensure the path is correct
 
 // Components import
 import NavigationBar from './components/navigation-bar/NavigationBar';
+import HomePage from './pages/homePage';
 
 function App() {
   return (
