@@ -1,7 +1,7 @@
 .primaryButton {
     display: block;
     margin: 20px auto;
-    padding: 10px 30px; /* Adjust padding for a larger button */
+    padding: 10px 20px; /* Adjust padding for a larger button */
     background-color: #CC4824;
     border: none;
     cursor: pointer;
