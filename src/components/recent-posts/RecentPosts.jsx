@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import PrimaryButton from '../primary-button/PrimaryButton';
 
 function RecentPosts() {
     const [recentPosts, setRecentPosts] = useState([]);
@@ -44,7 +45,7 @@ function RecentPosts() {
           )}
         </div>
         <Link to="/forum" style={{ textDecoration: 'none' }}>
-            <button className="view-all-posts-btn">View All Posts</button>
+            <PrimaryButton buttonText="View all posts"/>
         </Link>
       </section>
     );
