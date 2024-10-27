@@ -10,11 +10,14 @@ function PageHeader (props) {
     );
 }
 
+// Used for debugging (in console)
+// Error appears if not string
 PageHeader.propTypes = {
     websiteName: PropTypes.string,
     pageName: PropTypes.string
 }
 
+// These are values that the props have if not set
 PageHeader.defaultProps = {
     websiteName: "George Mason University",
     pageName: "Page Name"
