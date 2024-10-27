@@ -4,8 +4,8 @@ import styles from "./PageHeader.module.css"
 function PageHeader (props) {
     return(
         <header className={styles.pageHeader}>
-            <h1>{props.websiteName}</h1>
-            <h2>{props.pageName}</h2>
+            <h1>{props.pageName}</h1>
+            <p>{props.pageDescription}</p>
         </header>
     );
 }
@@ -13,14 +13,14 @@ function PageHeader (props) {
 // Used for debugging (in console)
 // Error appears if not string
 PageHeader.propTypes = {
-    websiteName: PropTypes.string,
-    pageName: PropTypes.string
+    pageName: PropTypes.string,
+    pageDescription: PropTypes.string
 }
 
 // These are values that the props have if not set
 PageHeader.defaultProps = {
-    websiteName: "George Mason University",
-    pageName: "Page Name"
+    pageName: "Page Name",
+    pageDescription: "Page description"
 }
 
 export default PageHeader
