@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './src/components/css/homePage.css'; 
+import './css/homePage.css'; 
 import mapImage from '../assets/map.png';
 import PageHeader from '../components/page-header/PageHeader';
 
