@@ -43,7 +43,6 @@ function NavigationBar() {
             {/* Right hand side - user/notifications/create post button */}
             <div>
                 <PrimaryButton buttonText="Create Post"/>
-
             </div>
 
             {/* Search Bar */}
