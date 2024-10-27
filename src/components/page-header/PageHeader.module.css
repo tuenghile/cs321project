@@ -6,10 +6,16 @@
 }
   
 .pageHeader h1 {
-    font-size: 2.5em;
+    font-size: 48px;
+    letter-spacing: 0rem;
 }
 
-.pageHeader h2 {
-    font-size: 2em;
-    margin-top: 10px;
+.pageHeader p {
+    font-size: 20px;
+    margin-top: -35px;
+    padding-bottom: 10px; /* Just a bit more space on the bottom of header*/
+}
+
+.pageHeader h1, p{
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.415);
 }
