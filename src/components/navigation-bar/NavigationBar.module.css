@@ -1,10 +1,12 @@
 .navBar {
-    background-color: #006633;  /* GMU Green */
+    background-color: #005239;  /* GMU Green */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0px 20px;
+    /* NOTE: Drop shadow not working, not sure why */
+    box-shadow: 0 -4px 6px rgb(0, 0, 0);
+    height: 95px;
 }
 
 .navBarBrand {
