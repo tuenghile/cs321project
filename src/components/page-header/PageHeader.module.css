@@ -3,6 +3,12 @@
     padding: 20px;
     background-color: #006D4C;
     color: #FFC733;
+    height: 220px;
+
+    /* Following code centers the h1 and p elements */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
   
 .pageHeader h1 {
