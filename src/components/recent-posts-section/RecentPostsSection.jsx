@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PrimaryButton from '../primary-button/PrimaryButton';
 import styles from "../recent-posts-section/RecentPostsSection.module.css"
-import PostCard from '../post-card/PostCard';
+// import PostCard from '../post-card/PostCard';
 
 function RecentPostsSection() {
     const [recentPosts, setRecentPosts] = useState([]);
