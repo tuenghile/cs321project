@@ -23,7 +23,7 @@ function PostCard(props) {
                 )} */}
 
                 {/* Use this code for image testing */}
-                <img src={tempPostImage} alt="Temporary image" className={styles.postImage}/>
+                <img src={tempPostImage} alt="temporary maps icon" className={styles.postImage}/>
             </div>
             {props.description && <p className={styles.postDescription}>{props.description}</p>}
         </div>
