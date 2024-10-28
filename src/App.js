@@ -1,13 +1,13 @@
 
 // src/App.js
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ForumPage from './pages/forumPage'; // Ensure the path is correct
 
 // Components import
 import NavigationBar from './components/navigation-bar/NavigationBar';
 import HomePage from './pages/homePage';
-import PageHeader from './components/page-header/PageHeader';
+// import PageHeader from './components/page-header/PageHeader';
 
 function App() {
   return (
