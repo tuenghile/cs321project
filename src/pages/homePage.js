@@ -1,8 +1,7 @@
 import './css/homePage.css';
 import PageHeader from '../components/page-header/PageHeader';
-import RecentPosts from '../components/recent-posts-section/RecentPosts';
+import RecentPostsSection from '../components/recent-posts-section/RecentPostsSection';
 import ContactSection from '../components/contact-section/ContactSection';
-import PrimaryButton from '../components/primary-button/PrimaryButton';
 
 const HomePage = () => {
   
@@ -14,8 +13,8 @@ const HomePage = () => {
       <PageHeader pageName="LOST AND FOUND" pageDescription="of George Mason University" />
 
       {/* Recent Posts Section */}
-      <RecentPosts />
-
+      <RecentPostsSection />
+      {/* <PostCard /> */}
       {/* Contact Section */}
       <ContactSection />
 
