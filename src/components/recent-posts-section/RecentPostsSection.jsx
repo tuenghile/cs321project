@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PrimaryButton from '../primary-button/PrimaryButton';
 
-function RecentPosts() {
+function RecentPostsSection() {
     const [recentPosts, setRecentPosts] = useState([]);
 
     useEffect(() => {
@@ -51,4 +51,4 @@ function RecentPosts() {
     );
 }
 
-export default RecentPosts
+export default RecentPostsSection
