@@ -15,10 +15,9 @@ function App() {
       {/* Navigation Bar */}
       <NavigationBar />
       {/* <PageHeader websiteName="George Mason University" pageName="LOST AND FOUND" /> */}
-      <HomePage />
       {/* Main Content */}
       <Routes>
-        <Route path="/" element={<h1>Home Page</h1>} /> {/* Placeholder for home page */}
+        <Route path="/" element={<HomePage />} /> {/* Placeholder for home page */}
         <Route path="/forum" element={<ForumPage />} />
         {/* Add routes here for more pages */}
       </Routes>
