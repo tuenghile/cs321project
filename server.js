@@ -7,10 +7,7 @@ const Item = require("./models/item.model.js");
 
 app.use(express.json()); //allows express to accept json
 
-app.get("/", function (req, res) {
-    res.send("Hello World");
-})
-
+// create account
 app.post("/account/create/:name/:email/:password/:gnumber", async (req, res) => {
     try{
         const name = req.params.name;
@@ -33,6 +30,36 @@ app.post("/account/create/:name/:email/:password/:gnumber", async (req, res) => 
     }
 })
 
+// add item
+app.post("/item/", async (req, res) => {
+    try{
+        const item = await Item.create(req.body);
+        res.status(200).json(item);
+
+    }
+    catch(error) {
+        res.status(500).json({message: error.message});
+    }
+})
+
+// update item
+app.put("/item/:id", async (req, res) => {
+    try{
+        const id = req.params.id;
+
+        const item = await Item.findByIdAndUpdate(id, req.body);
+
+        if (!item){
+            return res.status(404).json({message: "Item does not exist"});
+        }
+
+        const updatedItem = await item.findById(id);
+        res.status(200).json(updatedItem);
+    }
+    catch(error){
+        res.status(500).json({message: error.message});
+    }
+})
 
 mongoose.connect("mongodb+srv://cs321project:mongo918273645@cluster0.rfxk5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 .then(() => {
