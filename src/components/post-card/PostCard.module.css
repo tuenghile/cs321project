@@ -1,0 +1,61 @@
+.postCard {
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    width: 360px;
+    height: 275px;
+    display: flex;
+    flex-direction: column;
+}
+
+.postDescription {
+    width: 100%;
+    height: 80px;
+    padding: 0;
+    margin-top: 25px;
+    margin-bottom: 0;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+
+.reportTypeBar {
+    /* Remove this later and set a conditional in the component for green/red */
+    background-color: #830000;
+    
+    width: 100%;
+    height: 10px;
+    border-radius: 50px;
+    margin-bottom: 15px;
+}
+
+.topCardSection {
+    display: flex;
+    justify-content: space-between;
+}
+
+.titleAndLocation {
+    max-width: 175px;
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.titleAndLocation h3 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.titleAndLocation p {
+    font-size: 18px;
+}
+
+.titleAndLocation h3, .titleAndLocation p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.postImage {
+    width: 135px;
+    height: 135px;
+}

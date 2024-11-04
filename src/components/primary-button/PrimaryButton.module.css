@@ -1,0 +1,23 @@
+.primaryButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px; /* Adjust padding for a larger button */
+    background-color: #CC4824;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 30px; /* More rounded corners */
+    text-decoration: none; /* Removes underline */
+    color: white; /* Ensure text color is black */
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.274);
+  }
+  
+  .primaryButton:hover {
+    background-color: #e56c4b; /* Lighter color than default state color*/
+  }
+  
+  .primaryButton:focus {
+    outline: none; /* Removes focus outline */
+  }

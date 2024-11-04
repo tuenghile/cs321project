@@ -1,0 +1,27 @@
+.pageHeader {
+    text-align: center;
+    padding: 20px;
+    background-color: #006D4C;
+    color: #FFC733;
+    height: 220px;
+
+    /* Following code centers the h1 and p elements */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+  
+.pageHeader h1 {
+    font-size: 48px;
+    letter-spacing: 0rem;
+}
+
+.pageHeader p {
+    font-size: 20px;
+    margin-top: -35px;
+    padding-bottom: 10px; /* Just a bit more space on the bottom of header*/
+}
+
+.pageHeader h1, p{
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.415);
+}

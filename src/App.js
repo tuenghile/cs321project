@@ -1,45 +1,23 @@
 
 // src/App.js
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import ForumPage from './components/forumPage'; // Ensure the path is correct
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ForumPage from './pages/forumPage'; // Ensure the path is correct
+
+// Components import
+import NavigationBar from './components/navigation-bar/NavigationBar';
+import HomePage from './pages/homePage';
+// import PageHeader from './components/page-header/PageHeader';
 
 function App() {
   return (
     <Router>
       {/* Navigation Bar */}
-      <nav className="navbar">
-        <div className="navbar-brand">
-          <Link to="/" className="brand-logo">
-            Lost & Found
-          </Link>
-        </div>
-        <ul className="navbar-list">
-          <li className="navbar-item">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="navbar-item">
-            <Link to="/forum">View Posts</Link>
-          </li>
-          <li className="navbar-item">
-            <Link to="/logs">Check Logs</Link> 
-          </li>
-        </ul>
-
-        {/* Search Bar */}
-        <div className="navbar-search">
-          <input
-            type="text"
-            placeholder="Search with keywords"
-            className="search-input"
-          />
-          <button className="search-button">Search</button>
-        </div>
-      </nav>
-
+      <NavigationBar />
+      {/* <PageHeader websiteName="George Mason University" pageName="LOST AND FOUND" /> */}
       {/* Main Content */}
       <Routes>
-        <Route path="/" element={<h1>Home Page</h1>} /> {/* Placeholder for home page */}
+        <Route path="/" element={<HomePage />} /> {/* Placeholder for home page */}
         <Route path="/forum" element={<ForumPage />} />
         {/* Add routes here for more pages */}
       </Routes>
