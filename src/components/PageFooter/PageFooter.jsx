@@ -16,7 +16,7 @@ function PageFooter() {
                     <p>Geroge Mason University</p>
                     <p>4400 University Drive, MSN 2FL</p>
                     <p>Fairfax, VA 22030</p>
-                    <p>Tel or SMS: +1703-993-1000</p>
+                    <p>Tel or SMS: +1703-993-2975</p>
                     <p>© 2024 George Mason University</p>
                 </div>
             </div>
