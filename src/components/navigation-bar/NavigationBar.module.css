@@ -42,7 +42,7 @@
      /* NOTE: CENTERING THE PAGE LINKS LIKE THIS FOR NOW */
      /* Not a good solution, just temporary since idk what's going on */
      /* With flexbox being weird */
-    margin-right: 125px;
+    margin-right: -25px;
 
     padding: 0;
 }
@@ -73,7 +73,7 @@
 }
 
 .accountButton {
-    background-color: #ffffff;
+    background-color: #ECCC7A;
     height: 50px;
     width: 50px;
     border-radius: 100px;
@@ -106,7 +106,7 @@
 /* Rounded search button */
 .searchButton {
     padding: 10px 20px;
-    background-color: var(--mason-green);  /* GMU Green */
+    background-color: var(--primary-color);  /* GMU Green */
     color: white;
     border: none;
     border-radius: 25px;  /* Rounding the button */

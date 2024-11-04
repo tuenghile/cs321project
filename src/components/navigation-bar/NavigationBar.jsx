@@ -44,12 +44,22 @@ function NavigationBar() {
 
             {/* Right hand side - user/notifications/create post button */}
             <div className={styles.rightItems}>
-                <PrimaryButton buttonText="Create Post"/>
+                {/* Search Bar */}
 
-                {/* Update the bell icon to the one with indicator if user has notification */}
-                {/* Bell image(s) designed by Pixel Perfect (https://icon54.com/) */}
-                <a href=""><img src={bellIcon} alt="notification bell" height="40px"/></a>
-                <a href="">
+                <div className={styles.navBarSearch}>
+                    <input
+                        type="text"
+                        placeholder="Search with keywords"
+                        className={styles.searchInput}
+                    />
+
+                    {/* NOTE: Update the button with a search icon */}
+                    <PrimaryButton buttonText={"Search"} />
+                </div>
+
+                {/* Account icon */}
+                {/* Update link location to account info page */}
+                <a href="/">
                     <div className={styles.accountButton}>
                         {/* Account image designed by Freepik (https://www.freepik.com/) */}
                         <img src={accountIcon} alt="account/user icon" height="40px"/>
@@ -58,15 +68,7 @@ function NavigationBar() {
                 
             </div>
 
-            {/* Search Bar */}
-            {/* <div className={styles.navBarSearch}>
-            <input
-                type="text"
-                placeholder="Search with keywords"
-                className={styles.searchInput}
-            />
-            <button className={styles.searchButton}>Search</button>
-            </div> */}
+
         </header>
     );
 }
