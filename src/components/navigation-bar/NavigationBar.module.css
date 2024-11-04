@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #005239;  /* GMU Green */
+    background-color: var(--mason-green);  /* GMU Green */
     padding: 0px 20px;
 
     /* NOTE: Drop shadow not working, not sure why */
@@ -28,7 +28,7 @@
 .verticalLine {
     width: 3px;            /* Line thickness */
     height: 60px;         /* Line length */
-    background-color: #FFC733; /* Line color */
+    background-color: var(--mason-gold); /* Line color */
     margin: 0 10px;        /* Optional spacing around the line */
 }
 
@@ -106,7 +106,7 @@
 /* Rounded search button */
 .searchButton {
     padding: 10px 20px;
-    background-color: #006633;  /* GMU Green */
+    background-color: var(--mason-green);  /* GMU Green */
     color: white;
     border: none;
     border-radius: 25px;  /* Rounding the button */
