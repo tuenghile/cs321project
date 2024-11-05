@@ -7,7 +7,7 @@ import { HashLink as Link } from 'react-router-hash-link';
 import accountIcon from "../../assets/user.png"
 
 // This is so that we scroll a bit higher than it had before. It was clipping the page heading.
-// Can use this for other pages to scroll to top of the page instead of clipping the heading
+// Can use this for other pages to scroll to top of the page instead of clipping the heading, or offsets for other sections
 const homeScrollOffset = (el) => {
     const offset = -100;
     const y = el.getBoundingClientRect().top + window.pageYOffset + offset;
