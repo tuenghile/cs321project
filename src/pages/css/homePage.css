@@ -1,63 +1,8 @@
-/* Contact Section */
-.contact-section {
-    background-color: #eaeaea;
-    padding: 40px 20px;
-    display: flex;
-    justify-content: center; /* Center the contact box */
-  }
-  
-  .contact-box {
-    display: flex;
-    flex-direction: row; /* Align items horizontally */
-    background-color: #004f2d; /* GMU Green */
-    color: #fff; /* Contact info text color */
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 800px;
-    width: 100%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    justify-content: space-between; /* Spread items across the box */
-  }
-  
-  .contact-info {
-    flex: 1;
-    padding-right: 20px;
-    font-size: 1em; /* Slightly smaller font size */
-    display: flex;
-    flex-direction: column; /* Stack the title and info vertically */
-    justify-content: center; /* Align the content in the middle vertically */
-  }
-  
-  .contact-info h3 {
-    margin-bottom: 20px; /* Adds space below the title */
-    color: #FFCC33; /* GMU Yellow */
-    font-size: 1.4em;
-    font-weight: bold;
-  }
-  
-  .contact-info p {
-    margin-bottom: 10px;
-  }
-  
-  .contact-map {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end; /* Aligns the image to the right */
-    align-items: center; /* Vertically aligns the image */
-  }
-  
-  .contact-map img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    max-height: 300px; /* Limits the height of the image to keep it proportional */
-  }
 
-  .no-posts-message {
-    display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    height: 200px; /* Adjust this value based on the space you want around the text */
-    text-align: center;
-  }
-  
+.no-posts-message {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  height: 200px; /* Adjust this value based on the space you want around the text */
+  text-align: center;
+}
