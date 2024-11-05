@@ -13,7 +13,7 @@ function PageFooter() {
                 </div>
                 <div className={styles.rightFooter}>
                     <p className={styles.rightFooterHeading}>ALL TOGETHER DIFFERENT</p>
-                    <p>Geroge Mason University</p>
+                    <p>George Mason University</p>
                     <p>4400 University Drive, MSN 2FL</p>
                     <p>Fairfax, VA 22030</p>
                     <p>Tel or SMS: +1703-993-2975</p>
