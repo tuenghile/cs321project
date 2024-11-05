@@ -1,13 +1,19 @@
 import styles from "./PageFooter.module.css"
-import { Link } from 'react-router-dom';
 import masonLogo from "../../assets/mason-logo.png"
+import { HashLink as Link } from 'react-router-hash-link';
+
+const scrollOffset = (el) => {
+    const offset = -100;
+    const y = el.getBoundingClientRect().top + window.pageYOffset + offset;
+    window.scrollTo({top: y, behavior: "smooth"});
+};
 
 function PageFooter() {
     return(
         <div className={styles.footer}>
             <div className={styles.contentContainer}>
                 <div className={styles.leftFooter}>
-                    <Link to="/">
+                    <Link smooth to="/#home" scroll={scrollOffset}>
                         <img src={masonLogo} alt="George Mason University Logo" className={styles.gmuLogo} />
                     </Link>
                 </div>
