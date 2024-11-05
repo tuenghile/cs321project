@@ -6,18 +6,17 @@ import PageFooter from '../components/PageFooter/PageFooter';
 
 const HomePage = () => {
   
-
   return (
-    <div className="home-page">
+    <div className="home-page" id="home">
 
       {/* Header Section */}
-      <PageHeader pageName="LOST AND FOUND" pageDescription="of George Mason University" />
+      <PageHeader pageName="LOST AND FOUND" pageDescription="of George Mason University"/>
 
       {/* Recent Posts Section */}
       <RecentPostsSection />
       {/* <PostCard /> */}
       {/* Contact Section */}
-      <ContactSection />
+      <ContactSection/>
       <PageFooter />
 
     </div>
