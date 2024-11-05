@@ -2,7 +2,7 @@ import mapImage from "../../assets/map.png"
 
 function ContactSection() {
     return(
-        <section className="contact-section">
+        <section className="contact-section" id="contact">
             <div className="contact-box">
                 <div className="contact-info">
                     <h3>Have Any Questions? Contact Us</h3>
