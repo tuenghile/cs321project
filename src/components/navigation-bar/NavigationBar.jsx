@@ -1,9 +1,7 @@
-// import { Link } from 'react-router-dom';
 import styles from "./NavigationBar.module.css"
 import PrimaryButton from '../primary-button/PrimaryButton';
 import gmuLogo from "../../assets/gmu-logo.png"
 import { HashLink as Link } from 'react-router-hash-link';
-// Import second bell icon for implementation later
 import accountIcon from "../../assets/user.png"
 
 // This is so that we scroll a bit higher than it had before. It was clipping the page heading.
