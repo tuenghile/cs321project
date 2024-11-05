@@ -1,10 +1,18 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import styles from "./NavigationBar.module.css"
 import PrimaryButton from '../primary-button/PrimaryButton';
 import gmuLogo from "../../assets/gmu-logo.png"
-import bellIcon from "../../assets/bell.png"
+import { HashLink as Link } from 'react-router-hash-link';
 // Import second bell icon for implementation later
 import accountIcon from "../../assets/user.png"
+
+// This is so that we scroll a bit higher than it had before. It was clipping the page heading.
+// Can use this for other pages to scroll to top of the page instead of clipping the heading
+const homeScrollOffset = (el) => {
+    const offset = -100;
+    const y = el.getBoundingClientRect().top + window.pageYOffset + offset;
+    window.scrollTo({top: y, behavior: "smooth"});
+};
 
 function NavigationBar() {
     return(
@@ -13,7 +21,7 @@ function NavigationBar() {
                 Add the GMU logo here in the future with a vertical line 
                 splitting the logo and "Lost and found" text
             */}
-            <Link to="/" className={styles.brandLogo}>
+            <Link to="/#home" className={styles.brandLogo} scroll={homeScrollOffset}>
                 <img src={gmuLogo} alt="GMU Logo" className={styles.gmuLogo} />
                 <div className={styles.verticalLine}></div>
                 <p>LOST AND FOUND</p>
@@ -31,13 +39,14 @@ function NavigationBar() {
                 {/* Links to other pages */}
                 <ul className={styles.navBarList}>
                     <li className={styles.navBarItem}>
-                        <Link to="/">Home</Link>
+                        <Link smooth to="/#home" scroll={homeScrollOffset}>Home</Link>
                     </li>
                     <li className={styles.navBarItem}>
                         <Link to="/forum">Posts</Link>
                     </li>
                     <li className={styles.navBarItem}>
-                        <Link to="/logs">Contact</Link> 
+                        {/* Goes to home page ("/") and scrolls to contact section ("#contact") */}
+                        <Link smooth to="/#contact">Contact</Link> 
                     </li>
                 </ul>
             </nav>
