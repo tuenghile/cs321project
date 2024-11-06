@@ -49,12 +49,12 @@ function NavigationBar() {
                 {/* Update the bell icon to the one with indicator if user has notification */}
                 {/* Bell image(s) designed by Pixel Perfect (https://icon54.com/) */}
                 <a href=""><img src={bellIcon} alt="notification bell" height="40px"/></a>
-                <a href="">
+                <Link to="/login">
                     <div className={styles.accountButton}>
-                        {/* Account image designed by Freepik (https://www.freepik.com/) */}
                         <img src={accountIcon} alt="account/user icon" height="40px"/>
                     </div>
-                </a>
+                </Link>
+
                 
             </div>
 
