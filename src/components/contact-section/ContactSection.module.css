@@ -1,0 +1,56 @@
+.contactSection {
+    background-color: #eaeaea;
+    padding: 20px 20px 50px 20px; 
+    display: flex;
+    justify-content: center; /* Center the contact box */
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
+}
+
+.contactContent {
+    display: flex;
+    align-items: center;
+}
+
+.contactSection h2 {
+    font-size: 40px;
+    color: var(--h2-text)
+}
+
+.contactBox {
+    display: flex;
+    background-color: var(--mason-green); /* GMU Green */
+    color: #fff; /* Contact info text color */
+    padding: 16px 20px;
+    border-radius: 5px 0px 0px 5px;
+    max-width: 500px;
+    width: 100%;
+    justify-content: space-between; /* Spread items across the box */
+}
+
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.contactInfo h3 {
+    margin-bottom: 20px; /* Adds space below the title */
+    color: #FFCC33; /* GMU Yellow */
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.contactInfo p {
+    margin-bottom: 10px;
+}
+
+.contactMap {
+    width: 100%;
+}
+
+.contactMap img {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px; /* Limits the height of the image to keep it proportional */
+}

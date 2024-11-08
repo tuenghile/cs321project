@@ -10,8 +10,8 @@
 .recentPosts h2 {
     text-align: center;
     margin-bottom: 30px;
-    font-size: 48px;
-    color: #3D3D3D;
+    font-size: 40px;
+    color: var(--h2-text);
     margin: 0;
 }
 
