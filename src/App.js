@@ -8,6 +8,8 @@ import "./pages/css/variables.css"
 // Components import
 import NavigationBar from './components/navigation-bar/NavigationBar';
 import HomePage from './pages/homePage';
+import LoginPage from './pages/login';
+import CreateAccount from './pages/createAccount';
 // import PageHeader from './components/page-header/PageHeader';
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} /> {/* Placeholder for home page */}
         <Route path="/forum" element={<ForumPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/create-account" element={<CreateAccount />} />
         {/* Add routes here for more pages */}
       </Routes>
     </Router>

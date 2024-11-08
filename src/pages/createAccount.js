@@ -1,17 +1,17 @@
 import React from 'react';
 import PageHeader from '../components/page-header/PageHeader';
 import ContactSection from '../components/contact-section/ContactSection';
-import SignInForm from '../components/sign-in/SignInForm';
+import SignUpForm from '../components/sign-up/SignUpForm';
 //import './login.css';
 
-const LoginPage = () => {
+const CreateAccount = () => {
   return (
     <div>
-      <PageHeader pageName="Account" />
-      <SignInForm />
+      <PageHeader pageName="Create Account" />
+      <SignUpForm />
       <ContactSection />
     </div>
   );
 };
 
-export default LoginPage;
+export default CreateAccount;

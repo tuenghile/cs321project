@@ -60,18 +60,11 @@ function NavigationBar() {
                         className={styles.searchInput}
                     />
 
-                    {/* NOTE: Update the button with a search icon */}
-                    <PrimaryButton buttonText={"Search"} />
-                </div>
-
-                {/* Account icon */}
-                {/* Update link location to account info page */}
-                <a href="/">
                     <div className={styles.accountButton}>
-                        {/* Account image designed by Freepik (https://www.freepik.com/) */}
                         <img src={accountIcon} alt="account/user icon" height="40px"/>
                     </div>
-                </a>
+                </Link>
+
                 
             </div>
 
