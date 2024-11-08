@@ -1,14 +1,12 @@
-.settings-page {
-    padding: 20px;
-  }
+
   
   .settings-options {
     display: flex;
     flex-direction: column;
-    background-color: #f7eaea;
+    background-color: #E5E4E2;
     padding: 20px;
     border-radius: 8px;
-    max-width: 400px;
+    max-width: 600px;
     margin: auto;
   }
   
@@ -19,14 +17,21 @@
     cursor: pointer;
     font-size: 18px;
   }
+
+  .option-text {
+    font-size: 22px; 
+    margin-left: 10px; /* Adds space between icon and text */
+  }
+  
   
   .option:hover {
-    background-color: #f3dcdc;
+    background-color:  #D3D3D3;
     border-radius: 8px;
   }
   
   .icon {
+    width: 60px; 
+    height: 60px; 
     margin-right: 10px;
-    font-size: 24px;
   }
   
