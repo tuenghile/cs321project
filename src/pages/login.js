@@ -1,7 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/page-header/PageHeader';
-import ContactSection from '../components/contact-section/ContactSection';
 import SignInForm from '../components/sign-in/SignInForm';
+import PageFooter from '../components/PageFooter/PageFooter';
 //import './login.css';
 
 const LoginPage = () => {
@@ -9,7 +9,7 @@ const LoginPage = () => {
     <div>
       <PageHeader pageName="Account" />
       <SignInForm />
-      <ContactSection />
+      <PageFooter />
     </div>
   );
 };

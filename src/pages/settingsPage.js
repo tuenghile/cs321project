@@ -6,11 +6,11 @@ const SettingsPage = () => {
   const navigate = useNavigate();
 
   const handleEditProfile = () => {
-    navigate('/edit-profile'); // navigate to Edit Profile page
+    navigate('/edit-profile'); 
   };
 
   const handleViewPosts = () => {
-    navigate('/view-posts'); // Assuming this page is created or linked
+    navigate('/view-posts'); 
   };
 
   return (
