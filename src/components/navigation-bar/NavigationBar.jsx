@@ -59,9 +59,10 @@ function NavigationBar() {
                             placeholder="Search with keywords"
                             className={styles.searchInput}
                         />
-                    <Link>
+                   <Link to="/login">
                         <div className={styles.accountButton}>
                             <img src={accountIcon} alt="account/user icon" height="40px"/>
+
                         </div>
                     </Link>
 

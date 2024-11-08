@@ -1,0 +1,32 @@
+.settings-page {
+    padding: 20px;
+  }
+  
+  .settings-options {
+    display: flex;
+    flex-direction: column;
+    background-color: #f7eaea;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .option {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .option:hover {
+    background-color: #f3dcdc;
+    border-radius: 8px;
+  }
+  
+  .icon {
+    margin-right: 10px;
+    font-size: 24px;
+  }
+  
