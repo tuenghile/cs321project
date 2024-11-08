@@ -49,23 +49,23 @@ function NavigationBar() {
                 </ul>
             </nav>
 
-            {/* Right hand side - user/notifications/create post button */}
-            <div className={styles.rightItems}>
-                {/* Search Bar */}
+                {/* Right hand side - user/notifications/create post button */}
+                <div className={styles.rightItems}>
+                    {/* Search Bar */}
 
-                <div className={styles.navBarSearch}>
-                    <input
-                        type="text"
-                        placeholder="Search with keywords"
-                        className={styles.searchInput}
-                    />
+                    <div className={styles.navBarSearch}>
+                        <input
+                            type="text"
+                            placeholder="Search with keywords"
+                            className={styles.searchInput}
+                        />
+                    <Link>
+                        <div className={styles.accountButton}>
+                            <img src={accountIcon} alt="account/user icon" height="40px"/>
+                        </div>
+                    </Link>
 
-                    <div className={styles.accountButton}>
-                        <img src={accountIcon} alt="account/user icon" height="40px"/>
                     </div>
-                </Link>
-
-                
             </div>
 
 
