@@ -47,8 +47,25 @@ const getItems = async (req, res) => {
     }
 }
 
+const deleteItem = async (req, res) => {
+    try{
+
+        const item = await Item.findByIdAndDelete(req.params.id);
+
+        if (!item){
+            return res.status(404).json({message: "Item does not exist"});
+        }
+
+        res.status(200).json({message: "Item deleted"});
+    }
+    catch(error){
+        res.status(500).json({message: error.message});
+    }
+}
+
 module.exports = {
     addItem,
     updateItem,
-    getItems
+    getItems,
+    deleteItem
 };

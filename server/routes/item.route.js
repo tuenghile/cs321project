@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { addItem, updateItem, getItems } = require("../controllers/item.controller.js");
+const { addItem, updateItem, getItems, deleteItem } = require("../controllers/item.controller.js");
 
 // add item
 router.post("/add", addItem);
@@ -11,5 +11,7 @@ router.get("/getitems", getItems);
 
 // update item
 router.put("/update/:id", updateItem);
+
+router.delete("/deleteitem/:id", deleteItem);
 
 module.exports = router;
