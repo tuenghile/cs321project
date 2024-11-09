@@ -22,7 +22,7 @@ const createAccount = async (req, res) => {
     }
 }
 
-// finds user using their email
+// find account using email
 const getAccount = async (req, res) => {
     try{
         const account = await Account.findOne({ "email": req.body.email });
@@ -33,7 +33,23 @@ const getAccount = async (req, res) => {
     }
 }
 
+// delete account using email
+const deleteAccount = async (req, res) => {
+    try{
+        const account = await Account.findOneAndDelete({"email" : req.params.email});
+
+        if (!account) {
+            return res.status(404).json({message: "Account not found"});
+        }
+        res.status(200).json({message: "Account deleted"});
+    }
+    catch (error){
+        res.status(500).json({message: error.message});
+    }
+}
+
 module.exports = {
     createAccount,
-    getAccount
+    getAccount,
+    deleteAccount,
 };
