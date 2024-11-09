@@ -3,6 +3,6 @@ const router = express.Router();
 const { createAccount } = require("../controllers/account.controller.js");
 
 // create account
-router.post("/create/:name/:email/:password/:gnumber", createAccount);
+router.post("/create/", createAccount);
 
 module.exports = router;

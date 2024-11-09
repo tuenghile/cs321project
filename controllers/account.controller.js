@@ -2,10 +2,10 @@ const Account = require("../models/account.model");
 
 const createAccount = async (req, res) => {
     try{
-        const name = req.params.name;
-        const email = req.params.email; // TODO: verify email
-        const password = req.params.password; // TODO: add encryption
-        const gnumber = req.params.gnumber; 
+        const name = req.body.name;
+        const email = req.body.email; // TODO: verify email
+        const password = req.body.password; // TODO: add encryption
+        const gnumber = req.body.gnumber; 
 
         const accountInfo = {
             name,
