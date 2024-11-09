@@ -30,7 +30,25 @@ const updateItem = async (req, res) => {
     }
 }
 
+// returns items with the same name or category
+const getItems = async (req, res) => {
+    try{
+        if (req.query.category || req.query.name){
+            const item = await Item.find(req.query.category !== undefined ? {category: req.query.category} : {name : req.query.name});
+            res.status(200).json(item);
+        }
+        else {
+            return res.status(404).json({message: "Item does not exist"});
+        }
+        
+    }
+    catch(error){
+        res.status(500).json({message: error.message});
+    }
+}
+
 module.exports = {
     addItem,
-    updateItem
+    updateItem,
+    getItems
 };
