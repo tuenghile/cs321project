@@ -6,7 +6,7 @@ const { createAccount, getAccount, deleteAccount, updateAccount } = require("../
 router.post("/create/", createAccount);
 
 // find account
-router.get("/getuser", getAccount);
+router.get("/getaccount/:email", getAccount);
 
 // update account
 router.put("/update/:email", updateAccount);

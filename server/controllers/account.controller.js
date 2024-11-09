@@ -27,7 +27,11 @@ const createAccount = async (req, res) => {
 // find account using email
 const getAccount = async (req, res) => {
     try{
-        const account = await Account.findOne({ "email": req.body.email });
+        const account = await Account.findOne({ "email": req.params.email });
+
+        if (!account){
+            return res.status(404).json({message: "Account does not exist"});
+        }
         res.status(200).json(account); // returns json with user information
     }
     catch (error){
