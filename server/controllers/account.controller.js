@@ -35,6 +35,22 @@ const getAccount = async (req, res) => {
     }
 }
 
+const updateAccount = async (req, res) => {
+    try{
+        const account = await Account.findOneAndUpdate({ "email": req.params.email }, req.body);
+
+        if (!account){
+            return res.status(404).json({message: "Account does not exist"});
+        }
+                                                    // email has been changed, find account using new email
+        const updateAccount = await Account.findOne({ "email": req.body.email || req.params.email }); 
+        res.status(200).json(updateAccount);
+    }
+    catch (error){
+        res.status(500).json({message: error.message});
+    }
+}
+
 // delete account using email
 const deleteAccount = async (req, res) => {
     try{
@@ -54,4 +70,5 @@ module.exports = {
     createAccount,
     getAccount,
     deleteAccount,
+    updateAccount,
 };
