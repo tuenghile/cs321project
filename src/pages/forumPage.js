@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './css/forumPage.css';
+import PostCard from '../components/post-card/PostCard'; 
 
 const ForumPage = () => {
   const [posts, setPosts] = useState([]);
   const [showForm, setShowForm] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false); // Track dropdown focus state
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [newPost, setNewPost] = useState({
     title: '',
     location: '',
@@ -174,45 +175,15 @@ const ForumPage = () => {
       {/* Posts Container */}
       <div className="posts-container">
         {filteredPosts.map((post) => (
-          <div
+          <PostCard
             key={post.id}
-            className="post-card"
-            style={{
-              borderLeft: `5px solid ${post.reportType === 'Lost' ? '#a81d31' : '#FFA500'}`, // Left border color based on report type
-            }}
-          >
-            <p className="post-date">{post.date}</p>
-            <div
-              className="post-report-type"
-              style={{
-                color: post.reportType === 'Lost' ? '#a81d31' : '#FFA500', // Text color
-              }}
-            >
-              {post.reportType}
-              <span
-                style={{
-                  display: 'block',
-                  height: '2px',
-                  backgroundColor: post.reportType === 'Lost' ? '#a81d31' : '#FFA500', // Line color
-                  marginTop: '4px', // Space between text and line
-                }}
-              />
-            </div>
-            <h3 className="post-title">{post.title}</h3>
-            {post.image && (
-              <img
-                src={URL.createObjectURL(post.image)}
-                alt={post.title}
-                className="post-image"
-              />
-            )}
-            <p className="post-location">
-              <strong>Location:</strong> {post.location}
-            </p>
-            {post.description && (
-              <p className="post-description">{post.description}</p>
-            )}
-          </div>
+            cardTitle={post.title}
+            location={post.location}
+            description={post.description}
+            image={post.image}
+            reportType={post.reportType}
+            date={post.date}
+          />
         ))}
       </div>
     </div>
@@ -220,3 +191,4 @@ const ForumPage = () => {
 };
 
 export default ForumPage;
+
