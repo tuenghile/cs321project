@@ -97,46 +97,6 @@
   .posts-container {
     margin-top: 20px;
   }
-
-
-/* Post card styling */
-.post-card {
-    background-color: #ffffff;
-    padding: 20px;
-    margin: 20px auto;
-    width: 600px; 
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
-    text-align: center;
-    position: relative;
-    border-left: 6px solid #006633; 
-    transition: transform 0.2s, box-shadow 0.2s;
-    
-}
-
-
-
-/* Hover effect for the card */
-.post-card:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
-}
-
-
-/* Report type in the upper right corner */
-.post-report-type {
-    font-size: 14px;
-    font-weight: bold;
-    color: #FFA500; 
-    position: absolute;
-    top: 10px;
-    right: 20px;
-}  
-  .post-divider {
-    height: 1px;
-    background-color: #ddd;
-    margin: 10px 0;
-  }
   
  /* Filter dropdown */
  .filter-dropdown select {
@@ -187,6 +147,19 @@
     content: '\25B2'; 
 }
 
+.forum-description {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #333;
+  max-width: 600px;
+}
+
+.no-posts-message {
+  color: #555;
+  font-size: 16px;
+  margin-top: 20px;
+}
 
 
   

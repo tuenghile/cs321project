@@ -84,6 +84,15 @@ const ForumPage = () => {
 
   return (
     <div className="forum-page">
+      {/* Page Description */}
+      <div className="forum-description">
+        <p>
+          Welcome to the campus Lost and Found Forum. Here, you can report items you’ve lost on campus
+          or post about items you’ve found. Use the Create Post button to add your own post, and filter
+          posts by type (Lost or Found) using the dropdown menu.
+        </p>
+      </div>
+
       {/* Create Post Button */}
       <div className="create-post">
         <button
@@ -175,21 +184,26 @@ const ForumPage = () => {
 
       {/* Posts Container */}
       <div className="posts-container">
-        {filteredPosts.map((post) => (
-          <PostCard
-            key={post.id}
-            cardTitle={post.title}
-            location={post.location}
-            description={post.description}
-            image={post.image}
-            reportType={post.reportType}
-            date={post.date}
-          />
-        ))}
+        {filteredPosts.length > 0 ? (
+          filteredPosts.map((post) => (
+            <PostCard
+              key={post.id}
+              cardTitle={post.title}
+              location={post.location}
+              description={post.description}
+              image={post.image}
+              reportType={post.reportType}
+              date={post.date}
+            />
+          ))
+        ) : (
+          <p className="no-posts-message">Currently no posts available</p>
+        )}
       </div>
     </div>
   );
 };
 
 export default ForumPage;
+
 

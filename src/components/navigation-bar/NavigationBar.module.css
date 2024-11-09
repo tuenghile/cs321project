@@ -4,7 +4,7 @@
     align-items: center;
     background-color: var(--mason-green);  /* GMU Green */
     padding: 0px 20px;
-
+    z-index: 10;
     /* NOTE: Drop shadow not working, not sure why */
     /* box-shadow: 0 0 px rgb(0, 0, 0); */
     position: sticky;
