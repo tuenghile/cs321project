@@ -22,7 +22,7 @@ PageHeader.propTypes = {
 
 // These are values that the props have if not set
 PageHeader.defaultProps = {
-    pageName: "Page Name",
+    pageName: "",
     pageDescription: ""
 }
 

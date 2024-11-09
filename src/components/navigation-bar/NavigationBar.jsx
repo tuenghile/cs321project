@@ -48,6 +48,10 @@ function NavigationBar() {
                     </li>
                     <li className={styles.navBarItem}>
                         {/* added temporarily just to see th UI */}
+                        <Link smooth to="/campus-logs"> TBD</Link> 
+                    </li>
+                    <li className={styles.navBarItem}>
+                        {/* added temporarily just to see th UI */}
                         <Link smooth to="/settings">Settings</Link> 
                     </li>
                 </ul>

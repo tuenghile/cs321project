@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './css/forumPage.css';
 import PageFooter from '../components/PageFooter/PageFooter';
+import PageHeader from '../components/page-header/PageHeader';
 import PostCard from '../components/post-card/PostCard'; 
 
 const ForumPage = () => {
@@ -83,15 +84,11 @@ const ForumPage = () => {
   });
 
   return (
-    <div className="forum-page">
-      {/* Page Description */}
-      <div className="forum-description">
-        <p>
-          Welcome to the campus Lost and Found Forum. Here, you can report items you’ve lost on campus
+    <div>
+       <PageHeader  pageDescription=" Welcome to the campus Lost and Found Forum. Here, you can report items you’ve lost on campus
           or post about items you’ve found. Use the Create Post button to add your own post, and filter
-          posts by type (Lost or Found) using the dropdown menu.
-        </p>
-      </div>
+          posts by type (Lost or Found) using the dropdown menu."/>
+    <div className="forum-page">
 
       {/* Create Post Button */}
       <div className="create-post">
@@ -201,9 +198,9 @@ const ForumPage = () => {
         )}
       </div>
     </div>
+    <PageFooter />
+    </div>
   );
 };
 
 export default ForumPage;
-
-

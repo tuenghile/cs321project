@@ -12,6 +12,7 @@ import LoginPage from './pages/login';
 import CreateAccount from './pages/createAccount';
 import SettingsPage from './pages/settingsPage';
 import EditProfilePage from './pages/editProfilePage';
+import CampusLogs from './pages/campusLogs';
 // import PageHeader from './components/page-header/PageHeader';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/create-account" element={<CreateAccount />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/edit-profile" element={<EditProfilePage />} />
+        <Route path="/campus-logs" element={<CampusLogs />} />
         {/* Add routes here for more pages */}
       </Routes>
     </Router>
