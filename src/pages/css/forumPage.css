@@ -114,14 +114,6 @@
     
 }
 
-/* Post image */
-.post-image {
-    max-width: 100%; 
-    height: auto; 
-    border-radius: 8px;
-    margin-top: 15px;
-    border: 2px solid #0d451a; 
-}
 
 
 /* Hover effect for the card */
@@ -130,57 +122,16 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
 }
 
-/* Date in the upper left corner */
-.post-date {
-    font-size: 12px;
-    color: #999;
-    position: absolute;
-    top: 10px;
-    left: 20px;
-}
 
 /* Report type in the upper right corner */
 .post-report-type {
     font-size: 14px;
     font-weight: bold;
-    color: #FFA500; /* GMU yellow for contrast */
+    color: #FFA500; 
     position: absolute;
     top: 10px;
     right: 20px;
-}
-
-/* Post title */
-.post-title {
-    font-size: 24px; /* Slightly increased title font size */
-    font-weight: bold;
-    color: #006633; /* GMU green for title */
-    margin-bottom: 10px; /* Reduced margin for title */
-}
-
-
-
-/* Location */
-.post-location {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-    display: inline-block; /* Ensures the background wraps just around the text */
-    background-color: #f0f8f5; /* Light green background */
-    padding: 5px 10px; /* Adds some padding around the text */
-    border-radius: 5px; /* Rounded corners */
-    margin: 15px 0;
-}
-
-/* Description */
-.post-description {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 10px;
-    line-height: 1.5;
-}
-
-  
-  
+}  
   .post-divider {
     height: 1px;
     background-color: #ddd;
@@ -189,20 +140,20 @@
   
  /* Filter dropdown */
  .filter-dropdown select {
-    background-color: #006633; /* Green background to match the button */
-    color: white; /* White text */
-    padding: 10px; /* Keep the existing padding */
-    padding-right: 30px; /* Space for custom arrow */
+    background-color: #006633; 
+    color: white; 
+    padding: 10px; 
+    padding-right: 30px; 
     border: none;
-    border-radius: 5px; /* Rounded corners */
+    border-radius: 5px; 
     cursor: pointer;
-    font-size: 16px; /* Ensure font size is consistent */
-    appearance: none; /* Remove default arrow */
+    font-size: 16px; 
+    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    text-align: center; /* Center the text */
-    text-align-last: center; /* Center selected option */
-    width: 150px; /* Set a fixed width to match the button */
+    text-align: center; 
+    text-align-last: center; 
+    width: 150px; 
     position: relative;
 }
   

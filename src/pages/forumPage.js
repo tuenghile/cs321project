@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './css/forumPage.css';
+import PageFooter from '../components/PageFooter/PageFooter';
 import PostCard from '../components/post-card/PostCard'; 
 
 const ForumPage = () => {
