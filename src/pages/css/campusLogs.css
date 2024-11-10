@@ -15,10 +15,10 @@
 
 .update-logs-button {
   padding: 10px 15px;
-  background-color: #28a745;
+  background-color: #b34121;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
 }
@@ -29,10 +29,10 @@
 
 .filter-button {
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #b34121;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 14px;
   display: flex;
@@ -62,11 +62,27 @@
 }
 
 .posts-container {
-  margin-top: 20px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: nowrap; /* Ensures posts stay in a single row */
+  overflow-x: auto; /* Enables horizontal scrolling */
   gap: 15px;
+  padding-bottom: 10px; /* Adds padding to the bottom of the scroll container */
 }
+
+.posts-container::-webkit-scrollbar {
+  height: 8px; /* Customize scrollbar height for horizontal scrolling */
+}
+
+.posts-container::-webkit-scrollbar-thumb {
+  background-color: #b34121; /* Customize scrollbar color */
+  border-radius: 4px;
+}
+
+.posts-container::-webkit-scrollbar-track {
+  background-color: #f5f5f5; /* Customize scrollbar track color */
+}
+
 
 .forum-description {
     text-align: center;

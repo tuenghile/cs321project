@@ -60,6 +60,7 @@ const CampusLogs = ({ posts = [] }) => {
               location={post.location}
               title={post.title}
               description={post.description}
+              status={post.status}
             />
           ))}
         </div>

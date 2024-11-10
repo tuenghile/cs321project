@@ -1,13 +1,15 @@
-// UpdateLogsForm.jsx
+// src/components/update-logs-form/UpdateLogsForm.jsx
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './UpdateLogsForm.module.css';
 
-const UpdateLogsForm = () => {
+const UpdateLogsForm = ({ addPost }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [status, setStatus] = useState('Unclaimed');
   const [location, setLocation] = useState('Johnson Center');
   const [photo, setPhoto] = useState(null);
+  const navigate = useNavigate();
 
   const handlePhotoUpload = (e) => {
     setPhoto(e.target.files[0]);
@@ -15,12 +17,26 @@ const UpdateLogsForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
+    
+    const newPost = {
+      title,
+      description,
+      status,
+      location,
+      date: new Date().toLocaleDateString(),
+      photo,
+    };
+
+    addPost(newPost);
+    navigate('/campus-logs'); // Redirect back to CampusLogs page
+  };
+
+  const handleCancel = () => {
+    navigate('/campus-logs'); // Redirect back to CampusLogs page on cancel
   };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <h2>Update Logs</h2>
       <label>
         Title:
         <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
@@ -47,7 +63,10 @@ const UpdateLogsForm = () => {
         Upload Photo:
         <input type="file" onChange={handlePhotoUpload} />
       </label>
-      <button type="submit">Submit</button>
+      <div className={styles.buttonContainer}>
+        <button type="submit">Submit</button>
+        <button type="button" onClick={handleCancel}>Cancel</button>
+      </div>
     </form>
   );
 };

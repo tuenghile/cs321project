@@ -1,22 +1,27 @@
-// Post.jsx
+// LogPost.jsx
 import React from 'react';
 import styles from './logPost.module.css';
 
-const LogPost = ({ itemName, date, location, title, description }) => {
+const LogPost = ({ title, date, location, description, status }) => {
   return (
-    <div className={styles.post}>
+    <div
+      className={`${styles.post} ${status === 'Claimed' ? styles.claimed : styles.unclaimed}`}
+    >
       <div className={styles.header}>
-        <h3>{itemName}</h3>
+        <h3>{title}</h3>
         <p>{date}</p>
+      </div>
+      <div className={styles.imagePlaceholder}>
+        {/* Placeholder for image as shown in your design */}
       </div>
       <div className={styles.body}>
         <p className={styles.location}>Location: {location}</p>
-        <h4>{title}</h4>
-        <p>{description}</p>
+        <p className={styles.status}>Status: {status}</p>
+        {description && <p>{description}</p>}
       </div>
-      <button className={styles.contactButton}>Contact</button>
     </div>
   );
 };
 
 export default LogPost;
+

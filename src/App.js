@@ -1,9 +1,10 @@
 
 // src/App.js
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import ForumPage from './pages/forumPage'; // Ensure the path is correct
-import "./pages/css/variables.css"
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import ForumPage from './pages/forumPage';
+import "./pages/css/variables.css";
 
 // Components import
 import NavigationBar from './components/navigation-bar/NavigationBar';
@@ -13,27 +14,31 @@ import CreateAccount from './pages/createAccount';
 import SettingsPage from './pages/settingsPage';
 import EditProfilePage from './pages/editProfilePage';
 import CampusLogs from './pages/campusLogs';
-// import PageHeader from './components/page-header/PageHeader';
+import UpdateLogs from './pages/updateLogs';
 
 function App() {
+  const [posts, setPosts] = useState([]);
+
+  const addPost = (post) => {
+    setPosts((prevPosts) => [...prevPosts, post]);
+  };
+
   return (
     <Router>
-      {/* Navigation Bar */}
       <NavigationBar />
-      {/* <PageHeader websiteName="George Mason University" pageName="LOST AND FOUND" /> */}
-      {/* Main Content */}
       <Routes>
-        <Route path="/" element={<HomePage />} /> {/* Placeholder for home page */}
+        <Route path="/" element={<HomePage />} />
         <Route path="/forum" element={<ForumPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/create-account" element={<CreateAccount />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/edit-profile" element={<EditProfilePage />} />
-        <Route path="/campus-logs" element={<CampusLogs />} />
-        {/* Add routes here for more pages */}
+        <Route path="/campus-logs" element={<CampusLogs posts={posts} />} />
+        <Route path="/update-logs" element={<UpdateLogs addPost={addPost} />} />
       </Routes>
     </Router>
   );
 }
 
 export default App;
+
