@@ -8,25 +8,25 @@
 
 .posts-container {
   display: flex;
-  flex-wrap: wrap; /* Allows posts to wrap to the next row if there’s not enough space */
+  flex-wrap: wrap; 
   gap: 15px;
   padding-bottom: 10px;
-  width: 80vw; /* 80% of the viewport width */
+  width: 80vw; 
   max-width: 100%;
   margin: 0 auto;
-  overflow-y: auto; /* Adds a vertical scrollbar */
-  max-height: 80vh; /* Limit the height so that a vertical scrollbar appears */
+  overflow-y: auto; 
+  max-height: 80vh; 
 }
 
 .post {
-  min-width: 270px; /* Ensures each post won’t shrink below this width */
-  width: 90%; /* Default width of each post */
-  max-width: 300px; /* Optional: sets a maximum width for each post */
+  min-width: 270px;
+  width: 90%; 
+  max-width: 300px; 
   flex-grow: 1;
 }
 
 .posts-container::-webkit-scrollbar {
-  width: 8px; /* Vertical scrollbar width */
+  width: 8px; 
 }
 
 .posts-container::-webkit-scrollbar-thumb {
@@ -46,10 +46,10 @@
     color: #333;
     max-width: 600px;
   }
-  
   .no-posts-message {
-    color: #555;
+    color: #000000;
     font-size: 16px;
+    text-align: center;
     margin-top: 20px;
   }
   

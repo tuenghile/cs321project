@@ -1,4 +1,3 @@
-// CampusLogs.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageHeader from '../components/page-header/PageHeader';
@@ -52,17 +51,21 @@ const CampusLogs = ({ posts = [] }) => {
           </div>
         </div>
         <div className="posts-container">
-          {filteredPosts.map((post, index) => (
-            <LogPost
-              key={index}
-              itemName={post.itemName}
-              date={post.date}
-              location={post.location}
-              title={post.title}
-              description={post.description}
-              status={post.status}
-            />
-          ))}
+          {filteredPosts.length > 0 ? (
+            filteredPosts.map((post, index) => (
+              <LogPost
+                key={index}
+                itemName={post.itemName}
+                date={post.date}
+                location={post.location}
+                title={post.title}
+                description={post.description}
+                status={post.status}
+              />
+            ))
+          ) : (
+            <div className="no-posts-message">No posts available</div>
+          )}
         </div>
       </div>
       <PageFooter />
