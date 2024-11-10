@@ -1,4 +1,4 @@
-/* Overall page container */
+
 .settingsPage {
   display: flex;
   flex-direction: column;
@@ -6,21 +6,20 @@
   padding: 50px;
 }
 
-/* Settings form container */
 .settingsForm {
   background-color: #E5E4E2;
   padding: 30px;
   border-radius: 10px;
-  width: 30vw; /* Width is 50% of the viewport width */
-  height: 30vh; /* Height is 40% of the viewport height */
+  width: 30vw; 
+  height: 30vh; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centers options vertically */
+  justify-content: center; 
 }
 
-/* Individual option container */
+
 .option {
   display: flex;
   align-items: center;
@@ -32,19 +31,18 @@
   transition: background-color 0.3s;
 }
 
-/* Option icon style */
+
 .icon {
   width: 40px;
   height: 40px;
   margin-right: 10px;
 }
 
-/* Option text style */
 .optionText {
   font-size: 22px; 
 }
 
-/* Hover effect for options */
+
 .option:hover {
   background-color: #D3D3D3;
 }
