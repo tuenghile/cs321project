@@ -1,112 +1,21 @@
 /* ForumPage.css */
 
 .forum-page {
-    display: flex; 
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    padding: 20px;
-    text-align: center;
-    position: relative;
-}
-  
-  .create-post {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-  }
-  
-  .create-post-btn {
-    background-color:#b34121;
-    color: white;
-    padding: 10px 20px; 
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px; 
-    width: 150px; /* Set a fixed width to match the dropdown */
+  display: flex; 
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  padding: 20px;
+  text-align: center;
+  position: relative;
 }
 
-  .create-post-btn:hover {
-    background-color: #004d26;
-  }
-  
-  .post-form {
-    display: inline-block;
-    text-align: left;
-    width: 50%;
-    margin-bottom: 20px;
-  }
-  
-  .post-form input,
-  .post-form textarea,
-  .post-form select {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 10px;  
-    font-size: 16px;
-    box-sizing: border-box;
-  }
-  
-  .post-form input:focus,
-  .post-form textarea:focus,
-  .post-form select:focus {
-    outline: none;
-    border-color: #006633;
-  }
-  
-  .post-form select {
-    background-color: white;
-    cursor: pointer;
-  }
-  
-  .post-form .submit-post-btn {
-    background-color: #b34121;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .post-form .submit-post-btn:hover {
-    background-color:#b34121;
-  }
-
-  .post-form .cancel-post-btn {
-    background-color:#b34121; 
-    color: white; 
-    padding: 10px 20px; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    font-size: 16px; 
-    margin-left: 10px; 
+.create-post {
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 
-.post-form .cancel-post-btn:hover {
-    background-color: #004d26; 
-}
-  
-  .error-message {
-    color: red;
-    font-size: 12px;
-  }
-  
-  .posts-container {
-    margin-top: 20px;
-  }
-  
-  .post-divider {
-    height: 1px;
-    background-color: #ddd;
-    margin: 10px 0;
-  }
-  
- /* Filter dropdown */
- .filter-dropdown select {
+.create-post-btn {
   background-color:#b34121;
   color: white;
   padding: 10px 20px; 
@@ -114,22 +23,112 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px; 
-  width: 150px; 
-  appearance: none; /* Remove default arrow */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  text-align: center; /* Center the text */
-  text-align-last: center; /* Center selected option */
+  width: 150px; /* Set a fixed width to match the dropdown */
+}
+
+.create-post-btn:hover {
+  background-color: #004d26;
+}
+
+.post-form {
+  display: inline-block;
+  text-align: left;
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+.post-form input,
+.post-form textarea,
+.post-form select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;  
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.post-form input:focus,
+.post-form textarea:focus,
+.post-form select:focus {
+  outline: none;
+  border-color: #006633;
+}
+
+.post-form select {
+  background-color: white;
+  cursor: pointer;
+}
+
+.post-form .submit-post-btn {
+  background-color: #b34121;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.post-form .submit-post-btn:hover {
+  background-color:#b34121;
+}
+
+.post-form .cancel-post-btn {
+  background-color:#b34121; 
+  color: white; 
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-size: 16px; 
+  margin-left: 10px; 
+}
+
+.post-form .cancel-post-btn:hover {
+  background-color: #004d26; 
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
+.posts-container {
+  margin-top: 20px;
+}
+
+.post-divider {
+  height: 1px;
+  background-color: #ddd;
+  margin: 10px 0;
+}
+
+/* Filter dropdown */
+.filter-dropdown select {
+background-color:#b34121;
+color: white;
+padding: 10px 20px; 
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px; 
+width: 150px; 
+appearance: none; /* Remove default arrow */
+-webkit-appearance: none;
+-moz-appearance: none;
+text-align: center; /* Center the text */
+text-align-last: center; /* Center selected option */
 }
 
 
 
 .no-posts-message {
-  color: #555;
-  font-size: 16px;
-  margin-top: 20px;
+color: #555;
+font-size: 16px;
+margin-top: 20px;
 }
 
 
 
-  
