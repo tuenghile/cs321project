@@ -47,10 +47,12 @@
     max-width: 600px;
   }
   .no-posts-message {
-    color: #000000;
-    font-size: 16px;
+    width: 100%; /* Full width to center text */
     text-align: center;
+    color: #171515;
+    font-size: 16px;
     margin-top: 20px;
+    align-self: center; /* Centers message within container */
   }
   
   .logs-header {
