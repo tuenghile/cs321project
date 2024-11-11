@@ -17,6 +17,7 @@ function PageFooter() {
                         <img src={masonLogo} alt="George Mason University Logo" className={styles.gmuLogo} />
                     </Link>
                 </div>
+                <div className={styles.horizontalLine + " " + styles.hideLine}></div>
                 <div className={styles.rightFooter}>
                     <p className={styles.rightFooterHeading}>ALL TOGETHER DIFFERENT</p>
                     <p>George Mason University</p>
@@ -26,8 +27,7 @@ function PageFooter() {
                     <p>© 2024 George Mason University</p>
                 </div>
             </div>
-            <div className={styles.horizontalLine}>
-            </div>
+            <div className={styles.horizontalLine}></div>
             <div className={styles.bottomFooter}>
                 <a href="https://www.gmu.edu/sitemap.xml">Contact</a>
                 <a href="https://www.gmu.edu/privacy-statement">Privacy Statement</a>

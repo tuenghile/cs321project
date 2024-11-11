@@ -119,26 +119,59 @@
     background-color: #004d26;  /* Darker green on hover */
 }
 
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
+/* TODO: Add hamburger menu to both mobile and tablet modes */
+ 
+/* Mobile */
+@media only screen and (max-width: 599px) {
+    .navBar {
+        padding: 0 10px;
     }
-  
-    .navbar-list {
-      flex-direction: column;
-      width: 100%;
+
+    .gmuLogo {
+        height: 55px;
     }
-  
-    .navbar-item {
-      margin: 10px 0;
+
+    .brandLogo {
+        gap: 1px;
     }
-  
-    .navbar-item a {
-      width: 100%;
-      text-align: center;
+
+    .brandLogo p {
+        font-size: 20px;
     }
-  }
-  
+
+    .verticalLine {
+        height: 50px;
+    }
+
+    .navBarList {
+        display: none;
+    }
+
+    .rightItems {
+        display: none;
+    }
+}
+
+/* TAblets */
+@media only screen and (min-width: 600px) and (max-width: 810px) {
+    .navBar {
+        justify-content: space-between;
+    }
+
+    .brandLogo {
+        gap: 10px;
+    }
+
+    .rightItems {
+        display: none;
+    }
+
+    .navBarList {
+        display: none;
+    }
+
+    .brandLogo p {
+        font-size: 35px;
+    }
+
+}
