@@ -58,3 +58,30 @@
     height: 135px;
 }
 
+/* Mobile */
+@media only screen and (max-width: 599px) {
+    .postCard {
+        width: auto;
+    }
+
+    .postDescription {
+        margin: 0;
+    }
+
+    .titleAndLocation {
+        gap: 0px;
+    }
+}
+
+/* TAblets */
+@media only screen and (min-width: 600px) and (max-width: 810px) {
+    .postCard {
+        width: 500px;
+        height: 300px;
+    }
+
+    .postImage {
+        width: 170px;
+        height: 170px;
+    }
+}
