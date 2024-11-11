@@ -118,27 +118,29 @@
 .searchButton:hover {
     background-color: #004d26;  /* Darker green on hover */
 }
+  
+@media only screen and (max-width: 599px) {
+    .gmuLogo {
+        height: 60px;
+    }
 
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
+    .brandLogo {
+        gap: 1px;
     }
-  
-    .navbar-list {
-      flex-direction: column;
-      width: 100%;
+
+    .brandLogo p {
+        font-size: 25px;
     }
-  
-    .navbar-item {
-      margin: 10px 0;
+
+    .verticalLine {
+        height: 50px;
     }
-  
-    .navbar-item a {
-      width: 100%;
-      text-align: center;
+
+    .navBarList {
+        display: none;
     }
-  }
-  
+
+    .rightItems {
+        display: none;
+    }
+}
