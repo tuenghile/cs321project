@@ -100,7 +100,7 @@ const ForumPage = () => {
       </div>
 
       {/* Filter Dropdown */}
-      <div className={`filter-dropdown ${dropdownOpen ? 'open' : ''}`}>
+      <div className={`forum-filter-dropdown ${dropdownOpen ? 'open' : ''}`}>
         <select
           value={filter || ''}
           onChange={(e) => setFilter(e.target.value)}
@@ -179,7 +179,7 @@ const ForumPage = () => {
       )}
 
       {/* Posts Container */}
-      <div className="posts-container">
+      <div className="forum-posts-container">
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post) => (
             <PostCard
