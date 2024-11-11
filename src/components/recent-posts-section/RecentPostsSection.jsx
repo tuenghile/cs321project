@@ -25,6 +25,9 @@ function RecentPostsSection() {
             <PostCard />
             <PostCard />
             <PostCard />
+
+            {/* NOTE: Removed bottom 3 for mobile view */}
+            
             <PostCard />
             <PostCard />
             <PostCard />

@@ -21,3 +21,21 @@
   .primaryButton:focus {
     outline: none; /* Removes focus outline */
   }
+
+  /* Mobile */
+@media only screen and (max-width: 599px) {
+  .primaryButton {
+    width: 300px;
+    height: 60px;
+    border-radius: 10px;
+  }
+}
+
+/* TAblets */
+@media only screen and (min-width: 600px) and (max-width: 810px) {
+  .primaryButton {
+    width: 300px;
+    height: 60px;
+    border-radius: 10px;
+  }
+}
