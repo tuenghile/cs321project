@@ -107,9 +107,12 @@
   font-size: 12px;
 }
 
-.forum-posts-container {
-  margin-top: 20px;
+.forumposts-container {
+  margin-top: 20px; 
 }
+
+
+
 
 .post-divider {
   height: 1px;
