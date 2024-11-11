@@ -57,15 +57,6 @@ function NavigationBar() {
             <div className={styles.rightItems}>
                 {/* Search Bar */}
 
-                <div className={styles.navBarSearch}>
-                    <input
-                        type="text"
-                        placeholder="Search with keywords"
-                        className={styles.searchInput}
-                    />
-                <Link to="/login">
-                    <div className={styles.accountButton}>
-                        <img src={accountIcon} alt="account/user icon" height="40px"/>
 
                     </div>
                 </Link>

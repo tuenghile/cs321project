@@ -11,7 +11,11 @@ const AccountSchema = mongoose.Schema({
     },
     gnumber:{
         type: Number,
-        required: true
+        required: false
+    },
+    type: { // to differentiate between admin and user
+        type: String,
+        require: true
     },
     password:{
         type: String,
