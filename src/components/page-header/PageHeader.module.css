@@ -25,3 +25,20 @@
 .pageHeader h1, p{
     text-shadow: 0 0 20px rgba(0, 0, 0, 0.415);
 }
+
+/* Mobile */
+@media only screen and (max-width: 599px) {
+    .pageHeader { 
+        gap: 20px;
+    }
+
+    .pageHeader h1 {
+        font-size: 40px;
+    }
+
+    .pageHeader p {
+        font-size: 16px;
+    }
+}
+
+/* No tablet query needed (performs well without one) */
