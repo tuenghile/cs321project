@@ -25,7 +25,7 @@ const CampusLogs = ({ posts = [] }) => {
 
   return (
     <div>
-      <PageHeader  pageDescription={"Browse the items currently stored in GMU's two Lost and Found locations. Each post includes the location where the item is stored, so you can easily find it. Items marked as claimed have already been retrieved by someone else. Use the filter to view only unclaimed items."} />
+      <PageHeader  pageDescription={"Browse the items currently stored in GMU's two Lost and Found locations."} />
       <div className="campus-logs-container">
         <div className="logs-header">
           <Link to="/update-logs">

@@ -86,8 +86,7 @@ const ForumPage = () => {
   return (
     <div>
        <PageHeader  pageDescription=" Welcome to the campus Lost and Found Forum. Here, you can report items you’ve lost on campus
-          or post about items you’ve found. Use the Create Post button to add your own post, and filter
-          posts by type (Lost or Found) using the dropdown menu."/>
+          or post about items you’ve found."/>
     <div className="forum-page">
 
       {/* Create Post Button */}
