@@ -118,8 +118,9 @@
 .searchButton:hover {
     background-color: #004d26;  /* Darker green on hover */
 }
- 
 
+/* TODO: Add hamburger menu to both mobile and tablet modes */
+ 
 /* Mobile */
 @media only screen and (max-width: 599px) {
     .navBar {
@@ -152,6 +153,25 @@
 }
 
 /* TAblets */
-@media only screen and (min-width: 600px) and (max-width: 767px) {
+@media only screen and (min-width: 600px) and (max-width: 810px) {
+    .navBar {
+        justify-content: space-between;
+    }
+
+    .brandLogo {
+        gap: 10px;
+    }
+
+    .rightItems {
+        display: none;
+    }
+
+    .navBarList {
+        display: none;
+    }
+
+    .brandLogo p {
+        font-size: 35px;
+    }
 
 }
