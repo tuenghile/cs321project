@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import styles from "./SignUpForm.module.css"; // Use the new CSS file for styling
 
 const SignUpForm = () => {
@@ -70,6 +71,18 @@ const SignUpForm = () => {
       if (response.ok) {
         setIsVerified(true);
         setVerificationMessage("Email verified successfully!");
+        Swal.fire({
+          title: "Registered",
+          text: "You have signed up successfully!",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+        var delayInMilliseconds = 5000;
+  
+        setTimeout(function () {
+          //your code to be executed after seconds
+          document.location.replace("/login");
+        }, delayInMilliseconds);
       } else {
         setVerificationMessage(result.message || 'Invalid verification code.');
       }
