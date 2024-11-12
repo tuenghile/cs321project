@@ -1,5 +1,5 @@
 .footer {
-    height: 300px;
+    height: auto;
     padding: 60px 520px;
     background-color: var(--mason-green);
     display: flex;
@@ -18,12 +18,15 @@
 }
 
 .rightFooter {
+    height: auto;
     text-align: right;
+    width: 550px;
 }
 
 .rightFooter .rightFooterHeading {
-    font-size: 32px;
+    font-size: 30px;
     color: var(--mason-gold);
+    width: auto;
 }
 
 .rightFooter p {
@@ -57,4 +60,99 @@
 
 .bottomFooter a:hover {
     color: var(--mason-gold);
+}
+
+.hideLine {
+    display: none;
+}
+
+
+/* Mobile */
+@media only screen and (max-width: 599px) {
+    .footer {
+        width: 100%;
+        height: auto;
+        padding: 60px 0;
+        margin: 0;
+    }
+
+    .contentContainer {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .rightFooter .rightFooterHeading  {
+        width: 100%;
+        font-size: 26px;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .horizontalLine{
+        display: block;
+        width: 300px;
+        align-self: center;
+    }
+
+    .rightFooter {
+        height: auto;
+        text-align: center;
+    }
+
+    .rightFooter p {
+        line-height: 40px;
+    }
+
+    .hideLine {
+        display: block;
+    }
+
+    .bottomFooter {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+/* TAblets */
+@media only screen and (min-width: 600px) and (max-width: 810px) {
+    .footer {
+        width: 100%;
+        height: auto;
+        padding: 60px 0;
+        margin: 0;
+    }
+
+    .contentContainer {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .rightFooter .rightFooterHeading  {
+        width: 100%;
+        font-size: 26px;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .horizontalLine {
+        display: block;
+        width: 600px;
+        align-self: center;
+    }
+
+    .rightFooter {
+        height: auto;
+        text-align: center;
+    }
+
+    .rightFooter p {
+        line-height: 40px;
+    }
+
+    .hideLine {
+        display: block;
+    }
 }

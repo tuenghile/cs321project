@@ -54,3 +54,49 @@
     height: auto;
     max-height: 300px; /* Limits the height of the image to keep it proportional */
 }
+
+/* Mobile */
+@media only screen and (max-width: 599px) {
+    .contactSection {
+        height: auto;
+    }
+
+    .contactContent {
+        gap: 0;
+        flex-direction: column;
+    }
+
+    .contactBox {
+        width: auto;
+    }
+
+    .contactMap {
+        /* Centering like this for some reason, justify-content not centering it */
+        text-align: center; 
+    }
+
+    .mapImage { 
+        width: 100%;
+    }
+}
+
+/* TAblets */
+@media only screen and (min-width: 600px) and (max-width: 810px) {
+    .contactSection {
+        height: auto;
+    }
+
+    .contactContent {
+        gap: 0;
+        flex-direction: column;
+    }
+
+    .contactMap {
+        /* Centering like this for some reason, justify-content not centering it */
+        text-align: center; 
+    }
+
+    .mapImage { 
+        width: 100%;
+    }
+}

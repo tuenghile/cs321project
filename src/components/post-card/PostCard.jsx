@@ -1,48 +1,56 @@
-import PropTypes from "prop-types"
-import styles from "../post-card/PostCard.module.css"
-import tempPostImage from "../../assets/map.png"
+import PropTypes from "prop-types";
+import styles from "../post-card/PostCard.module.css";
+import tempPostImage from "../../assets/map.png";
 
 function PostCard(props) {
-    return(
-        <div className={styles.postCard}>
-            
-            {/* Splits done to allow the horizontal placement of the location, title, and img */}
-            <div className={styles.reportTypeBar}></div>
-            <div className={styles.topCardSection}>
-                <div className={styles.titleAndLocation}>
-                    <h3>{props.cardTitle}</h3>
-                    <p><strong>Location: </strong> {props.location}</p>
-                </div>
-                {/* Use the bottom conditional render of image for final production */}
-                {/* {props.image && (
-                    <img
-                        // src={URL.createObjectURL(props.image)}
-                        alt={props.title}
-                        className={styles.postImage}
-                    />
-                )} */}
+  const { cardTitle, location, description, image, reportType, date } = props;
 
-                {/* Use this code for image testing */}
-                <img src={tempPostImage} alt="temporary maps icon" className={styles.postImage}/>
-            </div>
-            {props.description && <p className={styles.postDescription}>{props.description}</p>}
+  return (
+    <div className={styles.postCard}>
+      {/* Dynamic style for reportTypeBar based on reportType */}
+      <div
+        className={styles.reportTypeBar}
+        style={{ backgroundColor: reportType === 'Lost' ? '#a81d31' : '#FFA500' }}
+      ></div>
+      <div className={styles.topCardSection}>
+        <div className={styles.titleAndLocation}>
+          <h3>{cardTitle}</h3>
+          <p><strong>Location: </strong> {location}</p>
+          {/* Display the date below the location */}
+          <p className={styles.postDate}><strong>Date: </strong> {date}</p>
         </div>
-    );
+        {/* Conditional rendering for image */}
+        {image ? (
+          <img
+            src={URL.createObjectURL(image)}
+            alt={cardTitle}
+            className={styles.postImage}
+          />
+        ) : (
+          <img src={tempPostImage} alt="temporary maps icon" className={styles.postImage} />
+        )}
+      </div>
+      {description && <p className={styles.postDescription}>{description}</p>}
+    </div>
+  );
 }
 
 PostCard.propTypes = {
-    cardTitle: PropTypes.string,
-    location: PropTypes.string,
-    description: PropTypes.string,
-    title: PropTypes.string
-}
+  cardTitle: PropTypes.string,
+  location: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.object,
+  reportType: PropTypes.string,
+  date: PropTypes.string, 
+};
 
 PostCard.defaultProps = {
-    cardTitle: "Post title",
-    location: "GMU Campus",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, explicabo vitae mollitia vel molestiae suscipit, nisi voluptates doloribus ab commodi minus id corporis utasdasdsad cumque delectus perspiciatis porro possimus tempore?",
-    title: "Post title"
-}
+  cardTitle: "Post title",
+  location: "GMU Campus",
+  description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+  reportType: "Lost",
+  date: new Date().toLocaleDateString(), // Default date, if needed
+};
 
-export default PostCard
+export default PostCard;
 

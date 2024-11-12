@@ -1,17 +1,17 @@
 import React from 'react';
+import SettingsBox from '../components/settings/settingsBox';
 import PageHeader from '../components/page-header/PageHeader';
 import PageFooter from '../components/PageFooter/PageFooter';
-import SignUpForm from '../components/sign-up/SignUpForm';
-//import './login.css';
 
-const CreateAccount = () => {
+
+const SettingsPage = () => {
   return (
     <div>
-      <PageHeader pageName="Create Account" />
-      <SignUpForm />
+      <PageHeader pageName="Account" />
+      <SettingsBox />
       <PageFooter />
     </div>
   );
 };
 
-export default CreateAccount;
+export default SettingsPage;

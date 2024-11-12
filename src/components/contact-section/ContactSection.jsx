@@ -18,6 +18,7 @@ function ContactSection() {
                     <img
                     src={mapImage}
                     alt="GMU Campus Map"
+                    className={styles.mapImage}
                     />
                 </div>
             </div>
