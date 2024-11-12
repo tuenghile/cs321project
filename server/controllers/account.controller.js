@@ -74,9 +74,36 @@ const deleteAccount = async (req, res) => {
     }
 }
 
+const login = async (req, res) => {
+    try{
+        // checking for empty fields
+        if (!req.body.email || !req.body.password){
+            return res.status(400).json({message: "Email or password field is missing"});
+        }
+        const user = await Account.findOne({"email": req.body.email});
+
+        // making sure the user has been found
+        if (!user){
+            return res.status(400).json({message: "Can't find account with the given email"});
+        }
+
+        // verifying email
+        if (await bcrypt.compare(req.body.password, user.password)){
+            res.status(200).json({message: "Authentication successful"});
+        }
+        else {
+            res.status(401).json({message: "Password does not match"});
+        }
+    }
+    catch(error){
+        res.status(500).json({message: error.message});
+    }
+}
+
 module.exports = {
     createAccount,
     getAccount,
     deleteAccount,
     updateAccount,
+    login,
 };
