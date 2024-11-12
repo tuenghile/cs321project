@@ -1,5 +1,6 @@
 const Account = require("../models/account.model");
 const bcrypt = require("bcrypt");
+require("dotenv").config();
 
 const createAccount = async (req, res) => {
     try{
