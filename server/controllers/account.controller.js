@@ -1,12 +1,16 @@
 const Account = require("../models/account.model");
+const bcrypt = require("bcrypt");
 
 const createAccount = async (req, res) => {
     try{
         const name = req.body.name;
         const email = req.body.email; // TODO: verify email
-        const password = req.body.password; // TODO: add encryption
+        
         const type = req.body.type;
         const gnumber = req.body.gnumber; 
+
+        const salt = await bcrypt.genSalt();
+        const password = await bcrypt.hash(req.body.password, salt);
 
         const accountInfo = {
             name,
