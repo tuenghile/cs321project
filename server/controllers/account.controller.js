@@ -2,6 +2,8 @@ const Account = require("../models/account.model");
 const bcrypt = require("bcrypt");
 require("dotenv").config();
 
+const jwt = require("jsonwebtoken");
+
 const createAccount = async (req, res) => {
     try{
         const name = req.body.name;
@@ -88,9 +90,16 @@ const login = async (req, res) => {
             return res.status(400).json({message: "Can't find account with the given email"});
         }
 
-        // verifying email
+        // verifying password
         if (await bcrypt.compare(req.body.password, user.password)){
-            res.status(200).json({message: "Authentication successful"});
+            const jwtUser = {
+                name: user.name,
+                id: user.id,
+                email: user.email,
+                gnumber: user.gnumber
+            }
+            const authorizationToken = jwt.sign(jwtUser, process.env.AUTHORIZATION_TOKEN);
+            res.status(200).json({authorization_token: authorizationToken});
         }
         else {
             res.status(401).json({message: "Password does not match"});
