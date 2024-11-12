@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { createAccount, getAccount, deleteAccount, updateAccount } = require("../controllers/account.controller.js");
+const { createAccount, getAccount, deleteAccount, updateAccount, login } = require("../controllers/account.controller.js");
 
 // create account
 router.post("/create/", createAccount);
@@ -13,4 +13,6 @@ router.put("/update/:email", updateAccount);
 
 // delete account
 router.delete("/:email", deleteAccount);
+
+router.post("/login", login);
 module.exports = router;
