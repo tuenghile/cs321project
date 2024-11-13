@@ -19,7 +19,7 @@ export default function HamburgerMenu() {
     };
 
     return (
-        <div>
+        <div className={styles.visibility}>
             <Hamburger 
                 size = {34}
                 toggled = {open}
