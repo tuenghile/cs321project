@@ -98,8 +98,8 @@ const login = async (req, res) => {
                 email: user.email,
                 gnumber: user.gnumber
             }
-            const authorizationToken = jwt.sign(jwtUser, process.env.AUTHORIZATION_TOKEN);
-            res.status(200).json({authorization_token: authorizationToken});
+            const accessToken = jwt.sign(jwtUser, process.env.ACCESS_TOKEN);
+            res.status(200).json({accessToken: accessToken});
         }
         else {
             res.status(401).json({message: "Password does not match"});
