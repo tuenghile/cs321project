@@ -6,7 +6,6 @@ logs
 **/*.back.*
 build/
 
-.env
 requests.rest
 
 node_modules
