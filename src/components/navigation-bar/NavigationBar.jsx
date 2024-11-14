@@ -57,19 +57,6 @@ function NavigationBar() {
             <div className={styles.rightItems}>
                 {/* Search Bar */}
 
-<<<<<<< HEAD
-                    <div className={styles.navBarSearch}>
-                        <input
-                            type="text"
-                            placeholder="Search with keywords"
-                            className={styles.searchInput}
-                        />
-                    <Link to="/login">
-                        <div className={styles.accountButton}>
-                            <img src={accountIcon} alt="account/user icon" height="40px"/>
-                        </div>
-                    </Link>
-=======
                 <div className={styles.navBarSearch}>
                     <input
                         type="text"
@@ -79,7 +66,6 @@ function NavigationBar() {
                 <Link to="/login">
                     <div className={styles.accountButton}>
                         <img src={accountIcon} alt="account/user icon" height="40px"/>
->>>>>>> 160b65666cb4a3f582e48bdd702f271bfda1ea5e
 
                     </div>
                 </Link>
