@@ -1,241 +1,154 @@
 /* ForumPage.css */
 
 .forum-page {
-    display: flex; 
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    padding: 20px;
-    text-align: center;
-    position: relative;
+  display: flex; 
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  padding: 20px;
+  text-align: center;
+  position: relative;
 }
-  
-  .create-post {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-  }
-  
-  .create-post-btn {
-    background-color: #006633;
-    color: white;
-    padding: 10px 20px; 
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px; 
-    width: 150px; /* Set a fixed width to match the dropdown */
-}
-  .create-post-btn:hover {
-    background-color: #004d26;
-  }
-  
-  .post-form {
-    display: inline-block;
-    text-align: left;
-    width: 50%;
-    margin-bottom: 20px;
-  }
-  
-  .post-form input,
-  .post-form textarea,
-  .post-form select {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 10px;  
-    font-size: 16px;
-    box-sizing: border-box;
-  }
-  
-  .post-form input:focus,
-  .post-form textarea:focus,
-  .post-form select:focus {
-    outline: none;
-    border-color: #006633;
-  }
-  
-  .post-form select {
-    background-color: white;
-    cursor: pointer;
-  }
-  
-  .post-form .submit-post-btn {
-    background-color: #006633;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .post-form .submit-post-btn:hover {
-    background-color: #004d26;
-  }
 
-  .post-form .cancel-post-btn {
-    background-color: #006633; 
-    color: white; 
-    padding: 10px 20px; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    font-size: 16px; 
-    margin-left: 10px; 
+.create-post {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.create-post-btn {
+  background-color:#b34121;
+  color: white;
+  padding: 10px 20px; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px; 
+  width: 150px; /* Set a fixed width to match the dropdown */
+  height: 40px;
+}
+
+.create-post-btn:hover {
+  background-color: #96351a;
+}
+
+.post-form {
+  display: inline-block;
+  text-align: left;
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+.post-form input,
+.post-form select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;  
+  font-size: 16px;
+  box-sizing: border-box;
+  height: 7vh; 
+}
+
+.post-form textarea{
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;  
+  font-size: 16px;
+  box-sizing: border-box;
+  height: 10vh; 
+}
+
+.post-form input:focus,
+.post-form textarea:focus,
+.post-form select:focus {
+  outline: none;
+  border-color: #006633;
+}
+
+.post-form select {
+  background-color: white;
+  cursor: pointer;
+}
+
+.post-form .submit-post-btn {
+  background-color: #b34121;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.post-form .submit-post-btn:hover {
+  background-color:#b34121;
+}
+
+.post-form .cancel-post-btn {
+  background-color:#b34121; 
+  color: white; 
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-size: 16px; 
+  margin-left: 10px; 
 }
 
 .post-form .cancel-post-btn:hover {
-    background-color: #004d26; 
-}
-  
-  .error-message {
-    color: red;
-    font-size: 12px;
-  }
-  
-  .posts-container {
-    margin-top: 20px;
-  }
-
-
-/* Post card styling */
-.post-card {
-    background-color: #ffffff;
-    padding: 20px;
-    margin: 20px auto;
-    width: 600px; 
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
-    text-align: center;
-    position: relative;
-    border-left: 6px solid #006633; 
-    transition: transform 0.2s, box-shadow 0.2s;
-    
+  background-color:#b34121; 
 }
 
-/* Post image */
-.post-image {
-    max-width: 100%; 
-    height: auto; 
-    border-radius: 8px;
-    margin-top: 15px;
-    border: 2px solid #0d451a; 
+.error-message {
+  color: red;
+  font-size: 12px;
 }
 
-
-/* Hover effect for the card */
-.post-card:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+.forum-posts-container {
+  margin-top: 20px;
 }
 
-/* Date in the upper left corner */
-.post-date {
-    font-size: 12px;
-    color: #999;
-    position: absolute;
-    top: 10px;
-    left: 20px;
+.post-divider {
+  height: 1px;
+  background-color: #ddd;
+  margin: 10px 0;
 }
 
-/* Report type in the upper right corner */
-.post-report-type {
-    font-size: 14px;
-    font-weight: bold;
-    color: #FFA500; /* GMU yellow for contrast */
-    position: absolute;
-    top: 10px;
-    right: 20px;
+/* Filter dropdown */
+.forum-filter-dropdown select {
+background-color:#b34121;
+height: 40px;
+color: white;
+padding: 10px 20px; 
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px; 
+width: 150px; 
+appearance: none; /* Remove default arrow */
+-webkit-appearance: none;
+-moz-appearance: none;
+text-align: center; /* Center the text */
+text-align-last: center; /* Center selected option */
+
 }
 
-/* Post title */
-.post-title {
-    font-size: 24px; /* Slightly increased title font size */
-    font-weight: bold;
-    color: #006633; /* GMU green for title */
-    margin-bottom: 10px; /* Reduced margin for title */
+.forum-filter-dropdown {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 
 
-/* Location */
-.post-location {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-    display: inline-block; /* Ensures the background wraps just around the text */
-    background-color: #f0f8f5; /* Light green background */
-    padding: 5px 10px; /* Adds some padding around the text */
-    border-radius: 5px; /* Rounded corners */
-    margin: 15px 0;
-}
-
-/* Description */
-.post-description {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 10px;
-    line-height: 1.5;
-}
-
-  
-  
-  .post-divider {
-    height: 1px;
-    background-color: #ddd;
-    margin: 10px 0;
-  }
-  
- /* Filter dropdown */
- .filter-dropdown select {
-    background-color: #006633; /* Green background to match the button */
-    color: white; /* White text */
-    padding: 10px; /* Keep the existing padding */
-    padding-right: 30px; /* Space for custom arrow */
-    border: none;
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer;
-    font-size: 16px; /* Ensure font size is consistent */
-    appearance: none; /* Remove default arrow */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    text-align: center; /* Center the text */
-    text-align-last: center; /* Center selected option */
-    width: 150px; /* Set a fixed width to match the button */
-    position: relative;
-}
-  
-  /* Hide default dropdown arrow */
-  .filter-dropdown {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 150px; 
-  }
-  
-  .filter-dropdown select:hover {
-    background-color: #006633; 
-  }
-  
- /*  dropdown arrow */
-.filter-dropdown::after {
-    content: '\25BC'; 
-    position: absolute;
-    right: 10px;
-    top: 50%; 
-    transform: translateY(-50%);
-    pointer-events: none;
-    color: white;
-    font-size: 16px; 
-    transition: transform 0.3s ease; 
-}
-
-/* Rotate the arrow when dropdown is open */
-.filter-dropdown.open::after {
-    content: '\25B2'; 
+.no-posts-message {
+color: #555;
+font-size: 16px;
+margin-top: 20px;
 }
 
 
 
-  

@@ -1,8 +1,8 @@
 import styles from "./NavigationBar.module.css"
-import PrimaryButton from '../primary-button/PrimaryButton';
 import gmuLogo from "../../assets/gmu-logo.png"
 import { HashLink as Link } from 'react-router-hash-link';
 import accountIcon from "../../assets/user.png"
+import HamburgerMenu from "../hamburger-menu/HamburgerMenu";
 
 // This is so that we scroll a bit higher than it had before. It was clipping the page heading.
 // Can use this for other pages to scroll to top of the page instead of clipping the heading, or offsets for other sections
@@ -43,16 +43,21 @@ function NavigationBar() {
                         <Link to="/forum">Posts</Link>
                     </li>
                     <li className={styles.navBarItem}>
+                        {/* added temporarily just to see th UI */}
+                        <Link smooth to="/campus-logs"> GMU Logs</Link> 
+                    </li>
+                    <li className={styles.navBarItem}>
                         {/* Goes to home page ("/") and scrolls to contact section ("#contact") */}
                         <Link smooth to="/#contact">Contact</Link> 
                     </li>
                 </ul>
             </nav>
 
-                {/* Right hand side - user/notifications/create post button */}
-                <div className={styles.rightItems}>
-                    {/* Search Bar */}
+            {/* Right hand side - user/notifications/create post button */}
+            <div className={styles.rightItems}>
+                {/* Search Bar */}
 
+<<<<<<< HEAD
                     <div className={styles.navBarSearch}>
                         <input
                             type="text"
@@ -64,10 +69,25 @@ function NavigationBar() {
                             <img src={accountIcon} alt="account/user icon" height="40px"/>
                         </div>
                     </Link>
+=======
+                <div className={styles.navBarSearch}>
+                    <input
+                        type="text"
+                        placeholder="Search with keywords"
+                        className={styles.searchInput}
+                    />
+                <Link to="/login">
+                    <div className={styles.accountButton}>
+                        <img src={accountIcon} alt="account/user icon" height="40px"/>
+>>>>>>> 160b65666cb4a3f582e48bdd702f271bfda1ea5e
 
                     </div>
+                </Link>
+
+                </div>
             </div>
 
+            <HamburgerMenu></HamburgerMenu>
 
         </header>
     );

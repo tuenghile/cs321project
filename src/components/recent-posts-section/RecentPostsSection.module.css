@@ -18,12 +18,36 @@
 .postsGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
-    grid-template-rows: repeat(2, auto); /* Two rows with automatic height */
+    grid-template-rows: repeat(3); /* Two rows with automatic height */
     gap: 16px;
     row-gap: 20px;
     background-color: #d4d4d4;
     padding: 20px;
     border-radius: 25px;
     width: 1200px;
-    height: 640px;
+    height: auto;
+}
+
+/* Mobile */
+@media only screen and (max-width: 599px) {
+    .postsGrid {
+        max-width: 100%;
+        width: 300px;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+        height: auto;
+        place-items: center;
+    }
+}
+
+/* TAblets */
+@media only screen and (min-width: 600px) and (max-width: 810px) {
+    .postsGrid {
+        max-width: 100%;
+        width: 550px;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+        height: auto;
+        place-items: center;
+    }
 }

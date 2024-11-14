@@ -5,7 +5,9 @@ import { useNavigate } from 'react-router-dom';
 const SignInForm = () => {
 
   const navigate = useNavigate(); // Initialize navigate function
-
+  const handleSignInClick = () => { // Navigate to HomePage
+    navigate('/#home');
+  };
   const handleSignUpClick = () => {
     navigate('/create-account'); // Navigate to CreateAccount page
   };
@@ -17,7 +19,9 @@ const SignInForm = () => {
         <h2>Login</h2>
         <input type="email" placeholder="GMU Email Address" className={styles['input-field']} />
         <input type="password" placeholder="Password" className={styles['input-field']} />
-        <button className={styles['login-button']}>Login</button>
+        <button className={styles['login-button']} onClick={handleSignInClick}>
+          Login
+        </button>
         <a href="#" className={styles['forgot-password']}>Forgot password?</a>
         <div className={styles['divider']} />
         <p>Don’t have an account?</p>

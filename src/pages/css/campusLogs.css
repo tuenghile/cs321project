@@ -1,0 +1,113 @@
+/* campusLogs.css */
+
+.campus-logs-container {
+  padding: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.posts-container {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 15px;
+  padding-bottom: 10px;
+  width: 85vw; 
+  max-width: 100%;
+  margin: 0 auto;
+  overflow-y: auto; 
+  max-height: 80vh; 
+}
+
+.post {
+  min-width: 270px;
+  width: 90%; 
+  max-width: 300px; 
+  flex-grow: 1;
+}
+
+.posts-container::-webkit-scrollbar {
+  width: 8px; 
+}
+
+.posts-container::-webkit-scrollbar-thumb {
+  background-color: #b34121;
+  border-radius: 4px;
+}
+
+.posts-container::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+
+
+.forum-description {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+    max-width: 600px;
+  }
+  .no-posts-message {
+    width: 100%; /* Full width to center text */
+    text-align: center;
+    color: #171515;
+    font-size: 16px;
+    margin-top: 20px;
+    align-self: center; /* Centers message within container */
+  }
+  
+  .logs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .update-logs-button {
+    padding: 10px 15px;
+    background-color: #b34121;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .filter-dropdown {
+    position: relative;
+  }
+  
+  .filter-button {
+    padding: 10px 20px;
+    background-color: #b34121;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 120px;
+    z-index: 1000;
+  }
+  
+  .dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f5f5f5;
+  }
+  
