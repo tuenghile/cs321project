@@ -28,12 +28,12 @@ const CampusLogs = ({ posts = [] }) => {
       <PageHeader  pageDescription={"Browse the items currently stored in GMU's two Lost and Found locations."} />
       <div className="campus-logs-container">
         <div className="logs-header">
-          <Link to="/update-logs">
+       {/*  <Link to="/update-logs">
             <button className="update-logs-button">Update Logs</button>
-          </Link>
+          </Link> */}
           <div className="filter-dropdown">
             <button onClick={toggleDropdown} className="filter-button">
-              Filter: {filter} ▼
+              Filter: {filter} 
             </button>
             {showDropdown && (
               <div className="dropdown-menu">
