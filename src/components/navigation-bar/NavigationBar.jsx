@@ -50,10 +50,6 @@ function NavigationBar() {
                         {/* Goes to home page ("/") and scrolls to contact section ("#contact") */}
                         <Link smooth to="/#contact">Contact</Link> 
                     </li>
-                    <li className={styles.navBarItem}>
-                        {/* Goes to home page ("/") and scrolls to contact section ("#contact") */}
-                        <Link smooth to="/admin-settings">temp</Link> 
-                    </li>
                 </ul>
             </nav>
 
