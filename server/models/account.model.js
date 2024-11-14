@@ -9,10 +9,6 @@ const AccountSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    gnumber:{
-        type: Number,
-        required: false
-    },
     type: { // to differentiate between admin and user
         type: String,
         require: true
