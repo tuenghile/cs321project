@@ -10,7 +10,6 @@ const createAccount = async (req, res) => {
         const email = req.body.email; // TODO: verify email
         
         const type = req.body.type;
-        const gnumber = req.body.gnumber; 
 
         const salt = await bcrypt.genSalt();
         const password = await bcrypt.hash(req.body.password, salt);
@@ -18,7 +17,6 @@ const createAccount = async (req, res) => {
         const accountInfo = {
             name,
             email,
-            gnumber,
             type,
             password
         }
@@ -96,7 +94,6 @@ const login = async (req, res) => {
                 name: user.name,
                 id: user.id,
                 email: user.email,
-                gnumber: user.gnumber
             }
             const accessToken = jwt.sign(jwtUser, process.env.ACCESS_TOKEN);
             res.status(200).json({accessToken: accessToken});
