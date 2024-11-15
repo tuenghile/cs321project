@@ -198,5 +198,6 @@
 
     .navBarList {
         margin-right: 40px;
+        gap: 5px;
     }
 }
