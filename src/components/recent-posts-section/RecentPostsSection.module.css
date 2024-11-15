@@ -52,7 +52,7 @@
     }
 }
 
-/* TAblets */
+/* Small Desktop */
 @media only screen and (min-width: 811px) and (max-width: 1220px) {
     .postsGrid {
         width: 790px;
