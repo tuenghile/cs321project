@@ -15,6 +15,7 @@ import SettingsPage from './pages/settingsPage';
 import EditProfilePage from './pages/editProfilePage';
 import CampusLogs from './pages/campusLogs';
 import UpdateLogs from './pages/updateLogs';
+import AdminSettingsPage from './pages/adminSettingsPage';
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -35,6 +36,8 @@ function App() {
         <Route path="/edit-profile" element={<EditProfilePage />} />
         <Route path="/campus-logs" element={<CampusLogs posts={posts} />} />
         <Route path="/update-logs" element={<UpdateLogs addPost={addPost} />} />
+        <Route path="/admin-settings" element={<AdminSettingsPage />} />
+        
       </Routes>
     </Router>
   );
