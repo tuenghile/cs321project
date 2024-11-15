@@ -6,7 +6,6 @@ const jwt = require("jsonwebtoken");
 
 const createAccount = async (req, res) => {
     try{
-        const name = req.body.name;
         const email = req.body.email; // TODO: verify email
         
         const type = req.body.type;
@@ -15,7 +14,6 @@ const createAccount = async (req, res) => {
         const password = await bcrypt.hash(req.body.password, salt);
 
         const accountInfo = {
-            name,
             email,
             type,
             password
@@ -91,7 +89,6 @@ const login = async (req, res) => {
         // verifying password
         if (await bcrypt.compare(req.body.password, user.password)){
             const jwtUser = {
-                name: user.name,
                 id: user.id,
                 email: user.email,
             }

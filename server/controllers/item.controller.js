@@ -33,8 +33,8 @@ const updateItem = async (req, res) => {
 // returns items with the same name or category
 const getItems = async (req, res) => {
     try{
-        if (req.query.category || req.query.name){
-            const item = await Item.find(req.query.category !== undefined ? {category: req.query.category} : {name : req.query.name});
+        if (req.query.category || req.query.title){
+            const item = await Item.find(req.query.category !== undefined ? {category: req.query.category} : {name : req.query.title});
             res.status(200).json(item);
         }
         else {

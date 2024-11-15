@@ -73,7 +73,6 @@ const SignUpForm = () => {
         setIsVerified(true);
         setVerificationMessage("Email verified successfully!");
         const data = {
-          name: ".", // TODO: add a name field
           email: email,
           password: password,
           admin: "User"

@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
 const ItemSchema = mongoose.Schema({
-    gnumber: { // to determine if the item has been claimed
-        type: Number,
-        required: false
-    },
-    name: {
+    title: {
         type: String,
         required : true,
+    },
+    status: {
+        type: String,
+        required: true,
     },
     category: {
         type: String,
