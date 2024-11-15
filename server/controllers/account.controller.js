@@ -18,7 +18,12 @@ const createAccount = async (req, res) => {
             type,
             password
         }
+
+        const accessToken = jwt.sign(accountInfo, process.env.ACCESS_TOKEN, { expiresIn: '30s'});
+        const refreshToken = jwt.sign(accountInfo, process.env.REFRESH_TOKEN, { expiresIn: '3d'});
         const account = await Account.create(accountInfo);
+        res.cookie("access_token", accessToken, {httpOnly: true, secure: true});
+        res.cookie("refresh_token", refreshToken, {httpOnly: true, secure: true});
 
         res.status(200).json(account);
     }
