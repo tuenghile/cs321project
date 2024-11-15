@@ -36,6 +36,9 @@
   text-align: left;
   width: 50%;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .post-form input,
@@ -142,7 +145,11 @@ text-align-last: center; /* Center selected option */
   right: 20px;
 }
 
-
+.post-form-header {
+  text-align: center;
+  font-size: 32px;
+  color: var(--h2-text);
+}
 
 .no-posts-message {
 color: #555;
@@ -150,5 +157,85 @@ font-size: 16px;
 margin-top: 20px;
 }
 
+.button-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 25px;
+}
 
+.forum-posts-container {
+  margin-top: 100px;
+}
 
+.post-form-button {
+  padding: 15px;
+  font-size: 22px;
+  color: white;
+}
+
+.post-form-button:hover {
+  background-color: #b34121;
+}
+
+/* Mobile */
+@media only screen and (max-width: 599px) {
+  .post-form {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    background-color: rgba(174, 174, 174, 0.601);
+    border-radius: 10px;
+    padding: 0px 10px;
+    align-items: center;
+    padding-bottom: 15px;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+  }
+
+  .forum-posts-container {
+    margin-top: 100px;
+  }
+
+  .post-form-button {
+    padding: 15px;
+    font-size: 22px;
+    color: white;
+  }
+}
+
+/* TAblets */
+@media only screen and (min-width: 600px) and (max-width: 810px) {
+  .post-form {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    gap: 10px;
+    background-color: rgba(174, 174, 174, 0.601);
+    border-radius: 10px;
+    padding: 0px 10px;
+    align-items: center;
+    padding-bottom: 15px;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+  }
+
+  .post-form-button {
+    padding: 15px;
+    font-size: 22px;
+    color: white;
+  }
+}

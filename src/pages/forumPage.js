@@ -85,9 +85,9 @@ const ForumPage = () => {
 
   return (
     <div>
-       <PageHeader  pageDescription=" Welcome to the campus Lost and Found Forum. Here, you can report items you’ve lost on campus
+       <PageHeader pageName={"Forum"} pageDescription="Here, you can report items you’ve lost on campus
           or post about items you’ve found."/>
-    <div className="forum-page">
+      <div className="forum-page">
 
       {/* Create Post Button */}
       <div className="create-post">
@@ -116,6 +116,7 @@ const ForumPage = () => {
       {/* Post Form */}
       {showForm && (
         <form className="post-form" onSubmit={handleFormSubmit}>
+          <h2 className='post-form-header'>Create post form</h2>
           <input
             type="text"
             placeholder="Post Title (Required)"
@@ -164,22 +165,17 @@ const ForumPage = () => {
             onChange={handleImageUpload}
           />
 
+          <div className='button-container'>
+            <button type='submit' className='post-form-button'>Submit Post</button>
+            <button className='post-form-button' onClick={() => setShowForm(false)}>Cancel</button>
+          </div>
           {/* Submit and Cancel Buttons */}
-          <button type="submit" className="submit-post-btn">
-            Submit Post
-          </button>
-          <button 
-            type="button" 
-            className="cancel-post-btn" 
-            onClick={() => setShowForm(false)} // Hide form on click
-          >
-            Cancel
-          </button>
         </form>
       )}
 
       {/* Posts Container */}
       <div className="forum-posts-container">
+        <h2 className='post-form-header'>Posts</h2>
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post) => (
             <PostCard
