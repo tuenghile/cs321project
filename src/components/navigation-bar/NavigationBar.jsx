@@ -37,18 +37,18 @@ function NavigationBar() {
                 {/* Links to other pages */}
                 <ul className={styles.navBarList}>
                     <li className={styles.navBarItem}>
-                        <Link smooth to="/#home" scroll={homeScrollOffset}>Home</Link>
+                        <Link smooth to="/#home" scroll={homeScrollOffset}><p>Home</p></Link>
                     </li>
                     <li className={styles.navBarItem}>
-                        <Link to="/forum">Posts</Link>
+                        <Link to="/forum"><p>Posts</p></Link>
                     </li>
                     <li className={styles.navBarItem}>
                         {/* added temporarily just to see th UI */}
-                        <Link smooth to="/campus-logs"> GMU Logs</Link> 
+                        <Link smooth to="/campus-logs"><p>GMU Logs</p></Link> 
                     </li>
                     <li className={styles.navBarItem}>
                         {/* Goes to home page ("/") and scrolls to contact section ("#contact") */}
-                        <Link smooth to="/#contact">Contact</Link> 
+                        <Link smooth to="/#contact"><p>Contact</p></Link> 
                     </li>
                 </ul>
             </nav>
