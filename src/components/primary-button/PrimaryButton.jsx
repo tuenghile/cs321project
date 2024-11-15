@@ -3,7 +3,7 @@ import styles from "./PrimaryButton.module.css"
 
 function PrimaryButton(props) {
     return(
-        <button className={styles.primaryButton}>{props.buttonText}</button>
+        <button className={styles.primaryButton} onClick={props.onClick}>{props.buttonText}</button>
     );
 }
 
