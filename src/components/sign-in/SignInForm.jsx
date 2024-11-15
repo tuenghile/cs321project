@@ -51,7 +51,7 @@ const SignInForm = () => {
         {/* <header className={styles['page-header']}>Account</header> */}
         <div className={styles['sign-in-form']}>
           <h2>Login</h2>
-          <input type="email" placeholder="GMU Email Address" className={styles['input-field']} value = {email} onChnage={(e) => setEmail(e.target.value)} />
+          <input type="email" placeholder="GMU Email Address" className={styles['input-field']} value = {email} onChange={(e) => setEmail(e.target.value)} />
           <input type="password" placeholder="Password" className={styles['input-field']} value = {password} onChange={(e) => setPassword(e.target.value)} />
           <button className={styles['login-button']} onClick={handleSignInClick}>
             Login
