@@ -34,7 +34,7 @@
 /* TAblets */
 @media only screen and (min-width: 600px) and (max-width: 810px) {
   .primaryButton {
-    width: 300px;
+    width: 400px;
     height: 60px;
     border-radius: 10px;
   }
