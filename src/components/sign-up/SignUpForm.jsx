@@ -51,6 +51,7 @@ const SignUpForm = () => {
       if (response.ok) {
         setIsCodeSent(true);
         setVerificationMessage("Verification email sent. Please check your inbox.");
+
       } else {
         setVerificationMessage(result.message || 'Failed to send verification email.');
       }
@@ -71,6 +72,22 @@ const SignUpForm = () => {
       if (response.ok) {
         setIsVerified(true);
         setVerificationMessage("Email verified successfully!");
+        const data = {
+          name: ".", // TODO: add a name field
+          email: email,
+          password: password,
+          admin: "User"
+        }
+        const serverResponse = await fetch("http://localhost:3000/account/create", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        })
+
+        if (!serverResponse.ok){ // TODO: add a response to the error
+        }
         Swal.fire({
           title: "Registered",
           text: "You have signed up successfully!",
