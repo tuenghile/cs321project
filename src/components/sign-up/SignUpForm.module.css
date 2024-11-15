@@ -61,4 +61,21 @@
   .link:hover {
     text-decoration: underline;
   }
-  
+
+  .sign-up-page {
+    margin: 50px;
+  }
+
+
+/* Mobile */
+@media only screen and (max-width: 599px) {
+
+  .sign-up-form {
+    width: 100%;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+}
