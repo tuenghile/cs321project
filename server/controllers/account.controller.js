@@ -93,12 +93,17 @@ const login = async (req, res) => {
 
         // verifying password
         if (await bcrypt.compare(req.body.password, user.password)){
-            const jwtUser = {
-                id: user.id,
+            const accountInfo = {
                 email: user.email,
+                id: user.id,
+                type: user.type,
             }
-            const accessToken = jwt.sign(jwtUser, process.env.ACCESS_TOKEN);
-            res.status(200).json({accessToken: accessToken});
+            const accessToken = jwt.sign(accountInfo, process.env.ACCESS_TOKEN, { expiresIn: '30s'});
+            const refreshToken = jwt.sign(accountInfo, process.env.REFRESH_TOKEN, { expiresIn: '3d'});
+            // add jwt to cookies
+            res.cookie("access_token", accessToken, {httpOnly: true, secure: true});
+            res.cookie("refresh_token", refreshToken, {httpOnly: true, secure: true});
+            res.sendStatus(200);
         }
         else {
             res.status(401).json({message: "Password does not match"});

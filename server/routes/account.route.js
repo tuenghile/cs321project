@@ -15,5 +15,5 @@ router.put("/update/:email", authenticateToken, updateAccount);
 // delete account
 router.delete("/:email", authenticateToken, deleteAccount);
 
-router.post("/login", authenticateToken, login);
+router.post("/login", login);
 module.exports = router;
