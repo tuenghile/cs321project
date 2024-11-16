@@ -75,7 +75,7 @@ const SignUpForm = () => {
         const data = {
           email: email,
           password: password,
-          admin: "User"
+          type: "User"
         }
         const serverResponse = await fetch("http://localhost:3000/account/create", {
           method: "POST",
@@ -108,61 +108,64 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className={styles["sign-up-page"]}>
-      <form onSubmit={handleSubmit} className={styles["sign-up-form"]}>
-        <h2>Sign Up</h2>
-        
-        <input
-          type="email"
-          placeholder="GMU Email Address"
-          className={styles["input-field"]}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        {emailError && <p className={styles["error-text"]}>{emailError}</p>}
-        
-        <input
-          type="password"
-          placeholder="Password"
-          className={styles["input-field"]}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          className={styles["input-field"]}
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
-        {passwordError && <p className={styles["error-text"]}>{passwordError}</p>}
+    <div className={styles.container}>
+      <div className={styles["sign-up-page"]}>
+        <form onSubmit={handleSubmit} className={styles["sign-up-form"]}>
+          <h2>Sign Up</h2>
+          
+          <input
+            type="email"
+            placeholder="GMU Email Address"
+            className={styles["input-field"]}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          {emailError && <p className={styles["error-text"]}>{emailError}</p>}
+          
+          <input
+            type="password"
+            placeholder="Password"
+            className={styles["input-field"]}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            className={styles["input-field"]}
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+          {passwordError && <p className={styles["error-text"]}>{passwordError}</p>}
 
-        <button type="submit" className={styles["login-button"]}>Send Verification Code</button>
-        
-        {/* Display verification code input if code has been sent */}
-        {isCodeSent && (
-          <>
-            <input
-              type="text"
-              placeholder="Enter Verification Code"
-              className={styles["input-field"]}
-              value={code}
-              onChange={(e) => setCode(e.target.value)}
-            />
-            <button type="button" onClick={handleVerifyCode} className={styles["login-button"]}>
-              Verify Code
-            </button>
-          </>
-        )}
-        
-        {verificationMessage && <p className={styles["info-text"]}>{verificationMessage}</p>}
+          <button type="submit" className={styles["login-button"]}>Send Verification Code</button>
+          
+          {/* Display verification code input if code has been sent */}
+          {isCodeSent && (
+            <>
+              <input
+                type="text"
+                placeholder="Enter Verification Code"
+                className={styles["input-field"]}
+                value={code}
+                onChange={(e) => setCode(e.target.value)}
+              />
+              <button type="button" onClick={handleVerifyCode} className={styles["login-button"]}>
+                Verify Code
+              </button>
+            </>
+          )}
+          
+          {verificationMessage && <p className={styles["info-text"]}>{verificationMessage}</p>}
 
-        <p className={styles["footer-text"]}>
-          Already have an account? <Link to="/login" className={styles["link"]}>Login</Link>
-        </p>
-      </form>
+          <p className={styles["footer-text"]}>
+            Already have an account? <Link to="/login" className={styles["link"]}>Login</Link>
+          </p>
+        </form>
+      </div>
     </div>
+    
   );
 };
 

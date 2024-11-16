@@ -156,3 +156,31 @@
         display: block;
     }
 }
+
+
+
+/* Small Desktop */
+@media only screen and (min-width: 811px) and (max-width: 1700px) {
+    .footer {
+        width: 100%;
+        height: auto;
+        padding: 60px 0;
+        margin: 0;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .contentContainer {
+        justify-content: space-evenly;
+    }
+
+    .horizontalLine {
+        width: 1000px;
+    }
+}
+
+@media only screen and (min-width: 811px) and (max-width: 1000px) {
+    .horizontalLine {
+        width: 800px;
+    }
+}
