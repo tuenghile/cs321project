@@ -40,14 +40,41 @@ const createAccount = async (req, res) => {
 
 const updateAccount = async (req, res) => {
     try{
-        const account = await Account.findOneAndUpdate({ "email": req.user.email }, req.body);
+        let password = req.user.password;
+
+        // encrypt new password if there is one
+        if (req.body.password){
+            const salt = await bcrypt.genSalt();
+            password = await bcrypt.hash(req.body.password, salt);
+        }
+
+        const email = req.body.email || req.user.email;
+        const type = req.body.type || req.user.type;
+        const id = req.user.id;
+
+        const jwtInfo = {
+            email,
+            type,
+            id
+        }
+
+        const accountInfo = {
+            email,
+            type,
+            password
+        }
+
+        const accessToken = jwt.sign(jwtInfo, process.env.ACCESS_TOKEN, { expiresIn: '10m'});
+        const refreshToken = jwt.sign(jwtInfo, process.env.REFRESH_TOKEN, { expiresIn: '3d'});
+        res.cookie("access_token", accessToken, {httpOnly: true, secure: true});
+        res.cookie("refresh_token", refreshToken, {httpOnly: true, secure: true});
+
+        const account = await Account.findOneAndUpdate({ "email": req.user.email }, accountInfo);
 
         if (!account){
             return res.status(404).json({message: "Account does not exist"});
         }
-                                                    // email has been changed, find account using new email
-        const updateAccount = await Account.findOne({ "email": req.body.email || req.user.email }); 
-        res.status(200).json(updateAccount);
+        res.sendStatus(200);
     }
     catch (error){
         res.status(500).json({message: error.message});

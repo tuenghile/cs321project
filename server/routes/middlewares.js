@@ -8,6 +8,7 @@ const authenticateToken = (req, res, next) => {
         jwt.verify(accessToken, process.env.ACCESS_TOKEN, (err, user) => {
             if (err) {
                 if (refreshToken) {
+                    console.log("generating new access");
                     // Create a new access token if the refresh token exists
                     jwt.verify(refreshToken, process.env.REFRESH_TOKEN, (err, user) => {
                         if (err) return res.sendStatus(403);
