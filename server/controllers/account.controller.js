@@ -19,9 +19,15 @@ const createAccount = async (req, res) => {
             password
         }
 
-        const accessToken = jwt.sign(accountInfo, process.env.ACCESS_TOKEN, { expiresIn: '30s'});
-        const refreshToken = jwt.sign(accountInfo, process.env.REFRESH_TOKEN, { expiresIn: '3d'});
         const account = await Account.create(accountInfo);
+        const accountId = account._id;
+        const jwtInfo = {
+            email,
+            type,
+            accountId
+        }
+        const accessToken = jwt.sign(jwtInfo, process.env.ACCESS_TOKEN, { expiresIn: '10m'});
+        const refreshToken = jwt.sign(jwtInfo, process.env.REFRESH_TOKEN, { expiresIn: '3d'});
         res.cookie("access_token", accessToken, {httpOnly: true, secure: true});
         res.cookie("refresh_token", refreshToken, {httpOnly: true, secure: true});
 
@@ -93,13 +99,13 @@ const login = async (req, res) => {
 
         // verifying password
         if (await bcrypt.compare(req.body.password, user.password)){
-            const accountInfo = {
+            const jwtInfo = {
                 email: user.email,
                 id: user.id,
                 type: user.type,
             }
-            const accessToken = jwt.sign(accountInfo, process.env.ACCESS_TOKEN, { expiresIn: '30s'});
-            const refreshToken = jwt.sign(accountInfo, process.env.REFRESH_TOKEN, { expiresIn: '3d'});
+            const accessToken = jwt.sign(jwtInfo, process.env.ACCESS_TOKEN, { expiresIn: '10m'});
+            const refreshToken = jwt.sign(jwtInfo, process.env.REFRESH_TOKEN, { expiresIn: '3d'});
             // add jwt to cookies
             res.cookie("access_token", accessToken, {httpOnly: true, secure: true});
             res.cookie("refresh_token", refreshToken, {httpOnly: true, secure: true});
