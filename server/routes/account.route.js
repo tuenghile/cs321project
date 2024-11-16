@@ -1,19 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const authenticateToken = require("./middlewares.js");
-const { createAccount, getAccount, deleteAccount, updateAccount, login } = require("../controllers/account.controller.js");
+const { createAccount, deleteAccount, updateAccount, login } = require("../controllers/account.controller.js");
 
 // create account
 router.post("/create/", createAccount);
 
-// find account
-router.get("/getaccount/:email", authenticateToken, getAccount);
-
 // update account
-router.put("/update/:email", authenticateToken, updateAccount);
+router.put("/update/", authenticateToken, updateAccount);
 
 // delete account
-router.delete("/:email", authenticateToken, deleteAccount);
+router.delete("/delete/", authenticateToken, deleteAccount);
 
-router.post("/login", login);
+router.post("/login/", login);
 module.exports = router;
