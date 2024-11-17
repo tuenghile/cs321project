@@ -8,11 +8,20 @@ function RecentPostsSection() {
     const [recentPosts, setRecentPosts] = useState([]);
 
     useEffect(() => {
-        const savedPosts = JSON.parse(localStorage.getItem('posts'));
-        if (savedPosts) {
-            // Get the most recent 6 posts
-            setRecentPosts(savedPosts.slice(-6).reverse());
+        let recentPosts;
+        const getRecent = async () =>{
+            try{
+                //TODO: parse the json data and display it
+                // returns array of json
+                recentPosts = await fetch("http://localhost:3002/item/recent");
+                if (recentPosts) {
+                    // Get the most recent 6 posts
+                    setRecentPosts(recentPosts.slice(-6).reverse());
+                }
+            } catch(error){ //TODO: handle error
+            }
         }
+        getRecent();
     }, []);
 
     return (

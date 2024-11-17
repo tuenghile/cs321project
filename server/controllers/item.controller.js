@@ -60,9 +60,20 @@ const deleteItem = async (req, res) => {
     }
 }
 
+const recentItems = async (req, res) => {
+    try {
+        const items = await Item.find().sort({ _id: -1}).limit(6);
+        res.send(items);
+    }
+    catch(error){
+        res.status(500).json({message: error});
+    }
+}
+
 module.exports = {
     addItem,
     updateItem,
     searchItems,
-    deleteItem
+    deleteItem,
+    recentItems
 };
