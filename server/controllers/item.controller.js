@@ -1,6 +1,5 @@
 const FuzzySearch = require("fuzzy-search");
 const Item = require("../models/item.model");
-const search = require("fuzzy-search");
 
 const addItem = async (req, res) => {
     try{

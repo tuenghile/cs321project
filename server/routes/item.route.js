@@ -12,6 +12,6 @@ router.get("/search/:query", authenticateToken, searchItems);
 // update item
 router.put("/update/:id", authenticateToken, updateItem);
 
-router.delete("/deleteitem/:id", authenticateToken, deleteItem);
+router.delete("/delete/:id", authenticateToken, deleteItem);
 
 module.exports = router;
