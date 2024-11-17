@@ -37,7 +37,7 @@ const ForumPage = () => {
     localStorage.setItem('posts', JSON.stringify(posts));
   }, [posts]);
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
     if (!newPost.title.trim()) {
@@ -53,6 +53,28 @@ const ForumPage = () => {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
+    }
+    try{
+      const itemInfo = {
+        title: newPost.title.trim(),
+        location: newPost.location.trim(),
+        type: newPost.reportType.trim(),
+        date: new Date().toLocaleDateString(),
+        image: newPost.image,
+        description: newPost.description.trim(),
+        status: "Unclaimed",
+      }
+      const newItem = await fetch("http://localhost:3002/item/add", {
+        method: "Post",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify(itemInfo)
+      })
+      if (newItem.OK){ //TODO:handle successful response
+
+      }
+    }
+    catch(error){ //TODO:handle server error
+      
     }
 
     const newPostData = {

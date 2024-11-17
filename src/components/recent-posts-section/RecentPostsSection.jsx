@@ -12,7 +12,7 @@ function RecentPostsSection() {
         const getRecent = async () =>{
             try{
                 //TODO: parse the json data and display it
-                // returns array of json
+                // returns array of 6 item in json
                 recentPosts = await fetch("http://localhost:3002/item/recent");
                 if (recentPosts) {
                     // Get the most recent 6 posts

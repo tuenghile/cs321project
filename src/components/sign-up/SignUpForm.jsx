@@ -77,7 +77,7 @@ const SignUpForm = () => {
           password: password,
           type: "User"
         }
-        const serverResponse = await fetch("http://localhost:3000/account/create", {
+        const serverResponse = await fetch("http://localhost:3002/account/create", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
