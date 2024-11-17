@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require('cors');
 const app = express();
+const cookieParser = require("cookie-parser");
 
 const mongoose = require("mongoose");
 const accountRoute = require("./routes/account.route.js");
@@ -8,6 +9,7 @@ const itemRoute = require("./routes/item.route.js");
 
 app.use(cors());
 app.use(express.json()); //allows express to accept json
+app.use(cookieParser()); //for reading cookies of each request
 
 app.use("/account", accountRoute);
 app.use("/item", itemRoute);

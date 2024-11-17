@@ -18,7 +18,18 @@ const createAccount = async (req, res) => {
             type,
             password
         }
+
         const account = await Account.create(accountInfo);
+        const accountId = account._id;
+        const jwtInfo = {
+            email,
+            type,
+            accountId
+        }
+        const accessToken = jwt.sign(jwtInfo, process.env.ACCESS_TOKEN, { expiresIn: '10m'});
+        const refreshToken = jwt.sign(jwtInfo, process.env.REFRESH_TOKEN, { expiresIn: '3d'});
+        res.cookie("access_token", accessToken, {httpOnly: true, secure: true});
+        res.cookie("refresh_token", refreshToken, {httpOnly: true, secure: true});
 
         res.status(200).json(account);
     }
@@ -27,31 +38,43 @@ const createAccount = async (req, res) => {
     }
 }
 
-// find account using email
-const getAccount = async (req, res) => {
-    try{
-        const account = await Account.findOne({ "email": req.params.email });
-
-        if (!account){
-            return res.status(404).json({message: "Account does not exist"});
-        }
-        res.status(200).json(account); // returns json with user information
-    }
-    catch (error){
-        res.status(500).json({message: error.message});
-    }
-}
-
 const updateAccount = async (req, res) => {
     try{
-        const account = await Account.findOneAndUpdate({ "email": req.params.email }, req.body);
+        let password = req.user.password;
+
+        // encrypt new password if there is one
+        if (req.body.password){
+            const salt = await bcrypt.genSalt();
+            password = await bcrypt.hash(req.body.password, salt);
+        }
+
+        const email = req.body.email || req.user.email;
+        const type = req.body.type || req.user.type;
+        const id = req.user.id;
+
+        const jwtInfo = {
+            email,
+            type,
+            id
+        }
+
+        const accountInfo = {
+            email,
+            type,
+            password
+        }
+
+        const accessToken = jwt.sign(jwtInfo, process.env.ACCESS_TOKEN, { expiresIn: '10m'});
+        const refreshToken = jwt.sign(jwtInfo, process.env.REFRESH_TOKEN, { expiresIn: '3d'});
+        res.cookie("access_token", accessToken, {httpOnly: true, secure: true});
+        res.cookie("refresh_token", refreshToken, {httpOnly: true, secure: true});
+
+        const account = await Account.findOneAndUpdate({ "email": req.user.email }, accountInfo);
 
         if (!account){
             return res.status(404).json({message: "Account does not exist"});
         }
-                                                    // email has been changed, find account using new email
-        const updateAccount = await Account.findOne({ "email": req.body.email || req.params.email }); 
-        res.status(200).json(updateAccount);
+        res.sendStatus(200);
     }
     catch (error){
         res.status(500).json({message: error.message});
@@ -61,7 +84,7 @@ const updateAccount = async (req, res) => {
 // delete account using email
 const deleteAccount = async (req, res) => {
     try{
-        const account = await Account.findOneAndDelete({"email" : req.params.email});
+        const account = await Account.findOneAndDelete({"email" : req.user.email});
 
         if (!account) {
             return res.status(404).json({message: "Account not found"});
@@ -88,12 +111,17 @@ const login = async (req, res) => {
 
         // verifying password
         if (await bcrypt.compare(req.body.password, user.password)){
-            const jwtUser = {
-                id: user.id,
+            const jwtInfo = {
                 email: user.email,
+                id: user.id,
+                type: user.type,
             }
-            const accessToken = jwt.sign(jwtUser, process.env.ACCESS_TOKEN);
-            res.status(200).json({accessToken: accessToken});
+            const accessToken = jwt.sign(jwtInfo, process.env.ACCESS_TOKEN, { expiresIn: '10m'});
+            const refreshToken = jwt.sign(jwtInfo, process.env.REFRESH_TOKEN, { expiresIn: '3d'});
+            // add jwt to cookies
+            res.cookie("access_token", accessToken, {httpOnly: true, secure: true});
+            res.cookie("refresh_token", refreshToken, {httpOnly: true, secure: true});
+            res.sendStatus(200);
         }
         else {
             res.status(401).json({message: "Password does not match"});
@@ -106,7 +134,6 @@ const login = async (req, res) => {
 
 module.exports = {
     createAccount,
-    getAccount,
     deleteAccount,
     updateAccount,
     login,
