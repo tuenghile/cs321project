@@ -22,6 +22,6 @@ mongoose.connect("mongodb+srv://cs321project:mongo918273645@cluster0.rfxk5.mongo
     console.log("failed to connect");
 })
 
-app.listen(3000, () => {
-    console.log("Server is running at http://localhost:3000");
+app.listen(3002, () => {
+    console.log("Server is running at http://localhost:3002");
 })
