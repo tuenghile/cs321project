@@ -106,7 +106,7 @@ const login = async (req, res) => {
 
         // making sure the user has been found
         if (!user){
-            return res.status(400).json({message: "Can't find account with the given email"});
+            return res.status(404).json({message: "Can't find account with the given email"});
         }
 
         // verifying password
