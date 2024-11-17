@@ -1,4 +1,6 @@
+const FuzzySearch = require("fuzzy-search");
 const Item = require("../models/item.model");
+const search = require("fuzzy-search");
 
 const addItem = async (req, res) => {
     try{
@@ -31,16 +33,12 @@ const updateItem = async (req, res) => {
 }
 
 // returns items with the same name or category
-const getItems = async (req, res) => {
+const searchItems = async (req, res) => {
     try{
-        if (req.query.category || req.query.title){
-            const item = await Item.find(req.query.category !== undefined ? {category: req.query.category} : {name : req.query.title});
-            res.status(200).json(item);
-        }
-        else {
-            return res.status(404).json({message: "Item does not exist"});
-        }
-        
+        const allItems = await Item.find();
+        const searcher = new FuzzySearch(allItems, ["title"], {caseSensitive: false});
+        const results = searcher.search(req.params.query);
+        res.status(200).json(results);
     }
     catch(error){
         res.status(500).json({message: error.message});
@@ -66,6 +64,6 @@ const deleteItem = async (req, res) => {
 module.exports = {
     addItem,
     updateItem,
-    getItems,
+    searchItems,
     deleteItem
 };

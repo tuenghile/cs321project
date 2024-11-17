@@ -1,14 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const authenticateToken = require("./middlewares.js");
-const { addItem, updateItem, getItems, deleteItem } = require("../controllers/item.controller.js");
+const { addItem, updateItem, searchItems, deleteItem } = require("../controllers/item.controller.js");
 
 // add item
 router.post("/add", authenticateToken, addItem);
 
-// get item by category or name
-// /getitems?category=clothes or /getitems?name=blue+hat
-router.get("/getitems", authenticateToken, getItems);
+// search item using fuzzy search
+router.get("/search/:query", authenticateToken, searchItems);
 
 // update item
 router.put("/update/:id", authenticateToken, updateItem);
