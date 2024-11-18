@@ -14,12 +14,13 @@ const SignInForm = () => {
         email: email,
         password: password
       }
-      const response = await fetch("http://localhost:3000/account/login", {
+      const response = await fetch("http://localhost:3002/account/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(accountInfo)
+        body: JSON.stringify(accountInfo),
+        credentials: "include"
       })
       if (response.ok){
         navigate('/#home');

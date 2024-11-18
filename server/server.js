@@ -7,7 +7,12 @@ const mongoose = require("mongoose");
 const accountRoute = require("./routes/account.route.js");
 const itemRoute = require("./routes/item.route.js");
 
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:3000",
+    methods: "GET, PUT, POST, DELETE",
+    allowedHeaders: "Content-Type, Authorization",
+    credentials: true
+}));
 app.use(express.json()); //allows express to accept json
 app.use(cookieParser()); //for reading cookies of each request
 

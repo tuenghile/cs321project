@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 
 const createAccount = async (req, res) => {
     try{
-        const email = req.body.email; // TODO: verify email
+        const email = req.body.email;
         
         const type = req.body.type;
 
@@ -97,6 +97,7 @@ const deleteAccount = async (req, res) => {
 }
 
 const login = async (req, res) => {
+    console.log("login");
     try{
         // checking for empty fields
         if (!req.body.email || !req.body.password){
@@ -119,8 +120,8 @@ const login = async (req, res) => {
             const accessToken = jwt.sign(jwtInfo, process.env.ACCESS_TOKEN, { expiresIn: '10m'});
             const refreshToken = jwt.sign(jwtInfo, process.env.REFRESH_TOKEN, { expiresIn: '3d'});
             // add jwt to cookies
-            res.cookie("access_token", accessToken, {httpOnly: true, secure: true});
-            res.cookie("refresh_token", refreshToken, {httpOnly: true, secure: true});
+            res.cookie("access_token", accessToken, {httpOnly: true, secure: false, sameSite: "Lax"});
+            res.cookie("refresh_token", refreshToken, {httpOnly: true, secure: false, sameSite: "Lax"});
             res.sendStatus(200);
         }
         else {

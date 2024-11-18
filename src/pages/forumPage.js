@@ -67,7 +67,8 @@ const ForumPage = () => {
       const newItem = await fetch("http://localhost:3002/item/add", {
         method: "Post",
         headers: { "Content-Type": "application/json"},
-        body: JSON.stringify(itemInfo)
+        body: JSON.stringify(itemInfo),
+        credentials: "include"
       })
       if (newItem.OK){ //TODO:handle successful response
 
