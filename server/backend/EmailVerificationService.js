@@ -6,7 +6,7 @@ const { OAuth2Client } = require('google-auth-library'); // Import OAuth2Client 
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REDIRECT_URI = process.env.REDIRECT_URI;
-const REFRESH_TOKEN = process.env.SERVER_REFRESH_TOKE;
+const REFRESH_TOKEN = process.env.EMAIL_REFRESH_TOKEN;
 
 const oAuth2Client = new OAuth2Client(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
 oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
