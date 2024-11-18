@@ -73,6 +73,9 @@ const ForumPage = () => {
       if (newItem.OK){ //TODO:handle successful response
 
       }
+      else { //TODO: handle a rejection and prevent the post from being displayed
+
+      }
     }
     catch(error){ //TODO:handle server error
       

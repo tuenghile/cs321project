@@ -2,7 +2,7 @@
 // src/App.js
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ForumPage from './pages/forumPage';
 import "./pages/css/variables.css";
 
@@ -18,7 +18,27 @@ import UpdateLogs from './pages/updateLogs';
 import AdminSettingsPage from './pages/adminSettingsPage';
 
 function App() {
+
   const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const getAllPosts = async () => {
+      try{
+        //returns an array of json
+        const response = await fetch("http://localhost:3002/item/all");
+        if (response.ok){
+          setPosts(await response.json()); 
+        }
+        else { 
+          throw Error();
+        }
+      }
+      catch(error){//TODO: handle server error
+        
+      }
+    }
+    getAllPosts();
+  }, []);
 
   const addPost = (post) => {
     setPosts((prevPosts) => [...prevPosts, post]);

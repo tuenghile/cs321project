@@ -70,10 +70,22 @@ const recentItems = async (req, res) => {
     }
 }
 
+const getAllItems = async (req, res) => {
+    try{
+        const items = await Item.find();
+        res.status(200).json({items});
+    }
+    catch(error){
+        res.sendStatus(500);
+    }
+}
+
+
 module.exports = {
     addItem,
     updateItem,
     searchItems,
     deleteItem,
-    recentItems
+    recentItems,
+    getAllItems
 };
