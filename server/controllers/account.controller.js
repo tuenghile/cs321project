@@ -28,9 +28,8 @@ const createAccount = async (req, res) => {
         }
         const accessToken = jwt.sign(jwtInfo, process.env.ACCESS_TOKEN, { expiresIn: '10m'});
         const refreshToken = jwt.sign(jwtInfo, process.env.REFRESH_TOKEN, { expiresIn: '3d'});
-        res.cookie("access_token", accessToken, {httpOnly: true, secure: true});
-        res.cookie("refresh_token", refreshToken, {httpOnly: true, secure: true});
-
+        res.cookie("access_token", accessToken, {httpOnly: true, secure: false, sameSite: "Lax"});
+        res.cookie("refresh_token", refreshToken, {httpOnly: true, secure: false, sameSite: "Lax"});
         res.status(200).json(account);
     }
     catch (error){
@@ -66,8 +65,8 @@ const updateAccount = async (req, res) => {
 
         const accessToken = jwt.sign(jwtInfo, process.env.ACCESS_TOKEN, { expiresIn: '10m'});
         const refreshToken = jwt.sign(jwtInfo, process.env.REFRESH_TOKEN, { expiresIn: '3d'});
-        res.cookie("access_token", accessToken, {httpOnly: true, secure: true});
-        res.cookie("refresh_token", refreshToken, {httpOnly: true, secure: true});
+        res.cookie("access_token", accessToken, {httpOnly: true, secure: false, sameSite: "Lax"});
+        res.cookie("refresh_token", refreshToken, {httpOnly: true, secure: false, sameSite: "Lax"});
 
         const account = await Account.findOneAndUpdate({ "email": req.user.email }, accountInfo);
 
