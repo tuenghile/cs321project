@@ -96,6 +96,7 @@
 .descriptionContainer p {
     margin: 0;
     margin-left: 10px;
+    margin-bottom: 5px;
 }
 
 .contactButton {
@@ -108,7 +109,9 @@
 /* Mobile */
 @media only screen and (max-width: 599px) {
     .postCard {
-        width: auto;
+        width: 300px;
+        height: auto;
+        flex-direction: column;
     }
 
     .postDescription {
@@ -118,17 +121,40 @@
     .titleAndLocation {
         gap: 0px;
     }
+
+    .contactButton {
+        width: auto;
+        color: white;
+        height: 45px;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .reportTypeBar {
+        width: 100%;
+        height: 10px;
+        border-radius: 50px;
+        margin-bottom: 15px;
+    }
 }
 
 /* TAblets */
 @media only screen and (min-width: 600px) and (max-width: 810px) {
     .postCard {
         width: 500px;
-        height: 300px;
+        height: auto;
     }
 
     .postImage {
         width: 170px;
         height: 170px;
+    }
+
+    .contactButton {
+        width: auto;
+        color: white;
+        height: 45px;
+        font-size: 20px;
+        text-align: center;
     }
 }
