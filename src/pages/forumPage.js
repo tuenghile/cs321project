@@ -222,15 +222,16 @@ const ForumPage = () => {
         <h2 className='post-form-header'>Posts</h2>
         <div className='posts-grid'>
           {filteredPosts.length > 0 ? (
-            filteredPosts.map((post) => (
+            filteredPosts.map((post, index) => (
               <PostCard
-                key={post.id}
+                key={index}
                 cardTitle={post.title}
                 location={post.location}
                 description={post.description}
                 image={post.image}
                 reportType={post.type}
                 date={post.date}
+                status={post.status}
               />
             ))
           ) : (
