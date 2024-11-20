@@ -1,14 +1,14 @@
 import PropTypes from "prop-types"
 import styles from "./PageHeader.module.css"
 
-function PageHeader (props) {
+function PageHeader ({pageName = "", pageDescription = ""}) {
     return(
         <div className={styles.pageHeader}>
-            <h1>{props.pageName}</h1>
+            <h1>{pageName}</h1>
 
             {/* Only renders description if string is not empty */}
             {/* Some pages may not have a description, and simply just a page name */}
-            {props.pageDescription && <p>{props.pageDescription}</p>} 
+            {pageDescription && <p>{pageDescription}</p>} 
         </div>
     );
 }
@@ -18,12 +18,6 @@ function PageHeader (props) {
 PageHeader.propTypes = {
     pageName: PropTypes.string,
     pageDescription: PropTypes.string
-}
-
-// These are values that the props have if not set
-PageHeader.defaultProps = {
-    pageName: "",
-    pageDescription: ""
 }
 
 export default PageHeader
