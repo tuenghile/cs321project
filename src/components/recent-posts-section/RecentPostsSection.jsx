@@ -59,7 +59,7 @@ function RecentPostsSection() {
                     image={post.image}
                     reportType={post.type}
                     date={post.date}
-                    postStatus={post.status}
+                    status={post.status}
                  />
             ))}
           </div>
