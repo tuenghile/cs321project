@@ -35,7 +35,7 @@ function RecentPostsSection() {
                 const response = await fetch("http://localhost:3002/item/recent");
                 const data = await response.json();
                 if (data) {
-                    setRecentPosts(data.slice(-6).reverse());
+                    setRecentPosts(data.slice(-6));
                 }
             } catch (error) {
                 console.error("Error fetching recent posts:", error);
