@@ -1,5 +1,5 @@
 import React from 'react';
-import AdminSettiings from '../components/admin-settings-box/adminSettings';
+import AdminSettings from '../components/admin-settings-box/adminSettings';
 import PageHeader from '../components/page-header/PageHeader';
 import PageFooter from '../components/PageFooter/PageFooter';
 
@@ -8,7 +8,7 @@ const AdminSettingsPage = () => {
   return (
     <div>
       <PageHeader pageName="Account" />
-      <AdminSettiings />
+      <AdminSettings />
       <PageFooter />
     </div>
   );
