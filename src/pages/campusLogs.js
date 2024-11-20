@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import PageHeader from '../components/page-header/PageHeader';
 import PageFooter from '../components/PageFooter/PageFooter';
 import LogPost from '../components/log-post/logPost';
