@@ -3,7 +3,11 @@ const Item = require("../models/item.model");
 
 const addItem = async (req, res) => {
     try{
-        const item = await Item.create(req.body);
+        const itemInfo = {
+            ...req.body,
+            email: req.user.email
+        }
+        const item = await Item.create(itemInfo);
         res.status(200).json(item);
 
     }

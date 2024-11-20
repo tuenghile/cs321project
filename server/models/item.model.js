@@ -28,6 +28,10 @@ const ItemSchema = mongoose.Schema({
     date: {
         type: String,
         required: true
+    },
+    email: {
+        type: String,
+        required: true
     }
 })
 
