@@ -23,7 +23,7 @@ const CampusLogs = ({ posts = [] }) => {
   );
 
   return (
-    <div>
+    <div id='campus-logs'>
       <PageHeader pageName='Inventory Logs' pageDescription={"Browse the items currently stored in GMU's two Lost and Found locations."} />
       <div className="campus-logs-container">
         <div className="logs-header">

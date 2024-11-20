@@ -128,7 +128,7 @@ const ForumPage = () => {
   }, []);
 
   return (
-    <div>
+    <div id="forum">
        <PageHeader pageName={"Forum"} pageDescription="Here, you can report items you’ve lost on campus
           or post about items you’ve found."/>
       <div className="forum-page">
