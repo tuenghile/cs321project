@@ -115,7 +115,7 @@ const ForumPage = () => {
   useEffect(() => {
     const getPosts = async () => {
         try {
-            const response = await fetch("http://localhost:3002/item/recent");
+            const response = await fetch("http://localhost:3002/item/all");
             const data = await response.json();
             if (data) {
               setFetchedPosts(data);
