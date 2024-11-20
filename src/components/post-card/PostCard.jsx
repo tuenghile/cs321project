@@ -2,8 +2,16 @@ import PropTypes from "prop-types";
 import styles from "../post-card/PostCard.module.css";
 import tempPostImage from "../../assets/map.png";
 
-function PostCard(props) {
-  const { cardTitle, location, description, image, reportType, date } = props;
+function PostCard(
+  {
+    cardTitle = "Post Title", 
+    location = "GMU Campus", 
+    description = "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    reportType = 'Lost',
+    date = "N/A",
+    image
+  }
+) {
 
   return (
     <div className={styles.postCard}>
@@ -42,14 +50,6 @@ PostCard.propTypes = {
   image: PropTypes.object,
   reportType: PropTypes.string,
   date: PropTypes.string, 
-};
-
-PostCard.defaultProps = {
-  cardTitle: "Post title",
-  location: "GMU Campus",
-  description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-  reportType: "Lost",
-  date: new Date().toLocaleDateString(), // Default date, if needed
 };
 
 export default PostCard;

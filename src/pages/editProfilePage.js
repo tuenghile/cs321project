@@ -8,8 +8,25 @@ const EditProfilePage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSaveChanges = () => {
-    // add stuff for saving here later
+  const handleSaveChanges = async () => {
+    const accountInfo = {
+      email,
+      password,
+    }
+    const response = await fetch("http://localhost:3002/account/update", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body:JSON.stringify(accountInfo),
+      credentials: "include"
+    })
+    if (response.ok){ //TODO: handle successful response
+
+    }
+    else{ //TODO: handle server error
+
+    }
     console.log('Changes saved:', { name, email, password });
   };
 

@@ -8,10 +8,9 @@ const authenticateToken = (req, res, next) => {
         jwt.verify(accessToken, process.env.ACCESS_TOKEN, (err, user) => {
             if (err) {
                 if (refreshToken) {
-                    console.log("generating new access");
                     // Create a new access token if the refresh token exists
                     jwt.verify(refreshToken, process.env.REFRESH_TOKEN, (err, user) => {
-                        if (err) return res.sendStatus(403);
+                        if (err) return res.status(403).json({message: "invalid refresh token"});
 
                         // Remove the exp property from the user object
                         const { exp, ...userWithoutExp } = user;
@@ -21,7 +20,7 @@ const authenticateToken = (req, res, next) => {
                         return next();
                     });
                 } else {
-                    return res.sendStatus(403); // No valid tokens found
+                    return res.status(403).json({message: "missing refresh token"}); // No valid tokens found
                 }
             } else {
                 req.user = user;
@@ -30,7 +29,7 @@ const authenticateToken = (req, res, next) => {
         });
     } else if (refreshToken) {
         jwt.verify(refreshToken, process.env.REFRESH_TOKEN, (err, user) => {
-            if (err) return res.sendStatus(403);
+            if (err) return res.status(403).json({message: "invalid access token"});
 
             // Remove the exp` property from the user object
             const { exp, ...userWithoutExp } = user;
@@ -40,7 +39,7 @@ const authenticateToken = (req, res, next) => {
             return next();
         });
     } else {
-        return res.sendStatus(403); // No valid tokens found
+        return res.status(403).json({message: "missing tokens"}); // No valid tokens found
     }
 };
 

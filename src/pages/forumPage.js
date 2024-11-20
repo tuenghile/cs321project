@@ -37,7 +37,7 @@ const ForumPage = () => {
     localStorage.setItem('posts', JSON.stringify(posts));
   }, [posts]);
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
     if (!newPost.title.trim()) {
@@ -53,6 +53,32 @@ const ForumPage = () => {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
+    }
+    try{
+      const itemInfo = {
+        title: newPost.title.trim(),
+        location: newPost.location.trim(),
+        type: newPost.reportType.trim(),
+        date: new Date().toLocaleDateString(),
+        image: newPost.image,
+        description: newPost.description.trim(),
+        status: "Unclaimed",
+      }
+      const newItem = await fetch("http://localhost:3002/item/add", {
+        method: "Post",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify(itemInfo),
+        credentials: "include"
+      })
+      if (newItem.OK){ //TODO:handle successful response
+        
+      }
+      else { //TODO: handle a rejection and prevent the post from being displayed
+
+      }
+    }
+    catch(error){ //TODO:handle server error
+      
     }
 
     const newPostData = {
@@ -78,10 +104,28 @@ const ForumPage = () => {
     setNewPost({ ...newPost, image: file });
   };
 
-  const filteredPosts = posts.filter((post) => {
+  const [fetchedPosts, setFetchedPosts] = useState([]);
+
+
+  const filteredPosts = fetchedPosts.filter((post) => {
     if (filter === 'All') return true;
     return post.reportType === filter;
   });
+
+  useEffect(() => {
+    const getRecent = async () => {
+        try {
+            const response = await fetch("http://localhost:3002/item/recent");
+            const data = await response.json();
+            if (data) {
+              setFetchedPosts(data);
+            }
+        } catch (error) {
+            console.error("Error fetching recent posts:", error);
+        }
+    };
+    getRecent();
+  }, []);
 
   return (
     <div>
@@ -176,21 +220,23 @@ const ForumPage = () => {
       {/* Posts Container */}
       <div className="forum-posts-container">
         <h2 className='post-form-header'>Posts</h2>
-        {filteredPosts.length > 0 ? (
-          filteredPosts.map((post) => (
-            <PostCard
-              key={post.id}
-              cardTitle={post.title}
-              location={post.location}
-              description={post.description}
-              image={post.image}
-              reportType={post.reportType}
-              date={post.date}
-            />
-          ))
-        ) : (
-          <p className="no-posts-message">Currently no posts available</p>
-        )}
+        <div className='posts-grid'>
+          {filteredPosts.length > 0 ? (
+            filteredPosts.map((post) => (
+              <PostCard
+                key={post.id}
+                cardTitle={post.title}
+                location={post.location}
+                description={post.description}
+                image={post.image}
+                reportType={post.type}
+                date={post.date}
+              />
+            ))
+          ) : (
+            <p className="no-posts-message">Currently no posts available</p>
+          )}
+        </div>
       </div>
     </div>
     <PageFooter />

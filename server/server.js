@@ -5,15 +5,21 @@ const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
+app.use(cors({
+    origin: "http://localhost:3000",
+    methods: "GET, PUT, POST, DELETE",
+    allowedHeaders: "Content-Type, Authorization",
+    credentials: true
+}));
+
+app.use(express.json()); //allows express to accept json
+app.use(cookieParser()); //for reading cookies of each request
+
 const accountRoute = require("./routes/account.route.js");
 const itemRoute = require("./routes/item.route.js");
 const Account = require("./models/account.model.js");
 
 require("dotenv").config();
-
-app.use(cors());
-app.use(express.json()); // allows express to accept JSON
-app.use(cookieParser()); // for reading cookies of each request
 
 app.use("/account", accountRoute);
 app.use("/item", itemRoute);
@@ -64,7 +70,6 @@ const createAdmin = async () => {
   }
 };
 
-// Start server
-app.listen(3000, () => {
-  console.log("Server is running at http://localhost:3000");
-});
+app.listen(3002, () => {
+    console.log("Server is running at http://localhost:3002");
+})
