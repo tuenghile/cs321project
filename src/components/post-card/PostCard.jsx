@@ -10,7 +10,8 @@ function PostCard(
     description = "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     reportType = 'Lost',
     date = "N/A",
-    image
+    image,
+    status = "Unclaimed"
   }
 ) {
 
@@ -22,7 +23,9 @@ function PostCard(
         style={{ backgroundColor: reportType === 'Lost' ? '#a81d31' : '#FFA500' }}
       />
       <div className={styles.contentContainer}>
-        <h3 className={styles.cardTitle}>{cardTitle}</h3>
+        <h3 className={styles.cardTitle}>
+          <span>{cardTitle}</span>
+        </h3>
         <div className={styles.centerCardSection}>
           <div className={styles.titleAndLocation}>
             <div className={styles.dataContainer}>
@@ -50,7 +53,10 @@ function PostCard(
           <p className={styles.dataHeading}>Description</p>
           {description && <p className={styles.postDescription}>{description}</p>}
         </div>
-        <button className={styles.contactButton}>Contact</button>
+        <button className={styles.contactButton} disabled={status === "Claimed"}>
+          {status === "Claimed" ? "[CLAIMED]" : "Contact"}
+        </button>
+
       </div>
     </div>
   );
@@ -63,6 +69,7 @@ PostCard.propTypes = {
   image: PropTypes.object,
   reportType: PropTypes.string,
   date: PropTypes.string, 
+  status: PropTypes.string
 };
 
 export default PostCard;

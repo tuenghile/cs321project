@@ -37,6 +37,7 @@
     text-transform: capitalize;
 }
 
+
 .contentContainer {
     width: 100%;
     display: flex;
@@ -104,6 +105,11 @@
     color: white;
     height: 30px;
     text-align: center;
+}
+
+.contactButton:disabled {
+    background-color: #28A745;
+    cursor: not-allowed;
 }
 
 /* Mobile */
