@@ -37,6 +37,9 @@
     text-transform: capitalize;
 }
 
+.postText {
+    font-size: 19px;
+}
 
 .contentContainer {
     width: 100%;

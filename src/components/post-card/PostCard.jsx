@@ -30,12 +30,12 @@ function PostCard(
           <div className={styles.titleAndLocation}>
             <div className={styles.dataContainer}>
               <p className={styles.dataHeading}>Location</p>
-              <p className={styles.capatalize}>{location}</p>
+              <p className={styles.capatalize + " " + styles.postText}>{location}</p>
             </div>
             <div className={styles.dataContainer}>
               {/* Display the date below the location */}
               <p className={styles.dataHeading}>Date</p>
-              <p className={styles.postDate}>{date}</p>
+              <p className={styles.postDate + " " + styles.postText}>{date}</p>
             </div>
           </div>
           {/* Conditional rendering for image */}
@@ -51,7 +51,7 @@ function PostCard(
         </div>
         <div className={styles.descriptionContainer}>
           <p className={styles.dataHeading}>Description</p>
-          {description && <p className={styles.postDescription}>{description}</p>}
+          {description && <p className={styles.postDescription + " " + styles.postText}>{description}</p>}
         </div>
         <button className={styles.contactButton} disabled={status === "Claimed"}>
           {status === "Claimed" ? "[CLAIMED]" : "Contact"}
