@@ -25,7 +25,7 @@ const CampusLogs = ({ posts = [] }) => {
 
   return (
     <div>
-      <PageHeader  pageDescription={"Browse the items currently stored in GMU's two Lost and Found locations."} />
+      <PageHeader pageName='Inventory Logs' pageDescription={"Browse the items currently stored in GMU's two Lost and Found locations."} />
       <div className="campus-logs-container">
         <div className="logs-header">
        {/*  <Link to="/update-logs">

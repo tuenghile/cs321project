@@ -5,7 +5,6 @@
   flex-direction: column; /* Stack items vertically */
   align-items: center; /* Center items horizontally */
   padding: 20px;
-  text-align: center;
   position: relative;
 }
 
