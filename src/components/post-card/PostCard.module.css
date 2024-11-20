@@ -118,7 +118,7 @@
 /* Mobile */
 @media only screen and (max-width: 599px) {
     .postCard {
-        width: 300px;
+        width: 270px;
         height: auto;
         flex-direction: column;
     }
@@ -144,6 +144,10 @@
         height: 10px;
         border-radius: 50px;
         margin-bottom: 15px;
+    }
+
+    .cardTitle {
+        width: 100%;
     }
 }
 
