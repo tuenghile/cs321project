@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import styles from "../post-card/PostCard.module.css";
 import tempPostImage from "../../assets/map.png";
+import PrimaryButton from "../primary-button/PrimaryButton";
 
 function PostCard(
   {
@@ -19,26 +20,38 @@ function PostCard(
       <div
         className={styles.reportTypeBar}
         style={{ backgroundColor: reportType === 'Lost' ? '#a81d31' : '#FFA500' }}
-      ></div>
-      <div className={styles.topCardSection}>
-        <div className={styles.titleAndLocation}>
-          <h3>{cardTitle}</h3>
-          <p><strong>Location: </strong> {location}</p>
-          {/* Display the date below the location */}
-          <p className={styles.postDate}><strong>Date: </strong> {date}</p>
+      />
+      <div className={styles.contentContainer}>
+        <h3 className={styles.cardTitle}>{cardTitle}</h3>
+        <div className={styles.centerCardSection}>
+          <div className={styles.titleAndLocation}>
+            <div className={styles.dataContainer}>
+              <p className={styles.dataHeading}>Location</p>
+              <p className={styles.capatalize}>{location}</p>
+            </div>
+            <div className={styles.dataContainer}>
+              {/* Display the date below the location */}
+              <p className={styles.dataHeading}>Date</p>
+              <p className={styles.postDate}>{date}</p>
+            </div>
+          </div>
+          {/* Conditional rendering for image */}
+          {image ? (
+            <img
+              src={URL.createObjectURL(image)}
+              alt={cardTitle}
+              className={styles.postImage}
+            />
+          ) : (
+            <img src={tempPostImage} alt="temporary maps icon" className={styles.postImage} />
+          )}
         </div>
-        {/* Conditional rendering for image */}
-        {image ? (
-          <img
-            src={URL.createObjectURL(image)}
-            alt={cardTitle}
-            className={styles.postImage}
-          />
-        ) : (
-          <img src={tempPostImage} alt="temporary maps icon" className={styles.postImage} />
-        )}
+        <div className={styles.descriptionContainer}>
+          <p className={styles.dataHeading}>Description</p>
+          {description && <p className={styles.postDescription}>{description}</p>}
+        </div>
+        <button className={styles.contactButton}>Contact</button>
       </div>
-      {description && <p className={styles.postDescription}>{description}</p>}
     </div>
   );
 }
