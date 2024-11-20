@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import styles from "../post-card/PostCard.module.css";
 import tempPostImage from "../../assets/map.png";
-import PrimaryButton from "../primary-button/PrimaryButton";
 
 function PostCard(
   {
