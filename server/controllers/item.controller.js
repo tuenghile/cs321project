@@ -77,7 +77,7 @@ const recentItems = async (req, res) => {
 const getAllItems = async (req, res) => {
     try{
         const items = await Item.find();
-        res.status(200).json({items});
+        res.status(200).send(items);
     }
     catch(error){
         res.sendStatus(500);
