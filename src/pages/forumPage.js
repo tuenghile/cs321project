@@ -109,11 +109,11 @@ const ForumPage = () => {
 
   const filteredPosts = fetchedPosts.filter((post) => {
     if (filter === 'All') return true;
-    return post.reportType === filter;
+    return post.type?.toLowerCase() === filter.toLowerCase();
   });
 
   useEffect(() => {
-    const getRecent = async () => {
+    const getPosts = async () => {
         try {
             const response = await fetch("http://localhost:3002/item/recent");
             const data = await response.json();
@@ -121,10 +121,10 @@ const ForumPage = () => {
               setFetchedPosts(data);
             }
         } catch (error) {
-            console.error("Error fetching recent posts:", error);
+            console.error("Error fetching posts:", error);
         }
     };
-    getRecent();
+    getPosts();
   }, []);
 
   return (
