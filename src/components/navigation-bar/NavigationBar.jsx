@@ -17,36 +17,47 @@ const scrollOffset = (el) => {
 
 function NavigationBar() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [userEmail, setUserEmail] = useState(null);
+    const navigate = useNavigate();
 
-    // Check if user is logged in
+    // Check if user is logged in and fetch user email
     useEffect(() => {
-    fetch("http://localhost:3002/account/", {
-        method: "GET",
-        credentials: "include"
-    })
-        .then((response) => {
-        if (response.ok) {
-            setIsAuthenticated(true);
-        } else {
-            setIsAuthenticated(false);
-        }
+        fetch("http://localhost:3002/account/", {
+            method: "GET",
+            credentials: "include"
         })
-        .catch((error) => {
-        console.error("Error checking authentication:", error);
-        setIsAuthenticated(false);
-        });
+            .then((response) => {
+                if (response.ok) {
+                    return response.json(); // Parse response as JSON
+                } else {
+                    setIsAuthenticated(false);
+                    return null;
+                }
+            })
+            .then((data) => {
+                if (data) {
+                    setIsAuthenticated(true);
+                    setUserEmail(data.email); // Save the email for further checks
+                }
+            })
+            .catch((error) => {
+                console.error("Error checking authentication:", error);
+                setIsAuthenticated(false);
+            });
     }, []);
 
-    const navigate = useNavigate(); // Initialize navigate function
-    // Using this to choose the right page based on the login state and clicking the account icon
     const handleAccountClick = () => {
         if (isAuthenticated) {
-            navigate("/settings"); // Replace with your desired authenticated route
+            if(userEmail === "gmulostandfound@gmail.com"){
+             navigate("/admin-settings"); // Authenticated user route
+            }
+            else{
+                navigate("/settings"); // Admin route
+            }
         } else {
-            navigate("/login");
+            navigate("/login"); // Unauthenticated user route
         }
     };
-
     return(
         <header className={styles.navBar}>
             {/* 
