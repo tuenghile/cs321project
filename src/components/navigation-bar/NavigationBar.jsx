@@ -19,7 +19,7 @@ function NavigationBar({ onSearch }) {
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setSearchInput(value);
-    onSearch =value; // Call the callback with the search input
+    onSearch(value); // Call the callback with the search input
   };
     return(
         <header className={styles.navBar}>
@@ -71,7 +71,7 @@ function NavigationBar({ onSearch }) {
                         placeholder="Search with keywords"
                         className={styles.searchInput}
                         value={searchInput}
-                        onChnage={handleSearchChange}
+                        onChange={handleSearchChange}
                     />
                 <Link to="/login">
                     <div className={styles.accountButton}>
