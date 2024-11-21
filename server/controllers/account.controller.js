@@ -144,10 +144,21 @@ const login = async (req, res) => {
     }
 }
 
+const logout = (res) => {
+    try {
+        res.clearCookie("access_token", { httpOnly: true, secure: false, sameSite: "Lax" });
+        res.clearCookie("refresh_token", { httpOnly: true, secure: false, sameSite: "Lax" });
+        res.status(200).json({ message: "Logout successful" });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
 module.exports = {
     getAccount,
     createAccount,
     deleteAccount,
     updateAccount,
     login,
+    logout
 };
