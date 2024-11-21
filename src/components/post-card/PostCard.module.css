@@ -4,7 +4,7 @@
     border-radius: 15px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.31);
     width: 360px;
-    height: 330px;
+    height: auto;
     display: flex;
     margin-bottom: 15px;
     gap: 15px;
