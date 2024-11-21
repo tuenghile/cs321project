@@ -26,6 +26,7 @@
 
 .cardTitle {
     width: 325px;
+    height: 40px;
     font-size: 28px;
     margin: 0;
     text-transform: capitalize;
