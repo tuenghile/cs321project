@@ -135,7 +135,7 @@ const login = async (req, res) => {
             // add jwt to cookies
             res.cookie("access_token", accessToken, {httpOnly: true, secure: false, sameSite: "Lax"});
             res.cookie("refresh_token", refreshToken, {httpOnly: true, secure: false, sameSite: "Lax"});
-            res.sendStatus(200);
+            res.status(200).json(jwtInfo);
         }
         else {
             res.status(401).json({message: "Password does not match"});
