@@ -3,6 +3,7 @@ import './css/forumPage.css';
 import PageFooter from '../components/PageFooter/PageFooter';
 import PageHeader from '../components/page-header/PageHeader';
 import PostCard from '../components/post-card/PostCard'; 
+import { wait } from '@testing-library/user-event/dist/utils';
 
 const ForumPage = () => {
   const [posts, setPosts] = useState([]);
@@ -105,6 +106,14 @@ const ForumPage = () => {
   };
 
   const [fetchedPosts, setFetchedPosts] = useState([]);
+
+  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  // Refreshes page after post was made
+  const handleSubmitButton = async () => {
+    await sleep(500);
+    window.location.reload();
+  };
 
 
   const filteredPosts = fetchedPosts.filter((post) => {
@@ -210,7 +219,7 @@ const ForumPage = () => {
           />
 
           <div className='button-container'>
-            <button type='submit' className='post-form-button'>Submit Post</button>
+            <button type='submit' className='post-form-button' onClick={handleSubmitButton}>Submit Post</button>
             <button className='post-form-button' onClick={() => setShowForm(false)}>Cancel</button>
           </div>
           {/* Submit and Cancel Buttons */}
