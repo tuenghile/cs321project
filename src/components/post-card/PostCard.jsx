@@ -32,7 +32,7 @@ function PostCard({
 
   return (
     <div className={styles.postCard}>
-      {/* Dynamic style for reportTypeBar based on reportType */}
+    
       <div
         className={styles.reportTypeBar}
         style={{ backgroundColor: reportType === "Lost" ? "#a81d31" : "#FFA500" }}
@@ -53,7 +53,7 @@ function PostCard({
               <p className={`${styles.postDate} ${styles.postText}`}>{date}</p>
             </div>
           </div>
-          {/* Conditional rendering for image */}
+     
           {image ? (
             <img
               src={URL.createObjectURL(image)}
@@ -68,7 +68,7 @@ function PostCard({
           <p className={styles.dataHeading}>Description</p>
           {description && <p className={`${styles.postDescription} ${styles.postText}`}>{description}</p>}
         </div>
-        {/* Conditional rendering of Contact button */}
+       
         {isAuthenticated && (
           <button className={styles.contactButton} disabled={status === "Claimed"}>
             {status === "Claimed" ? "[CLAIMED]" : "Contact"}
