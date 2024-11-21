@@ -11,14 +11,16 @@ function PostCard({
   date = "N/A",
   image,
   status = "Unclaimed",
+  userEmail = "email not available",
 }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showPopup, setShowPopup] = useState(false); // Track popup visibility
 
   // Check if user is logged in
   useEffect(() => {
     fetch("http://localhost:3002/account/", {
       method: "GET",
-      credentials: "include"
+      credentials: "include",
     })
       .then((response) => {
         if (response.ok) {
@@ -33,9 +35,16 @@ function PostCard({
       });
   }, []);
 
+  const handleContactClick = () => {
+    setShowPopup(true); // Show popup when contact button is clicked
+  };
+
+  const handleClosePopup = () => {
+    setShowPopup(false); // Close popup when the X button is clicked
+  };
+
   return (
     <div className={styles.postCard}>
-    
       <div
         className={styles.reportTypeBar}
         style={{ backgroundColor: reportType === "Lost" ? "#a81d31" : "#FFA500" }}
@@ -51,12 +60,11 @@ function PostCard({
               <p className={`${styles.capatalize} ${styles.postText}`}>{location}</p>
             </div>
             <div className={styles.dataContainer}>
-              {/* Display the date below the location */}
               <p className={styles.dataHeading}>Date</p>
               <p className={`${styles.postDate} ${styles.postText}`}>{date}</p>
             </div>
           </div>
-     
+
           {image ? (
             <img
               src={URL.createObjectURL(image)}
@@ -71,13 +79,29 @@ function PostCard({
           <p className={styles.dataHeading}>Description</p>
           {description && <p className={`${styles.postDescription} ${styles.postText}`}>{description}</p>}
         </div>
-       
+
         {isAuthenticated && (
-          <button className={styles.contactButton} disabled={status === "Claimed"}>
+          <button
+            className={styles.contactButton}
+            disabled={status === "Claimed"}
+            onClick={handleContactClick}
+          >
             {status === "Claimed" ? "[CLAIMED]" : "Contact"}
           </button>
         )}
       </div>
+
+      {/* Popup */}
+      {showPopup && (
+        <div className={styles.popupOverlay}>
+          <div className={styles.popupBox}>
+            <button className={styles.closeButton} onClick={handleClosePopup}>
+              &times;
+            </button>
+            <p className={styles.popupContent}>{userEmail}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -90,6 +114,8 @@ PostCard.propTypes = {
   reportType: PropTypes.string,
   date: PropTypes.string,
   status: PropTypes.string,
+  userEmail: PropTypes.string,
 };
 
 export default PostCard;
+

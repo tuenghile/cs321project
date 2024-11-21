@@ -243,6 +243,7 @@ const ForumPage = () => {
                   reportType={post.type}
                   date={post.date}
                   status={post.status}
+                  userEmail={post.email}
                 />
               ))
             ) : (
