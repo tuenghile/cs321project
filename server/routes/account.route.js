@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const authenticateToken = require("./middlewares.js");
-const { createAccount, deleteAccount, updateAccount, login, getAccount } = require("../controllers/account.controller.js");
+const { createAccount, deleteAccount, updateAccount, login, getAccount, logout } = require("../controllers/account.controller.js");
 
 // create account
 router.post("/create/", createAccount);
@@ -15,4 +15,6 @@ router.put("/update/", authenticateToken, updateAccount);
 router.delete("/delete/", authenticateToken, deleteAccount);
 
 router.post("/login/", login);
+
+router.post("/logout/", logout)
 module.exports = router;
