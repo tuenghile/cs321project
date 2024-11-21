@@ -105,7 +105,6 @@ const deleteAccount = async (req, res) => {
 }
 
 const login = async (req, res) => {
-    console.log("login");
     try{
         // checking for empty fields
         if (!req.body.email || !req.body.password){
@@ -130,12 +129,6 @@ const login = async (req, res) => {
             // add jwt to cookies
             res.cookie("access_token", accessToken, {httpOnly: true, secure: false, sameSite: "Lax"});
             res.cookie("refresh_token", refreshToken, {httpOnly: true, secure: false, sameSite: "Lax"});
-
-            
-            res.status(200).json({
-                message: "Login successful",
-                type: user.type, // Include user type for the redirect logic in the frontend
-            });
 
             res.status(200).json(jwtInfo);
 
