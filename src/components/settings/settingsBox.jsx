@@ -15,6 +15,27 @@ const SettingsBox = () => {
     navigate('/view-posts'); 
   };
 
+
+  const handleLogout = async () => {
+    try {
+      console.log("Attempting logout...");
+      const response = await fetch("http://localhost:3002/account/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+
+      if (response.ok) {
+        console.log("Logout successful");
+        window.location.href = "/login";
+      } else {
+        console.error("Failed to logout:", response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
+};
+
+
   return (
     <div className={styles.settingsPage}>
       <div className={styles.settingsForm}>
@@ -26,6 +47,9 @@ const SettingsBox = () => {
           <img src={postsIcon} alt="View Posts Icon" className={styles.icon} />
           <span className={styles.optionText}>View Your Posts</span>
         </div>
+        <button className={styles.logoutButton} onClick={handleLogout}>
+          Logout
+        </button>
       </div>
     </div>
   );
