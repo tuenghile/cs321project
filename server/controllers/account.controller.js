@@ -4,6 +4,14 @@ require("dotenv").config();
 
 const jwt = require("jsonwebtoken");
 
+const getAccount = async (req, res) => {
+    const email = req.user.email;
+    const type = req.user.type;
+    const id = req.user.id;
+
+    res.status(200).json({email, type, id});
+}
+
 const createAccount = async (req, res) => {
     try{
         const email = req.body.email;
@@ -133,6 +141,7 @@ const login = async (req, res) => {
 }
 
 module.exports = {
+    getAccount,
     createAccount,
     deleteAccount,
     updateAccount,
