@@ -31,9 +31,9 @@ const SignInForm = () => {
         const data = await response.json();
         console.log("Login successful:", data);
   
-        if (data.type === "Admin") {
+        if (data.type.toLowerCase() === "admin") {
           navigate("/admin-settings");
-        } else if (data.type === "User") {
+        } else if (data.type.toLowerCase() === "user") {
           navigate("/#home");
         } else {
           setErrorMessage("Unexpected response from the server.");

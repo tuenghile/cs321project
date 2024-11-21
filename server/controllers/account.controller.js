@@ -12,6 +12,12 @@ const getAccount = async (req, res) => {
     res.status(200).json({email, type, id});
 }
 
+const logout = async(req, res) => {
+    res.clearCookie("access_token");
+    res.clearCookie("refresh_token");
+    res.sendStatus(200);
+}
+
 const createAccount = async (req, res) => {
     try{
         const email = req.body.email;
@@ -38,7 +44,7 @@ const createAccount = async (req, res) => {
         const refreshToken = jwt.sign(jwtInfo, process.env.REFRESH_TOKEN, { expiresIn: '3d'});
         res.cookie("access_token", accessToken, {httpOnly: true, secure: false, sameSite: "Lax"});
         res.cookie("refresh_token", refreshToken, {httpOnly: true, secure: false, sameSite: "Lax"});
-        res.status(200).json(account);
+        res.status(200).json(jwtInfo);
     }
     catch (error){
         res.status(500).json({message: error.message});
@@ -81,7 +87,7 @@ const updateAccount = async (req, res) => {
         if (!account){
             return res.status(404).json({message: "Account does not exist"});
         }
-        res.sendStatus(200);
+        res.status(200).json(jwtInfo);
     }
     catch (error){
         res.status(500).json({message: error.message});
@@ -129,11 +135,15 @@ const login = async (req, res) => {
             // add jwt to cookies
             res.cookie("access_token", accessToken, {httpOnly: true, secure: false, sameSite: "Lax"});
             res.cookie("refresh_token", refreshToken, {httpOnly: true, secure: false, sameSite: "Lax"});
+
             
             res.status(200).json({
                 message: "Login successful",
                 type: user.type, // Include user type for the redirect logic in the frontend
             });
+
+            res.status(200).json(jwtInfo);
+
         }
         else {
             res.status(401).json({message: "Password does not match"});

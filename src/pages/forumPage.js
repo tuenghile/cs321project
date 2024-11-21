@@ -3,6 +3,7 @@ import './css/forumPage.css';
 import PageFooter from '../components/PageFooter/PageFooter';
 import PageHeader from '../components/page-header/PageHeader';
 import PostCard from '../components/post-card/PostCard'; 
+import { wait } from '@testing-library/user-event/dist/utils';
 
 const ForumPage = () => {
   const [posts, setPosts] = useState([]);
@@ -119,6 +120,15 @@ const ForumPage = () => {
   };
 
   const [fetchedPosts, setFetchedPosts] = useState([]);
+
+
+  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  // Refreshes page after post was made
+  const handleSubmitButton = async () => {
+    await sleep(750);
+    window.location.reload();
+  };
 
   const filteredPosts = fetchedPosts.filter((post) => {
     if (filter === 'All') return true;
@@ -249,6 +259,7 @@ const ForumPage = () => {
             ) : (
               <p className="no-posts-message">Currently no posts available</p>
             )}
+
           </div>
         </div>
       </div>
