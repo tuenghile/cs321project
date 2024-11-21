@@ -27,7 +27,10 @@ const ForumPage = () => {
 
   // Check if the user is logged in
   useEffect(() => {
-    fetch("http://localhost:3002/account/")
+    fetch("http://localhost:3002/account/", {
+      method: "GET",
+      credentials: "include"
+    })
       .then((response) => {
         if (response.ok) {
           setIsLoggedIn(true);
