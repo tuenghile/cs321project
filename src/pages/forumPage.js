@@ -111,7 +111,7 @@ const ForumPage = () => {
 
   // Refreshes page after post was made
   const handleSubmitButton = async () => {
-    await sleep(500);
+    await sleep(750);
     window.location.reload();
   };
 
