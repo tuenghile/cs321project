@@ -2,19 +2,20 @@ const FuzzySearch = require("fuzzy-search");
 const Item = require("../models/item.model");
 
 const addItem = async (req, res) => {
-    try{
+    try {
         const itemInfo = {
-            ...req.body,
-            email: req.user.email
-        }
-        const item = await Item.create(itemInfo);
-        res.status(200).json(item);
-
+        ...req.body,
+        image: req.file ? `/uploads/${req.file.filename}` : null,
+        email: req.user.email,
+    };
+  
+      const item = await Item.create(itemInfo);
+      res.status(200).json(item);
+    } catch (error) {
+      console.error('Error adding item:', error);
+      res.status(500).json({ message: error.message });
     }
-    catch(error) {
-        res.status(500).json({message: error.message});
-    }
-}
+  };
 
 // update item
 const updateItem = async (req, res) => {
