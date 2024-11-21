@@ -3,6 +3,8 @@ import gmuLogo from "../../assets/gmu-logo.png"
 import { HashLink as Link } from 'react-router-hash-link';
 import accountIcon from "../../assets/user.png"
 import HamburgerMenu from "../hamburger-menu/HamburgerMenu";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 
 // This is so that we scroll a bit higher than it had before. It was clipping the page heading.
 // Can use this for other pages to scroll to top of the page instead of clipping the heading, or offsets for other sections
@@ -12,7 +14,50 @@ const scrollOffset = (el) => {
     window.scrollTo({top: y, behavior: "smooth"});
 };
 
+
 function NavigationBar() {
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [userEmail, setUserEmail] = useState(null);
+    const navigate = useNavigate();
+
+    // Check if user is logged in and fetch user email
+    useEffect(() => {
+        fetch("http://localhost:3002/account/", {
+            method: "GET",
+            credentials: "include"
+        })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json(); // Parse response as JSON
+                } else {
+                    setIsAuthenticated(false);
+                    return null;
+                }
+            })
+            .then((data) => {
+                if (data) {
+                    setIsAuthenticated(true);
+                    setUserEmail(data.email); // Save the email for further checks
+                }
+            })
+            .catch((error) => {
+                console.error("Error checking authentication:", error);
+                setIsAuthenticated(false);
+            });
+    }, []);
+
+    const handleAccountClick = () => {
+        if (isAuthenticated) {
+            if(userEmail === "gmulostandfound@gmail.com"){
+             navigate("/admin-settings"); // Authenticated user route
+            }
+            else{
+                navigate("/settings"); // Admin route
+            }
+        } else {
+            navigate("/login"); // Unauthenticated user route
+        }
+    };
     return(
         <header className={styles.navBar}>
             {/* 
@@ -63,13 +108,9 @@ function NavigationBar() {
                         placeholder="Search with keywords"
                         className={styles.searchInput}
                     />
-                <Link to="/login">
-                    <div className={styles.accountButton}>
-                        <img src={accountIcon} alt="account/user icon" height="40px"/>
-
-                    </div>
-                </Link>
-
+                <div onClick={handleAccountClick} className={styles.accountButton}>
+                    <img src={accountIcon} alt="account/user icon" height="40px"/>
+                </div>
                 </div>
             </div>
 

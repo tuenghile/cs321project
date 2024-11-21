@@ -135,7 +135,15 @@ const login = async (req, res) => {
             // add jwt to cookies
             res.cookie("access_token", accessToken, {httpOnly: true, secure: false, sameSite: "Lax"});
             res.cookie("refresh_token", refreshToken, {httpOnly: true, secure: false, sameSite: "Lax"});
+
+            
+            res.status(200).json({
+                message: "Login successful",
+                type: user.type, // Include user type for the redirect logic in the frontend
+            });
+
             res.status(200).json(jwtInfo);
+
         }
         else {
             res.status(401).json({message: "Password does not match"});
@@ -145,6 +153,16 @@ const login = async (req, res) => {
         res.status(500).json({message: error.message});
     }
 }
+
+const logout = (req, res) => {
+    try {
+        res.clearCookie("access_token", { httpOnly: true, secure: false, sameSite: "Lax" });
+        res.clearCookie("refresh_token", { httpOnly: true, secure: false, sameSite: "Lax" });
+        res.status(200).json({ message: "Logout successful" });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
 
 module.exports = {
     getAccount,
