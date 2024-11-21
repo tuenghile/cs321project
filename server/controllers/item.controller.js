@@ -38,7 +38,16 @@ const updateItem = async (req, res) => {
 // returns items with the same name or category
 const searchItems = async (req, res) => {
     try{
-        const allItems = await Item.find();
+        const today = new Date();
+        const thirtyDays = new Date(today.setDate(today.getDate() - 30));
+        const allItems = await Item.find({
+            $expr: {
+                $gte: [
+                { $dateFromString: { dateString: "$date" } },
+                thirtyDays,
+                ],
+            },
+        });
         const searcher = new FuzzySearch(allItems, ["title"], {caseSensitive: false});
         const results = searcher.search(req.params.query);
         res.status(200).json(results);
@@ -66,7 +75,19 @@ const deleteItem = async (req, res) => {
 
 const recentItems = async (req, res) => {
     try {
-        const items = await Item.find().sort({ _id: -1}).limit(6);
+        const today = new Date();
+        const thirtyDays = new Date(today.setDate(today.getDate() - 30));
+
+        const items = await Item.find({
+            $expr: {
+                $gte: [
+                { $dateFromString: { dateString: "$date" } },
+                thirtyDays,
+                ],
+            },
+            })
+            .sort({ _id: -1 })
+            .limit(6);
         res.send(items);
     }
     catch(error){
@@ -76,7 +97,16 @@ const recentItems = async (req, res) => {
 
 const getAllItems = async (req, res) => {
     try{
-        const items = await Item.find();
+        const today = new Date();
+        const thirtyDays = new Date(today.setDate(today.getDate() - 30));
+        const items = await Item.find({
+            $expr: {
+                $gte: [
+                { $dateFromString: { dateString: "$date" } },
+                thirtyDays,
+                ],
+            },
+        });
         res.status(200).send(items);
     }
     catch(error){
