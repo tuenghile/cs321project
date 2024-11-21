@@ -40,13 +40,29 @@ function App() {
     getAllPosts();
   }, []);
 
+  async function setSearchQuery(){
+    try{
+      //returns an array of json
+      const response = await fetch("http://localhost:3002/item/recent");
+      if (response.ok){
+        setPosts(await response.json()); 
+      }
+      else { 
+        throw Error();
+      }
+    }
+    catch(error){//TODO: handle server error
+      
+    }
+  }
+
   const addPost = (post) => {
     setPosts((prevPosts) => [...prevPosts, post]);
   };
 
   return (
     <Router>
-      <NavigationBar />
+      <NavigationBar onSearch={setSearchQuery}/>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/forum" element={<ForumPage />} />

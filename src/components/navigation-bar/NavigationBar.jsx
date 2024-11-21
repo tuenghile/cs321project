@@ -3,6 +3,7 @@ import gmuLogo from "../../assets/gmu-logo.png"
 import { HashLink as Link } from 'react-router-hash-link';
 import accountIcon from "../../assets/user.png"
 import HamburgerMenu from "../hamburger-menu/HamburgerMenu";
+import {useState} from 'react';
 
 // This is so that we scroll a bit higher than it had before. It was clipping the page heading.
 // Can use this for other pages to scroll to top of the page instead of clipping the heading, or offsets for other sections
@@ -12,7 +13,14 @@ const scrollOffset = (el) => {
     window.scrollTo({top: y, behavior: "smooth"});
 };
 
-function NavigationBar() {
+function NavigationBar({ onSearch }) {
+    const [searchInput, setSearchInput] = useState('');
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchInput(value);
+    onSearch =value; // Call the callback with the search input
+  };
     return(
         <header className={styles.navBar}>
             {/* 
@@ -62,6 +70,8 @@ function NavigationBar() {
                         type="text"
                         placeholder="Search with keywords"
                         className={styles.searchInput}
+                        value={searchInput}
+                        onChnage={handleSearchChange}
                     />
                 <Link to="/login">
                     <div className={styles.accountButton}>
