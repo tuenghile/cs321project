@@ -144,7 +144,7 @@ const login = async (req, res) => {
     }
 }
 
-const logout = (res) => {
+const logout = (req, res) => {
     try {
         res.clearCookie("access_token", { httpOnly: true, secure: false, sameSite: "Lax" });
         res.clearCookie("refresh_token", { httpOnly: true, secure: false, sameSite: "Lax" });
