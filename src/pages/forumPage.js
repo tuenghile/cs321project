@@ -128,6 +128,12 @@ const ForumPage = () => {
     getPosts();
   }, []);
 
+  const refreshPage = () => {
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  };
+
   return (
     <div id="forum">
        <PageHeader pageName={"Forum"} pageDescription="Here, you can report items you’ve lost on campus
@@ -211,7 +217,7 @@ const ForumPage = () => {
           />
 
           <div className='button-container'>
-            <button type='submit' className='post-form-button'>Submit Post</button>
+            <button type='submit' className='post-form-button' onClick={refreshPage}>Submit Post</button>
             <button className='post-form-button' onClick={() => setShowForm(false)}>Cancel</button>
           </div>
           {/* Submit and Cancel Buttons */}
