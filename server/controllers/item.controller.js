@@ -107,7 +107,8 @@ const getAllItems = async (req, res) => {
                 thirtyDays,
                 ],
             },
-        });
+        })
+        .sort({ date: -1 });
         res.status(200).send(items);
     }
     catch(error){
