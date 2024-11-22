@@ -1,5 +1,19 @@
 Team 5, section: 004
 
+How to run the project locally
+1.  Open a terminal and go into the directory containing the code
+2.  npm install
+3.  cd server/backend
+4.  npm install cors
+5.  npm install nodemailer
+6.  npm install google-auth-library
+7.  nopde app.js
+8.  Open another terminal and go into the directory containing the code
+9.  npm run dev
+10. Open another terminal and go into the directory containing the code
+11. npm start
+   
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
