@@ -40,6 +40,8 @@
 
 .postText {
     font-size: 19px;
+    width: fit-content;
+    max-width: 100%;
 }
 
 .contentContainer {
@@ -76,6 +78,7 @@
     flex-direction: column;
     gap: 20px;
     justify-content: start;
+    flex-basis: 66.66%;
 }
 
 .dataContainer {
@@ -91,6 +94,7 @@
 .titleAndLocation h3, .titleAndLocation p {
     overflow: hidden;
     text-overflow: ellipsis;
+    padding: 2px 5px;
 }
 
 .postImage {
@@ -99,6 +103,7 @@
 }
 
 .descriptionContainer p {
+    width: auto;
     margin: 0;
     margin-left: 10px;
     margin-bottom: 5px;
@@ -114,6 +119,17 @@
 .contactButton:disabled {
     background-color: #28A745;
     cursor: not-allowed;
+}
+
+.containerOutline {
+    background-color: rgb(205, 212, 218);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.textOutline {
+    background-color: rgb(205, 212, 218);
+    border-radius: 5px;
 }
 
 /* Mobile */
