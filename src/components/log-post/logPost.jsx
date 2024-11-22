@@ -33,33 +33,38 @@ const LogPost = ({ id, title, date, location, description, status: initialStatus
       });
   }, []);
 
-  // Function to handle status update
-  const handleStatusChange = (newStatus) => {
-    setStatus(newStatus); // Update the local state
+  const handleStatusChange = async (newStatus) => {
+    try {
+        setStatus(newStatus);
 
-    // Send the updated status to the server
-    fetch(`http://localhost:3002/posts/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ status: newStatus }),
-    })
-      .then((response) => {
-        if (response.ok) {
-          console.log("Status updated successfully.");
-          if (onStatusUpdate) onStatusUpdate(); // Notify parent to refresh posts
-        } else {
-          console.error("Failed to update status.");
+        console.log("Updating status for item ID:", id);
+
+        const response = await fetch(`http://localhost:3002/item/status/${id}`, {
+          method: "PATCH",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ status: newStatus }),
+          credentials: "include", // Ensure cookies are sent with the request
+        });
+
+        console.log("Server response:", response);
+
+        if (!response.ok) {
+          throw new Error(`Server error: ${response.statusText}`);
         }
-      })
-      .catch((error) => {
-        console.error("Error updating status:", error);
-      });
 
-    // Hide the dropdown after updating
-    setShowDropdown(false);
-  };
+        const updatedItem = await response.json();
+        console.log("Status updated successfully:", updatedItem);
+
+        setShowDropdown(false);
+    } catch (error) {
+        console.error("Error updating status:", error);
+        setStatus((prevStatus) => !prevStatus);
+    }
+};
+
+
 
   return (
     <div
@@ -109,4 +114,3 @@ const LogPost = ({ id, title, date, location, description, status: initialStatus
 };
 
 export default LogPost;
-
