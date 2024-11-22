@@ -54,6 +54,7 @@ const CampusLogs = ({ posts = [] }) => {
             filteredPosts.map((post, index) => (
               <LogPost
                 key={index}
+                id={post._id}
                 itemName={post.itemName}
                 date={post.date}
                 location={post.location}

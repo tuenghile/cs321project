@@ -1,7 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const authenticateToken = require("./middlewares.js");
-const { addItem, updateItem, searchItems, deleteItem, recentItems, getAllItems } = require("../controllers/item.controller.js");
+const { addItem, updateItem, searchItems, 
+    deleteItem, recentItems, getAllItems,
+    updateStatus
+} = require("../controllers/item.controller.js");
 
 // add item
 router.post("/add", authenticateToken, addItem);
@@ -19,4 +22,6 @@ router.put("/update/:id", authenticateToken, updateItem);
 
 router.delete("/delete/:id", authenticateToken, deleteItem);
 
+// Update only the status of an item
+router.patch("/status/:id", authenticateToken, updateStatus);
 module.exports = router;
