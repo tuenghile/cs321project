@@ -18,21 +18,22 @@ const CampusLogs = ({ posts = [] }) => {
     setShowDropdown((prev) => !prev);
   };
 
-  const filteredPosts = (Array.isArray(posts) ? posts : []).filter(
-    (post) => filter === 'All' || post.status === filter
-  );
+  const filteredPosts = (Array.isArray(posts) ? posts : []).filter((post) => {
+    console.log(`Filtering post with status: ${post.status}, Current filter: ${filter}`);
+    return filter === 'All' || post.status === filter;
+  });
 
   return (
-    <div id='campus-logs'>
-      <PageHeader pageName='Inventory Logs' pageDescription={"Browse the items currently stored in GMU's two Lost and Found locations."} />
+    <div id="campus-logs">
+      <PageHeader
+        pageName="Inventory Logs"
+        pageDescription={"Browse the items currently stored in GMU's two Lost and Found locations."}
+      />
       <div className="campus-logs-container">
         <div className="logs-header">
-       {/*  <Link to="/update-logs">
-            <button className="update-logs-button">Update Logs</button>
-          </Link> */}
           <div className="filter-dropdown">
             <button onClick={toggleDropdown} className="filter-button">
-              Filter: {filter} 
+              Filter: {filter}
             </button>
             {showDropdown && (
               <div className="dropdown-menu">
@@ -73,5 +74,4 @@ const CampusLogs = ({ posts = [] }) => {
 };
 
 export default CampusLogs;
-
 
