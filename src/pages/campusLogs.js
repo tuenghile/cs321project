@@ -75,4 +75,3 @@ const CampusLogs = ({ posts = [] }) => {
 };
 
 export default CampusLogs;
-

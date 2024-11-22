@@ -113,4 +113,3 @@ const LogPost = ({ id, title, date, location, description, status: initialStatus
 };
 
 export default LogPost;
-
