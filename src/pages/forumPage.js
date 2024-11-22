@@ -125,6 +125,12 @@ const ForumPage = () => {
     return post.type?.toLowerCase() === filter.toLowerCase();
   });
 
+  const refreshPage = () => {
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  };
+
   useEffect(() => {
     const getPosts = async () => {
       try {
@@ -222,7 +228,7 @@ const ForumPage = () => {
             />
 
             <div className="button-container">
-              <button type="submit" className="post-form-button">Submit Post</button>
+              <button type="submit" className="post-form-button" onClick={refreshPage}>Submit Post</button>
               <button className="post-form-button" onClick={() => setShowForm(false)}>Cancel</button>
             </div>
           </form>
