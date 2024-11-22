@@ -1,5 +1,6 @@
 const FuzzySearch = require("fuzzy-search");
 const Item = require("../models/item.model");
+const mongoose = require("mongoose"); // Add mongoose to validate ObjectId
 
 const addItem = async (req, res) => {
     try {
@@ -115,6 +116,38 @@ const getAllItems = async (req, res) => {
     }
 }
 
+const updateStatus = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { status } = req.body; // Expecting `status` field in the request body
+
+        // Validate ID format
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ message: "Invalid ID format" });
+        }
+
+        // Validate that the status is provided
+        if (!status || typeof status !== "string") {
+            return res.status(400).json({ message: "Invalid status provided" });
+        }
+
+        // Update the item's status
+        const updatedItem = await Item.findByIdAndUpdate(
+            id,
+            { status },
+            { new: true } // Return the updated document
+        );
+
+        if (!updatedItem) {
+            return res.status(404).json({ message: "Item not found" });
+        }
+
+        res.status(200).json(updatedItem);
+    } catch (error) {
+        console.error("Error updating item status:", error);
+        res.status(500).json({ message: error.message });
+    }
+}
 
 module.exports = {
     addItem,
@@ -122,5 +155,6 @@ module.exports = {
     searchItems,
     deleteItem,
     recentItems,
-    getAllItems
+    getAllItems,
+    updateStatus
 };
