@@ -7,7 +7,7 @@ const bcrypt = require("bcrypt");
 
 app.use(cors({
     origin: "http://localhost:3000",
-    methods: "GET, PUT, POST, DELETE",
+    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
     allowedHeaders: "Content-Type, Authorization",
     credentials: true
 }));
