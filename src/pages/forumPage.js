@@ -3,7 +3,6 @@ import './css/forumPage.css';
 import PageFooter from '../components/PageFooter/PageFooter';
 import PageHeader from '../components/page-header/PageHeader';
 import PostCard from '../components/post-card/PostCard'; 
-import { wait } from '@testing-library/user-event/dist/utils';
 
 const ForumPage = () => {
   const [posts, setPosts] = useState([]);
@@ -24,6 +23,27 @@ const ForumPage = () => {
   });
 
   const [filter, setFilter] = useState('All');
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // State for login check
+
+  // Check if the user is logged in
+  useEffect(() => {
+    fetch("http://localhost:3002/account/", {
+      method: "GET",
+      credentials: "include"
+    })
+      .then((response) => {
+        if (response.ok) {
+          setIsLoggedIn(true);
+        } else {
+          setIsLoggedIn(false);
+        }
+      })
+      .catch((error) => {
+        console.error("Error checking authentication:", error);
+        setIsLoggedIn(false);
+      });
+  }, []);
+
 
   // Load posts from localStorage on initial load
   useEffect(() => {
@@ -55,7 +75,8 @@ const ForumPage = () => {
       setErrors(newErrors);
       return;
     }
-    try{
+
+    try {
       const itemInfo = {
         title: newPost.title.trim(),
         location: newPost.location.trim(),
@@ -63,32 +84,24 @@ const ForumPage = () => {
         date: new Date().toLocaleDateString(),
         image: newPost.image,
         description: newPost.description.trim(),
-        status: "Unclaimed",
-      }
-      const newItem = await fetch("http://localhost:3002/item/add", {
-        method: "Post",
-        headers: { "Content-Type": "application/json"},
+        status: 'Unclaimed',
+      };
+      const newItem = await fetch('http://localhost:3002/item/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(itemInfo),
-        credentials: "include"
-      })
-      if (newItem.OK){ //TODO:handle successful response
-        
+        credentials: 'include',
+      });
+      if (newItem.ok) {
+        const savedItem = await newItem.json();
+        setPosts([...posts, savedItem]);
+      } else {
+        console.error('Failed to add item.');
       }
-      else { //TODO: handle a rejection and prevent the post from being displayed
-
-      }
-    }
-    catch(error){ //TODO:handle server error
-      
+    } catch (error) {
+      console.error('Error adding item:', error);
     }
 
-    const newPostData = {
-      id: posts.length + 1,
-      ...newPost,
-      date: new Date().toLocaleDateString(),
-    };
-
-    setPosts([...posts, newPostData]);
     setNewPost({
       title: '',
       location: '',
@@ -107,7 +120,6 @@ const ForumPage = () => {
 
   const [fetchedPosts, setFetchedPosts] = useState([]);
 
-
   const filteredPosts = fetchedPosts.filter((post) => {
     if (filter === 'All') return true;
     return post.type?.toLowerCase() === filter.toLowerCase();
@@ -115,139 +127,132 @@ const ForumPage = () => {
 
   useEffect(() => {
     const getPosts = async () => {
-        try {
-            const response = await fetch("http://localhost:3002/item/all");
-            const data = await response.json();
-            if (data) {
-              setFetchedPosts(data);
-            }
-        } catch (error) {
-            console.error("Error fetching posts:", error);
+      try {
+        const response = await fetch('http://localhost:3002/item/all');
+        const data = await response.json();
+        if (data) {
+          setFetchedPosts(data);
         }
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      }
     };
     getPosts();
   }, []);
 
-  const refreshPage = () => {
-    setTimeout(() => {
-      window.location.reload();
-    }, 1000);
-  };
-
   return (
     <div id="forum">
-       <PageHeader pageName={"Forum"} pageDescription="Here, you can report items you’ve lost on campus
-          or post about items you’ve found."/>
+      <PageHeader pageName="Forum" pageDescription="Here, you can report items you’ve lost on campus or post about items you’ve found." />
       <div className="forum-page">
 
-      {/* Create Post Button */}
-      <div className="create-post">
-        <button
-          className="create-post-btn"
-          onClick={() => setShowForm(!showForm)}
-        >
-          Create Post
-        </button>
-      </div>
-
-      {/* Filter Dropdown */}
-      <div className={`forum-filter-dropdown ${dropdownOpen ? 'open' : ''}`}>
-        <select
-          value={filter || ''}
-          onChange={(e) => setFilter(e.target.value)}
-          onFocus={() => setDropdownOpen(true)}   // Open dropdown
-          onBlur={() => setDropdownOpen(false)}    // Close dropdown
-        >
-          <option value="All">Show All</option>
-          <option value="Lost">Show Lost</option>
-          <option value="Found">Show Found</option>
-        </select>
-      </div>
-
-      {/* Post Form */}
-      {showForm && (
-        <form className="post-form" onSubmit={handleFormSubmit}>
-          <h2 className='post-form-header'>Create post form</h2>
-          <input
-            type="text"
-            placeholder="Post Title (Required)"
-            value={newPost.title}
-            onChange={(e) =>
-              setNewPost({ ...newPost, title: e.target.value })
-            }
-          />
-          {errors.title && <p className="error-message">{errors.title}</p>}
-
-          <input
-            type="text"
-            placeholder="Location (Required)"
-            value={newPost.location}
-            onChange={(e) =>
-              setNewPost({ ...newPost, location: e.target.value })
-            }
-          />
-          {errors.location && <p className="error-message">{errors.location}</p>}
-
-          <select
-            value={newPost.reportType}
-            onChange={(e) =>
-              setNewPost({ ...newPost, reportType: e.target.value })
-            }
-          >
-            <option value="">Select Report Type (Required)</option>
-            <option value="Lost">Report Lost</option>
-            <option value="Found">Report Found</option>
-          </select>
-          {errors.reportType && (
-            <p className="error-message">{errors.reportType}</p>
-          )}
-
-          <textarea
-            placeholder="Post Description (Optional)"
-            value={newPost.description}
-            onChange={(e) =>
-              setNewPost({ ...newPost, description: e.target.value })
-            }
-          ></textarea>
-
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-          />
-
-          <div className='button-container'>
-            <button type='submit' className='post-form-button' onClick={refreshPage}>Submit Post</button>
-            <button className='post-form-button' onClick={() => setShowForm(false)}>Cancel</button>
+        {/* Create Post Button */}
+        {isLoggedIn && (
+          <div className="create-post">
+            <button
+              className="create-post-btn"
+              onClick={() => setShowForm(!showForm)}
+            >
+              Create Post
+            </button>
           </div>
-          {/* Submit and Cancel Buttons */}
-        </form>
-      )}
+        )}
 
-      {/* Posts Container */}
-      <div className="forum-posts-container">
-        <h2 className='post-form-header'>Posts</h2>
-        <div className='posts-grid'>
-          {filteredPosts.length > 0 ? (
-            filteredPosts.map((post, index) => (
-              <PostCard
-                key={index}
-                cardTitle={post.title}
-                location={post.location}
-                description={post.description}
-                image={post.image}
-                reportType={post.type}
-                date={post.date}
-                status={post.status}
-              />
-            ))
-          ) : (
-            <p className="no-posts-message">Currently no posts available</p>
-          )}
+        {/* Filter Dropdown */}
+        <div className={`forum-filter-dropdown ${dropdownOpen ? 'open' : ''}`}>
+          <select
+            value={filter || ''}
+            onChange={(e) => setFilter(e.target.value)}
+            onFocus={() => setDropdownOpen(true)}   // Open dropdown
+            onBlur={() => setDropdownOpen(false)}    // Close dropdown
+          >
+            <option value="All">Show All</option>
+            <option value="Lost">Show Lost</option>
+            <option value="Found">Show Found</option>
+          </select>
+        </div>
+
+        {/* Post Form */}
+        {showForm && (
+          <form className="post-form" onSubmit={handleFormSubmit}>
+            <h2 className="post-form-header">Create post form</h2>
+            <input
+              type="text"
+              placeholder="Post Title (Required)"
+              value={newPost.title}
+              onChange={(e) =>
+                setNewPost({ ...newPost, title: e.target.value })
+              }
+            />
+            {errors.title && <p className="error-message">{errors.title}</p>}
+
+            <input
+              type="text"
+              placeholder="Location (Required)"
+              value={newPost.location}
+              onChange={(e) =>
+                setNewPost({ ...newPost, location: e.target.value })
+              }
+            />
+            {errors.location && <p className="error-message">{errors.location}</p>}
+
+            <select
+              value={newPost.reportType}
+              onChange={(e) =>
+                setNewPost({ ...newPost, reportType: e.target.value })
+              }
+            >
+              <option value="">Select Report Type (Required)</option>
+              <option value="Lost">Report Lost</option>
+              <option value="Found">Report Found</option>
+            </select>
+            {errors.reportType && <p className="error-message">{errors.reportType}</p>}
+
+            <textarea
+              placeholder="Post Description (Optional)"
+              value={newPost.description}
+              onChange={(e) =>
+                setNewPost({ ...newPost, description: e.target.value })
+              }
+            ></textarea>
+
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageUpload}
+            />
+
+            <div className="button-container">
+              <button type="submit" className="post-form-button">Submit Post</button>
+              <button className="post-form-button" onClick={() => setShowForm(false)}>Cancel</button>
+            </div>
+          </form>
+        )}
+
+        {/* Posts Container */}
+        <div className="forum-posts-container">
+          <h2 className="post-form-header">Posts</h2>
+          <div className="posts-grid">
+            {filteredPosts.length > 0 ? (
+              filteredPosts.map((post, index) => (
+                <PostCard
+                  key={index}
+                  cardTitle={post.title}
+                  location={post.location}
+                  description={post.description}
+                  image={post.image}
+                  reportType={post.type}
+                  date={post.date}
+                  status={post.status}
+                  userEmail={post.email}
+                />
+              ))
+            ) : (
+              <p className="no-posts-message">Currently no posts available</p>
+            )}
+          </div>
         </div>
       </div>
-    </div>
-    <PageFooter />
+      <PageFooter />
     </div>
   );
 };
