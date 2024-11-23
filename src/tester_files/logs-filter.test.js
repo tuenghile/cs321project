@@ -21,6 +21,29 @@ const mockPosts = [
   { id: 15, title: 'Hat', date: '2024-11-08', location: 'Library', description: 'Blue hat', status: 'Unclaimed' },
 ];
 
+
+const mockClaimedPosts = [
+  { id: 2, title: 'Watch', date: '2024-11-21', location: 'Cafeteria', description: 'Black digital watch', status: 'Claimed' },
+  { id: 4, title: 'Phone', date: '2024-11-19', location: 'Gym', description: 'iPhone 12', status: 'Claimed' },
+  { id: 6, title: 'Jacket', date: '2024-11-17', location: 'Cafeteria', description: 'Green hoodie', status: 'Claimed' },
+  { id: 8, title: 'Pen', date: '2024-11-15', location: 'Library', description: 'Blue ballpoint pen', status: 'Claimed' },
+  { id: 10, title: 'Hat', date: '2024-11-13', location: 'Cafeteria', description: 'Red cap', status: 'Claimed' },
+  { id: 12, title: 'Gloves', date: '2024-11-11', location: 'Gym', description: 'Leather gloves', status: 'Claimed' },
+  { id: 14, title: 'Wallet', date: '2024-11-09', location: 'Cafeteria', description: 'Black leather wallet', status: 'Claimed' },
+];
+
+const mockUnclaimedPosts = [
+  { id: 1, title: 'Keys', date: '2024-11-22', location: 'Library', description: 'Silver keychain', status: 'Unclaimed' },
+  { id: 3, title: 'Wallet', date: '2024-11-20', location: 'Dorm', description: 'Brown leather wallet', status: 'Unclaimed' },
+  { id: 5, title: 'Glasses', date: '2024-11-18', location: 'Library', description: 'Black framed glasses', status: 'Unclaimed' },
+  { id: 7, title: 'Phone', date: '2024-11-16', location: 'Dorm', description: 'Samsung Galaxy S20', status: 'Unclaimed' },
+  { id: 9, title: 'Book', date: '2024-11-14', location: 'Gym', description: 'Textbook on Calculus', status: 'Unclaimed' },
+  { id: 11, title: 'Shoes', date: '2024-11-12', location: 'Library', description: 'Black sneakers', status: 'Unclaimed' },
+  { id: 13, title: 'Scarf', date: '2024-11-10', location: 'Dorm', description: 'Woolen scarf', status: 'Unclaimed' },
+  { id: 15, title: 'Hat', date: '2024-11-08', location: 'Library', description: 'Blue hat', status: 'Unclaimed' },
+];
+
+
 jest.mock('../components/log-post/logPost', () => ({ id, date, location, title, description, status }) => (
   <div data-testid="log-post">
     <h3>{title}</h3>
@@ -104,4 +127,28 @@ describe('CampusLogs Filter Tests', () => {
     expect(screen.getByText('No posts available')).toBeInTheDocument();
   });
 
+  test('No posts available when filtered by "Unclaimed" and only claimed posts exist', () => {
+    render(<CampusLogs posts={mockClaimedPosts} filter="Unclaimed" onFilterChange={() => {}} />);
+    fireEvent.click(screen.getByTestId('filter-unclaimed'));
+    expect(screen.queryByTestId('log-post')).toBeNull();
+    expect(screen.getByText('No posts available')).toBeInTheDocument();
+  });
+
+  test('No posts available when filtered by "Claimed" and only unclaimed posts exist', () => {
+    render(<CampusLogs posts={mockUnclaimedPosts} filter="Claimed" onFilterChange={() => {}} />);
+    fireEvent.click(screen.getByTestId('filter-claimed'));
+    expect(screen.queryByTestId('log-post')).toBeNull();
+    expect(screen.getByText('No posts available')).toBeInTheDocument();
+  });
 });
+
+
+
+
+
+
+
+
+
+
+
