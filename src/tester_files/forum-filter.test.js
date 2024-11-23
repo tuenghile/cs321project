@@ -22,19 +22,19 @@ const mockPosts = [
 ];
 
 const onlyLostPosts = [
-  { title: 'Lost Keys', location: 'Library', reportype: 'Lost', date: '2024-11-22', description: 'Silver keychain', status: 'Unclaimed', userEmail: 'user1@example.com' },
-  { title: 'Lost Wallet', location: 'Dorm', reportype: 'Lost', date: '2024-11-20', description: 'Brown leather wallet', status: 'Claimed', userEmail: 'user3@example.com' },
-  { title: 'Lost Bag', location: 'Library', reportype: 'Lost', date: '2024-11-18', description: 'Black backpack', status: 'Unclaimed', userEmail: 'user5@example.com' },
-  { title: 'Lost Phone', location: 'Library', reportype: 'Lost', date: '2024-11-16', description: 'Samsung Galaxy', status: 'Unclaimed', userEmail: 'user7@example.com' },
-  { title: 'Lost Watch', location: 'Cafeteria', reportype: 'Lost', date: '2024-11-14', description: 'Silver wristwatch', status: 'Unclaimed', userEmail: 'user9@example.com' },
+  { title: 'Lost Keys', location: 'Library', reportype: 'Lost', date: '2024-11-22', description: 'Silver keychain', status: 'Unclaimed', userEmail: 'johnDoe@gmu.edu' },
+  { title: 'Lost Wallet', location: 'Dorm', reportype: 'Lost', date: '2024-11-20', description: 'Brown leather wallet', status: 'Claimed', userEmail: 'slakama@gmu.edu' },
+  { title: 'Lost Bag', location: 'Library', reportype: 'Lost', date: '2024-11-18', description: 'Black backpack', status: 'Unclaimed', userEmail: 'jruiz@gmu.edu' },
+  { title: 'Lost Phone', location: 'Library', reportype: 'Lost', date: '2024-11-16', description: 'Samsung Galaxy', status: 'Unclaimed', userEmail: 'eliie@gmu.edu' },
+  { title: 'Lost Watch', location: 'Cafeteria', reportype: 'Lost', date: '2024-11-14', description: 'Silver wristwatch', status: 'Unclaimed', userEmail:  'victdo@gmu.edu'},
 ];
 
 const onlyFoundPosts = [
-  { title: 'Found Watch', location: 'Cafeteria', reportype: 'Found', date: '2024-11-21', description: 'Black digital watch', status: 'Unclaimed', userEmail: 'user2@example.com' },
-  { title: 'Found Phone', location: 'Gym', reportype: 'Found', date: '2024-11-19', description: 'iPhone 12', status: 'Unclaimed', userEmail: 'user4@example.com' },
-  { title: 'Found Glasses', location: 'Cafeteria', reportype: 'Found', date: '2024-11-17', description: 'Blue-framed glasses', status: 'Claimed', userEmail: 'user6@example.com' },
-  { title: 'Found Shoes', location: 'Gym', reportype: 'Found', date: '2024-11-15', description: 'Running shoes', status: 'Unclaimed', userEmail: 'user8@example.com' },
-  { title: 'Found Jacket', location: 'Dorm', reportype: 'Found', date: '2024-11-13', description: 'Leather jacket', status: 'Claimed', userEmail: 'user10@example.com' },
+  { title: 'Found Watch', location: 'Cafeteria', reportype: 'Found', date: '2024-11-21', description: 'Black digital watch', status: 'Unclaimed', userEmail: 'johnDoe@gmu.edu'},
+  { title: 'Found Phone', location: 'Gym', reportype: 'Found', date: '2024-11-19', description: 'iPhone 12', status: 'Unclaimed', userEmail: 'jruiz@gmu.edu'},
+  { title: 'Found Glasses', location: 'Cafeteria', reportype: 'Found', date: '2024-11-17', description: 'Blue-framed glasses', status: 'Claimed', userEmail: 'eliie@gmu.edu' },
+  { title: 'Found Shoes', location: 'Gym', reportype: 'Found', date: '2024-11-15', description: 'Running shoes', status: 'Unclaimed', userEmail:  'victdo@gmu.edu'},
+  { title: 'Found Jacket', location: 'Dorm', reportype: 'Found', date: '2024-11-13', description: 'Leather jacket', status: 'Claimed', userEmail: 'janeDoe@gmu.edu' },
 ];
 
 jest.mock('../pages/forumPage', () => (props) => {
