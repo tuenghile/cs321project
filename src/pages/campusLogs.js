@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PageHeader from '../components/page-header/PageHeader';
 import PageFooter from '../components/PageFooter/PageFooter';
 import LogPost from '../components/log-post/logPost';
 
 import './css/campusLogs.css';
 
-const CampusLogs = ({ posts = [] }) => {
-  const [currentPosts, setCurrentPosts] = useState(posts);
+const CampusLogs = () => {
+  const [currentPosts, setCurrentPosts] = useState([]);
   const [filter, setFilter] = useState('All');
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -20,8 +20,27 @@ const CampusLogs = ({ posts = [] }) => {
     setShowDropdown((prev) => !prev);
   };
 
+  useEffect(() => {
+    const getAllPosts = async () => {
+      try{
+        //returns an array of json
+        const response = await fetch("http://localhost:3002/item/all");
+        if (response.ok){
+          setCurrentPosts(await response.json()); 
+        }
+        else { 
+          throw Error();
+        }
+      }
+      catch(error){//TODO: handle server error
+        
+      }
+    }
+    getAllPosts();
+  }, []);
+
   const filteredPosts = (Array.isArray(currentPosts) ? currentPosts : []).filter((currentPosts) => {
-    console.log(`Filtering post with status: ${currentPosts.status}, Current filter: ${filter}`);
+    // console.log(`Filtering post with status: ${currentPosts.status}, Current filter: ${filter}`);
     return filter === 'All' || currentPosts.status === filter;
   });
 
