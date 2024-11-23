@@ -21,6 +21,22 @@ const mockPosts = [
   { title: 'Lost Bag', location: 'Dorm', reportType: 'Lost', date: '2024-11-08', description: 'Canvas bag', status: 'Claimed', userEmail: 'testuser345@gum.edu'},
 ];
 
+const onlyLostPosts = [
+  { title: 'Lost Keys', location: 'Library', reportype: 'Lost', date: '2024-11-22', description: 'Silver keychain', status: 'Unclaimed', userEmail: 'user1@example.com' },
+  { title: 'Lost Wallet', location: 'Dorm', reportype: 'Lost', date: '2024-11-20', description: 'Brown leather wallet', status: 'Claimed', userEmail: 'user3@example.com' },
+  { title: 'Lost Bag', location: 'Library', reportype: 'Lost', date: '2024-11-18', description: 'Black backpack', status: 'Unclaimed', userEmail: 'user5@example.com' },
+  { title: 'Lost Phone', location: 'Library', reportype: 'Lost', date: '2024-11-16', description: 'Samsung Galaxy', status: 'Unclaimed', userEmail: 'user7@example.com' },
+  { title: 'Lost Watch', location: 'Cafeteria', reportype: 'Lost', date: '2024-11-14', description: 'Silver wristwatch', status: 'Unclaimed', userEmail: 'user9@example.com' },
+];
+
+const onlyFoundPosts = [
+  { title: 'Found Watch', location: 'Cafeteria', reportype: 'Found', date: '2024-11-21', description: 'Black digital watch', status: 'Unclaimed', userEmail: 'user2@example.com' },
+  { title: 'Found Phone', location: 'Gym', reportype: 'Found', date: '2024-11-19', description: 'iPhone 12', status: 'Unclaimed', userEmail: 'user4@example.com' },
+  { title: 'Found Glasses', location: 'Cafeteria', reportype: 'Found', date: '2024-11-17', description: 'Blue-framed glasses', status: 'Claimed', userEmail: 'user6@example.com' },
+  { title: 'Found Shoes', location: 'Gym', reportype: 'Found', date: '2024-11-15', description: 'Running shoes', status: 'Unclaimed', userEmail: 'user8@example.com' },
+  { title: 'Found Jacket', location: 'Dorm', reportype: 'Found', date: '2024-11-13', description: 'Leather jacket', status: 'Claimed', userEmail: 'user10@example.com' },
+];
+
 jest.mock('../pages/forumPage', () => (props) => {
   const filteredPosts = props.posts.filter(post => {
     if (props.filter === 'All') return true;
@@ -96,4 +112,30 @@ describe('ForumPage Filter Tests', () => {
     expect(screen.queryByTestId('post-item')).toBeNull();  // No posts should be displayed
     expect(screen.getByText('Currently no posts available')).toBeInTheDocument();
   });
+
+  test('no posts when no posts and filter is set to Found', () => {
+    render(<ForumPage posts={[]} filter="Found" onFilterChange={() => {}} />);
+    const message = screen.getByText(/Currently no posts available/);
+    expect(message).toBeInTheDocument();
+  });
+
+  test('no posts when no posts and filter is set to Lost', () => {
+    render(<ForumPage posts={[]} filter="Lost" onFilterChange={() => {}} />);
+    const message = screen.getByText(/Currently no posts available/);
+    expect(message).toBeInTheDocument();
+  });
+
+  test('no posts when only Found posts and filter is set to Lost', () => {
+    render(<ForumPage posts={onlyFoundPosts} filter="Lost" onFilterChange={() => {}} />);
+    const message = screen.getByText(/Currently no posts available/);
+    expect(message).toBeInTheDocument();
+  });
+
+  test('no posts when only Lost posts and filter is set to Found', () => {
+    render(<ForumPage posts={onlyLostPosts} filter="Found" onFilterChange={() => {}} />);
+    const message = screen.getByText(/Currently no posts available/);
+    expect(message).toBeInTheDocument();
+  });
+
+
 });
