@@ -152,11 +152,32 @@ const logout = (req, res) => {
     }
 };
 
+const checkEmail = async (req, res) => {
+    try {
+      const { email } = req.body;
+  
+      if (!email) {
+        return res.status(400).json({ message: "Email is required." });
+      }
+  
+      const existingAccount = await Account.findOne({ email });
+  
+      if (existingAccount) {
+        return res.status(409).json({ message: "Email is already registered." });
+      }
+  
+      res.status(200).json({ message: "Email is available." });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
+  
 module.exports = {
     getAccount,
     createAccount,
     deleteAccount,
     updateAccount,
     login,
-    logout
+    logout,
+    checkEmail
 };

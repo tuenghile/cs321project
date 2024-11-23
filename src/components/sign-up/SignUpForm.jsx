@@ -69,36 +69,48 @@ const SignUpForm = () => {
         body: JSON.stringify({ email, code })
       });
       const result = await response.json();
+  
       if (response.ok) {
+        // Check if the email is already registered
+        const emailCheckResponse = await fetch(`http://localhost:3002/account/check-email`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        const emailCheckResult = await emailCheckResponse.json();
+  
+        if (!emailCheckResponse.ok) {
+          setVerificationMessage(emailCheckResult.message || 'Email is already registered.');
+          return;
+        }
+  
         setIsVerified(true);
         setVerificationMessage("Email verified successfully!");
         const data = {
           email: email,
           password: password,
           type: "User"
-        }
+        };
         const serverResponse = await fetch("http://localhost:3002/account/create", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
           },
           body: JSON.stringify(data)
-        })
-
-        if (!serverResponse.ok){ // TODO: add a response to the error
+        });
+  
+        if (!serverResponse.ok) { 
+          setVerificationMessage("Account creation failed. Please try again.1");
+          return;
         }
+  
         Swal.fire({
           title: "Registered",
           text: "You have signed up successfully!",
           icon: "success",
           confirmButtonText: "OK",
         });
-        var delayInMilliseconds = 5000;
-  
-        setTimeout(function () {
-          //your code to be executed after seconds
-          document.location.replace("/login");
-        }, delayInMilliseconds);
+        setTimeout(() => document.location.replace("/login"), 5000);
       } else {
         setVerificationMessage(result.message || 'Invalid verification code.');
       }
@@ -106,6 +118,7 @@ const SignUpForm = () => {
       setVerificationMessage("An error occurred. Please try again.2");
     }
   };
+  
 
   return (
     <div className={styles.container}>
