@@ -12,7 +12,12 @@ How to run the project locally
 9.  npm run dev
 10. Open another terminal and go into the directory containing the code
 11. npm start
-   
+
+How to run test files ( for filters)
+1. npm install --save-dev jest @testing-library/react
+2. npm test -- src/tester_files/fileName.test.js
+
+
 
 # Getting Started with Create React App
 
