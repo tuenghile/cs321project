@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import styles from "./logPost.module.css";
 
-const LogPost = ({ id, title, date, location, description, status: initialStatus }) => {
-  const [isAdmin, setIsAdmin] = useState(false); 
-  const [status, setStatus] = useState(initialStatus); 
-  const [showDropdown, setShowDropdown] = useState(false); 
+const LogPost = ({ id, title, date, location, description, status: initialStatus, onStatusUpdate }) => {
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [status, setStatus] = useState(initialStatus);
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  // Sync status state with prop updates
+  useEffect(() => {
+    setStatus(initialStatus);
+  }, [initialStatus]);
 
   // Check if the user is logged in and fetch their email
   useEffect(() => {
@@ -70,15 +75,12 @@ const LogPost = ({ id, title, date, location, description, status: initialStatus
         <h3>{title}</h3>
         <p>{date}</p>
       </div>
-      <div className={styles.imagePlaceholder}>
-      
-      </div>
+      <div className={styles.imagePlaceholder}></div>
       <div className={styles.body}>
         <p className={styles.location}>Location: {location}</p>
         <p className={styles.status}>Status: {status}</p>
         {description && <p>{description}</p>}
 
-        {/* Show Update Status button only if the user is the admin */}
         {isAdmin && (
           <>
             <button
@@ -111,5 +113,3 @@ const LogPost = ({ id, title, date, location, description, status: initialStatus
 };
 
 export default LogPost;
-
-

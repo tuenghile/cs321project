@@ -6,33 +6,52 @@ import LogPost from '../components/log-post/logPost';
 import './css/campusLogs.css';
 
 const CampusLogs = ({ posts = [] }) => {
+  const [currentPosts, setCurrentPosts] = useState(posts);
   const [filter, setFilter] = useState('All');
   const [showDropdown, setShowDropdown] = useState(false);
 
   const handleFilterChange = (status) => {
     setFilter(status);
     setShowDropdown(false); // Close dropdown after selection
+    updatePostsResults();
   };
 
   const toggleDropdown = () => {
     setShowDropdown((prev) => !prev);
   };
 
-  const filteredPosts = (Array.isArray(posts) ? posts : []).filter(
-    (post) => filter === 'All' || post.status === filter
-  );
+  const filteredPosts = (Array.isArray(currentPosts) ? currentPosts : []).filter((currentPosts) => {
+    console.log(`Filtering post with status: ${currentPosts.status}, Current filter: ${filter}`);
+    return filter === 'All' || currentPosts.status === filter;
+  });
+
+  const updatePostsResults = async () => {
+    try{
+      //returns an array of json
+      const response = await fetch("http://localhost:3002/item/all");
+      if (response.ok){
+        setCurrentPosts(await response.json());
+      }
+      else { 
+        throw Error();
+      }
+    }
+    catch(error){//TODO: handle server error
+      console.error(error);
+    }
+  }
 
   return (
-    <div id='campus-logs'>
-      <PageHeader pageName='Inventory Logs' pageDescription={"Browse the items currently stored in GMU's two Lost and Found locations."} />
+    <div id="campus-logs">
+      <PageHeader
+        pageName="Inventory Logs"
+        pageDescription={"Browse the items currently stored in GMU's two Lost and Found locations."}
+      />
       <div className="campus-logs-container">
         <div className="logs-header">
-       {/*  <Link to="/update-logs">
-            <button className="update-logs-button">Update Logs</button>
-          </Link> */}
           <div className="filter-dropdown">
             <button onClick={toggleDropdown} className="filter-button">
-              Filter: {filter} 
+              Filter: {filter}
             </button>
             {showDropdown && (
               <div className="dropdown-menu">
@@ -74,5 +93,3 @@ const CampusLogs = ({ posts = [] }) => {
 };
 
 export default CampusLogs;
-
-
