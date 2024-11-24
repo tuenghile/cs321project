@@ -18,32 +18,6 @@ import UpdateLogs from './pages/updateLogs';
 import AdminSettingsPage from './pages/adminSettingsPage';
 
 function App() {
-
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    const getAllPosts = async () => {
-      try{
-        //returns an array of json
-        const response = await fetch("http://localhost:3002/item/all");
-        if (response.ok){
-          setPosts(await response.json()); 
-        }
-        else { 
-          throw Error();
-        }
-      }
-      catch(error){//TODO: handle server error
-        
-      }
-    }
-    getAllPosts();
-  }, []);
-
-  const addPost = (post) => {
-    setPosts((prevPosts) => [...prevPosts, post]);
-  };
-
   return (
     <Router>
       <NavigationBar />
@@ -54,8 +28,8 @@ function App() {
         <Route path="/create-account" element={<CreateAccount />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/edit-profile" element={<EditProfilePage />} />
-        <Route path="/campus-logs" element={<CampusLogs posts={posts} />} />
-        <Route path="/update-logs" element={<UpdateLogs addPost={addPost} />} />
+        <Route path="/campus-logs" element={<CampusLogs />} />
+        <Route path="/update-logs" element={<UpdateLogs />} />
         <Route path="/admin-settings" element={<AdminSettingsPage />} />
         
       </Routes>
