@@ -10,15 +10,15 @@ const scrollOffset = (el) => {
 
 function PageFooter() {
     return(
-        <div className={styles.footer}>
-            <div className={styles.contentContainer}>
+        <div className={styles.footer} data-testid="footer">
+            <div className={styles.contentContainer} data-testid="content-container">
                 <div className={styles.leftFooter}>
                     <Link smooth to="/#home" scroll={scrollOffset}>
                         <img src={masonLogo} alt="George Mason University Logo" className={styles.gmuLogo} />
                     </Link>
                 </div>
-                <div className={styles.horizontalLine + " " + styles.hideLine}></div>
-                <div className={styles.rightFooter}>
+                <div className={styles.horizontalLine + " " + styles.hideLine} data-testid="hide-line"></div>
+                <div className={styles.rightFooter} data-testid="right-footer">
                     <p className={styles.rightFooterHeading}>ALL TOGETHER DIFFERENT</p>
                     <p>George Mason University</p>
                     <p>4400 University Drive, MSN 2FL</p>
@@ -27,7 +27,7 @@ function PageFooter() {
                     <p>© 2024 George Mason University</p>
                 </div>
             </div>
-            <div className={styles.horizontalLine}></div>
+            <div className={styles.horizontalLine} data-testid="horizontal-line"></div>
             <div className={styles.bottomFooter}>
                 <a href="https://www.gmu.edu/sitemap.xml">Contact</a>
                 <a href="https://www.gmu.edu/privacy-statement">Privacy Statement</a>
