@@ -24,7 +24,7 @@ const CampusLogs = () => {
     const getAllPosts = async () => {
       try{
         //returns an array of json
-        const response = await fetch("http://localhost:3002/item/all");
+        const response = await fetch("http://localhost:3002/item/allInventory");
         if (response.ok){
           setCurrentPosts(await response.json()); 
         }
@@ -47,7 +47,7 @@ const CampusLogs = () => {
   const updatePostsResults = async () => {
     try{
       //returns an array of json
-      const response = await fetch("http://localhost:3002/item/all");
+      const response = await fetch("http://localhost:3002/item/allInventory");
       if (response.ok){
         setCurrentPosts(await response.json());
       }
