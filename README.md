@@ -1,19 +1,24 @@
-Team 5, section: 004
+# CS321 Team 5 Project (Section 004)
 
+## How to run the project locally
+
+1. Open 3 separate terminals
+    a. Open 2 terminals in the project directory
+    b. Open 1 terminal in servers/backend
+
+2. In one of the terminals located in the project directory, do "npm install"
 How to run the project locally
-1.  Open a terminal and go into the directory containing the code
-2.  npm install
-3.  cd server/backend
-4.  npm install cors
-5.  npm install nodemailer
-6.  npm install google-auth-library
-7.  nopde app.js
-8.  Open another terminal and go into the directory containing the code
-9.  npm run dev
-10. Open another terminal and go into the directory containing the code
-11. npm start
 
-How to run test files ( for filters)
+3. In the terminal located in server/backend do the following:
+    ### npm install cors nodemailer google-auth-library
+    a. Then do node app.js
+
+4. For the terminals in the project directory, do one of the commands per terminal:
+    a. Terminal 1: npm run dev
+    b. Terminal 2: npm start
+
+
+## How to run test files ( for filters)
 1. npm install --save-dev jest @testing-library/react
 2. npm test -- src/tester_files/fileName.test.js
 
