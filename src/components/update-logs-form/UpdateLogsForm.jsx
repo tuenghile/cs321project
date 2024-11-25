@@ -31,6 +31,7 @@ const UpdateLogsForm = () => {
         image: newPost.image,
         description: newPost.description.trim(),
         status: 'Unclaimed',
+        in_inventory: true // Since this is a log post, we're going to mark it as inventory item
       };
       const newItem = await fetch('http://localhost:3002/item/add', {
         method: 'POST',
