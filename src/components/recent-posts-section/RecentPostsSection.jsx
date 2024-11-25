@@ -60,6 +60,7 @@ function RecentPostsSection() {
                     reportType={post.type}
                     date={post.date}
                     status={post.status}
+                    userEmail={post.email}
                  />
             ))}
           </div>
