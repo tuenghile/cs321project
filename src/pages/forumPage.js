@@ -45,19 +45,6 @@ const ForumPage = () => {
   }, []);
 
 
-  // Load posts from localStorage on initial load
-  useEffect(() => {
-    const savedPosts = JSON.parse(localStorage.getItem('posts'));
-    if (savedPosts) {
-      setPosts(savedPosts);
-    }
-  }, []);
-
-  // Save posts to localStorage whenever posts change
-  useEffect(() => {
-    localStorage.setItem('posts', JSON.stringify(posts));
-  }, [posts]);
-
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
