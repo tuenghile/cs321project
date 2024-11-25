@@ -8,7 +8,7 @@ const UpdateLogsForm = () => {
   const navigate = useNavigate();
   const [newPost, setNewPost] = useState({
     title: '',
-    location: '',
+    location: "Johnson Center",
     status: '',
     description: '',
     image: null,
@@ -65,10 +65,6 @@ const UpdateLogsForm = () => {
   const handleCancel = () => {
     navigate('/campus-logs'); // Redirect back to CampusLogs page on cancel
   };
-
-  useEffect(() => {
-    setNewPost({ location: "Johnson Center" });
-  }, []);
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
