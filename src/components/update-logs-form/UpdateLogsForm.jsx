@@ -26,7 +26,7 @@ const UpdateLogsForm = () => {
       const itemInfo = {
         title: newPost.title.trim(),
         location: newPost.location.trim(),
-        type: newPost.reportType.trim(),
+        type: "Found", // This isn't really needed for these posts, but setting it to found just to send to db
         date: new Date().toLocaleDateString(),
         image: newPost.image,
         description: newPost.description.trim(),
@@ -38,6 +38,8 @@ const UpdateLogsForm = () => {
         body: JSON.stringify(itemInfo),
         credentials: 'include',
       });
+      console.log(itemInfo);
+
       if (newItem.ok) {
         const savedItem = await newItem.json();
         setPosts([...posts, savedItem]);
@@ -55,7 +57,6 @@ const UpdateLogsForm = () => {
       description: '',
       image: null,
     });
-   
   
     navigate('/campus-logs'); // Redirect back to CampusLogs page
   };
@@ -64,7 +65,9 @@ const UpdateLogsForm = () => {
     navigate('/campus-logs'); // Redirect back to CampusLogs page on cancel
   };
 
-  
+  useEffect(() => {
+    setNewPost({ location: "Johnson Center" });
+  }, []);
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
