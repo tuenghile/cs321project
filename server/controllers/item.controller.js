@@ -97,11 +97,12 @@ const recentItems = async (req, res) => {
     }
 }
 
-const getAllItems = async (req, res) => {
+const getAllPosts = async (req, res) => {
     try{
         const today = new Date();
         const thirtyDays = new Date(today.setDate(today.getDate() - 30));
         const items = await Item.find({
+            in_inventory: false, // Get all that are not in the log inventory
             $expr: {
                 $gte: [
                 { $dateFromString: { dateString: "$date" } },
@@ -150,12 +151,34 @@ const updateStatus = async (req, res) => {
     }
 }
 
+const getAllInventory = async (req, res) => {
+    try{
+        const today = new Date();
+        const thirtyDays = new Date(today.setDate(today.getDate() - 30));
+        const items = await Item.find({
+            in_inventory: true, // Get all that are in the log inventory
+            $expr: {
+                $gte: [
+                { $dateFromString: { dateString: "$date" } },
+                thirtyDays,
+                ],
+            },
+        })
+        .sort({ date: -1 });
+        res.status(200).send(items);
+    }
+    catch(error){
+        res.sendStatus(500);
+    }
+}
+
 module.exports = {
     addItem,
     updateItem,
     searchItems,
     deleteItem,
     recentItems,
-    getAllItems,
-    updateStatus
+    getAllPosts,
+    updateStatus,
+    getAllInventory
 };
