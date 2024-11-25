@@ -2,15 +2,16 @@ const express = require("express");
 const router = express.Router();
 const authenticateToken = require("./middlewares.js");
 const { addItem, updateItem, searchItems, 
-    deleteItem, recentItems, getAllItems,
-    updateStatus
+    deleteItem, recentItems, getAllPosts,
+    updateStatus,
+    getAllInventory
 } = require("../controllers/item.controller.js");
 
 // add item
 router.post("/add", authenticateToken, addItem);
 
 // get all items
-router.get("/all", getAllItems);
+router.get("/allPosts", getAllPosts);
 
 // search item using fuzzy search
 router.get("/search/:query", authenticateToken, searchItems);
@@ -24,4 +25,7 @@ router.delete("/delete/:id", authenticateToken, deleteItem);
 
 // Update only the status of an item
 router.patch("/status/:id", authenticateToken, updateStatus);
+
+router.get("/allInventory", getAllInventory);
+
 module.exports = router;
