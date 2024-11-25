@@ -57,11 +57,11 @@ function PostCard({
           <div className={styles.titleAndLocation}>
             <div className={styles.dataContainer}>
               <p className={styles.dataHeading}>Location</p>
-              <p className={`${styles.capatalize} ${styles.postText} ${styles.textOutline}`}>{location}</p>
+              <p className={`${styles.capatalize} ${styles.postText}`}>{location}</p>
             </div>
             <div className={styles.dataContainer}>
               <p className={styles.dataHeading}>Date</p>
-              <p className={`${styles.postDate} ${styles.postText} ${styles.textOutline}`}>{date}</p>
+              <p className={`${styles.postDate} ${styles.postText}`}>{date}</p>
             </div>
           </div>
 
