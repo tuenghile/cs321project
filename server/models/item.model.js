@@ -32,6 +32,10 @@ const ItemSchema = mongoose.Schema({
     email: {
         type: String,
         required: true
+    },
+    in_inventory: {
+        type: Boolean,
+        require: true
     }
 })
 
