@@ -72,6 +72,7 @@ const ForumPage = () => {
         image: newPost.image,
         description: newPost.description.trim(),
         status: 'Unclaimed',
+        in_inventory: false // Not in inventory, since this is a standard post
       };
       const newItem = await fetch('http://localhost:3002/item/add', {
         method: 'POST',
@@ -121,7 +122,7 @@ const ForumPage = () => {
   useEffect(() => {
     const getPosts = async () => {
       try {
-        const response = await fetch('http://localhost:3002/item/all');
+        const response = await fetch('http://localhost:3002/item/allPosts');
         const data = await response.json();
         if (data) {
           setFetchedPosts(data);
