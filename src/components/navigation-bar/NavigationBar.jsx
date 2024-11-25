@@ -91,7 +91,7 @@ function NavigationBar() {
             </Link>
 
             <nav>
-                <ul className={styles.navBarList}>
+                <ul className={styles.navBarList} data-testid="nav-bar-list">
                     <li className={styles.navBarItem}>
                         <Link smooth to="/#home" scroll={scrollOffset}>
                             <p>Home</p>
@@ -114,6 +114,7 @@ function NavigationBar() {
                     </li>
                 </ul>
             </nav>
+
 
             <div className={styles.rightItems}>
                 <div className={styles.navBarSearch}>
