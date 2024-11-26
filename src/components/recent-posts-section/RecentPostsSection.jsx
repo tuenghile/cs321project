@@ -4,9 +4,8 @@ import PrimaryButton from '../primary-button/PrimaryButton';
 import styles from "../recent-posts-section/RecentPostsSection.module.css"
 import PostCard from '../post-card/PostCard';
 
-function RecentPostsSection() {
-    const [recentPosts, setRecentPosts] = useState([]);
-
+function RecentPostsSection( {posts = []} ) {
+    const [recentPosts, setRecentPosts] = useState(posts);
     // Number of posts to display on page -- depending on mobile/desktop
     const [visiblePosts, setVisiblePosts] = useState(6);
 
@@ -48,7 +47,7 @@ function RecentPostsSection() {
         <section className={styles.recentPosts}>
 
           <h2>Recent Posts</h2>
-          <div className={styles.postsGrid}>
+          <div className={styles.postsGrid} data-testid="posts-grid">
             {/* {console.log(recentPosts)} */}
             {recentPosts.slice(0, visiblePosts).map((post, index) => (
                 <PostCard

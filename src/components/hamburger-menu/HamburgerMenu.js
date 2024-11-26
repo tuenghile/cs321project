@@ -19,7 +19,7 @@ export default function HamburgerMenu() {
     };
 
     return (
-        <div className={styles.visibility}>
+        <div className={styles.visibility} data-testid="hamburger-menu">
             <Hamburger 
                 size = {34}
                 toggled = {open}
