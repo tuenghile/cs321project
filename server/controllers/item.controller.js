@@ -81,6 +81,7 @@ const recentItems = async (req, res) => {
         const thirtyDays = new Date(today.setDate(today.getDate() - 30));
 
         const items = await Item.find({
+            in_inventory: false, // Get all that are not in the log inventory
             $expr: {
                 $gte: [
                 { $dateFromString: { dateString: "$date" } },
