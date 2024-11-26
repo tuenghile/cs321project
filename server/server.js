@@ -73,3 +73,5 @@ const createAdmin = async () => {
 app.listen(3002, () => {
     console.log("Server is running at http://localhost:3002");
 })
+
+module.exports = app;

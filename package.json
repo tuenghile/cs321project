@@ -54,6 +54,7 @@
     "@testing-library/react": "^16.0.1",
     "cypress": "^13.16.0",
     "jest": "^27.5.1",
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.7",
+    "supertest": "^7.0.0"
   }
 }

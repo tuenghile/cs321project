@@ -19,8 +19,6 @@ router.delete("/delete/", authenticateToken, deleteAccount);
 
 router.post("/login/", login);
 
-router.post("/logout/", logout);
-
 router.post("/check-email/", checkEmail);
 
 module.exports = router;
