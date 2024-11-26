@@ -1,5 +1,5 @@
 const request = require("supertest");
-const app = require("../server/server.js"); // Adjust the path to your server entry file
+const app = require("../server/server.js"); 
 const mongoose = require("mongoose");
 
 afterAll(async () => {

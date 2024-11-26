@@ -83,7 +83,7 @@ const SignInForm = () => {
           <button className={styles['login-button']} onClick={handleSignInClick}>
             Login
           </button>
-          <a href="#" className={styles['forgot-password']}>Forgot password?</a>
+   
           <div className={styles['divider']} />
           <p>Don’t have an account?</p>
           <button className={styles['signup-button']} onClick={handleSignUpClick}>

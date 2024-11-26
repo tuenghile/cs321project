@@ -5,7 +5,7 @@ afterAll(async () => {
   await mongoose.connection.close();
 });
 
-describe("Creating an account and manipulating the values", () => {
+describe("Test account path", () => {
     let accessToken;
     let refreshToken;
     it("Create a new account", async () => {
